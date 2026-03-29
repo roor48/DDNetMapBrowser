@@ -21,7 +21,7 @@ export default function createMapCard(mapDataList) {
  */
 function createCard(mapData) {
     const card = document.createElement("div");
-    card.setAttribute("class", "card");
+    card.setAttribute("class", "card bg-dark text-light");
 
     const web_preview = document.createElement("a");
     web_preview.setAttribute("href", mapData.web_preview);

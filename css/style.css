@@ -1,6 +1,32 @@
-.dark {
-    background-color: #050505;
+/* 스크롤바 커스터마이징 - Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px;  /* 세로 스크롤바 너비 */
+    height: 12px; /* 가로 스크롤바 높이 */
 }
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;  /* 트랙(배경) 색상 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a4a4a;  /* 스크롤바 색상 */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666666;  /* 호버 시 색상 */
+}
+
+/* Firefox 스크롤바 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4a4a4a #1a1a1a;
+}
+
+:root {
+    --filter-bar-width: 300px;  /* filter_bar 너비 한 곳에서 관리 */
+}
+
 .font-sans {
     font-family: sans-serif;
 }
@@ -9,23 +35,52 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 280px;
+    width: var(--filter-bar-width);  /* 변수 사용 */
     height: 100vh;
-    border-right-color: red;
     overflow: auto;
+    user-select: none;
 }
-.dark .filter_bar {
-    background-color: #090909;
+
+.filter_bar div {
+    margin-left: 10px;
 }
-.light .filter_bar {
-    background-color: #c4c4c4;
+
+.filter_bar__div {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.filter_bar__div::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5px;   /* 왼쪽 여백 */
+    right: 15px;  /* 오른쪽 여백 */
+    height: 1px;
+    background-color: #333;  /* 구분선 색상 */
+}
+
+.filter_bar__div:last-child::after {
+    display: none;  /* 마지막 요소는 구분선 제거 */
 }
 
 .filter_bar .map_type {
     color: #f8f8e9;
 }
-.map_type__label {
-    display: block;
+
+
+.map_type label {
+    cursor: pointer;
+}
+.map_type .map_type__ddmax {
+    margin-top: 15px;
+}
+.map_type .map_type__ddmax__p {
+    margin-bottom: 0%;
+}
+.map_type .map_type__ddmax div {
+    margin-left: 20px;  /* 들여쓰기 */
 }
 
 .button {
@@ -64,29 +119,34 @@
 }
 
 .map_cards {
-    margin-left: 290px;
-    padding: 20px;
+    margin-left: var(--filter-bar-width);
+    padding: 20px;       /* 좌우상하 여백 20px */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* 큰 화면에서 최대 4개로 제한 */
+@media (min-width: 1600px) {
+    .map_cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .map_cards .card {
-    display: inline-block;
-    width: 18rem;
-    margin-right: 15px;
-    margin-bottom: 18px;
+    width: 100%;
+    margin: 0;  /* grid gap이 대체 */
 }
-
 .map_cards .card:hover {
     z-index: 1;
     transform: scale(1.1);
     transition-duration: 0.13s;
 }
-
 .map_cards .card-text {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .map_cards .card-img-top {
     border-radius: 6px;
 }
