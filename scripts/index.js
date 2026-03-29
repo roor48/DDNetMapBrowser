@@ -15,7 +15,7 @@ createMapCard(mapDataList);
 const filter = {
     "types": [],
     "difficulties": [],
-    "tiles": ["BONUS"]
+    "tiles": []
 };
 
 createMapCard(filterMap(mapDataList, filter));

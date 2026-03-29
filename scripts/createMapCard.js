@@ -16,6 +16,9 @@ export default function createMapCard(mapDataList) {
     });
 }
 
+/**
+ * @param {MapData} mapData 
+ */
 function createCard(mapData) {
     const card = document.createElement("div");
     card.setAttribute("class", "card");
@@ -35,7 +38,7 @@ function createCard(mapData) {
 
     const card_text = document.createElement("p");
     card_text.setAttribute("class", "card-text");
-    card_text.textContent = mapData.type;
+    card_text.textContent = mapData.mapper;
 
     const map_url = document.createElement("a");
     map_url.setAttribute("href", mapData.website);
