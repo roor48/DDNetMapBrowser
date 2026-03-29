@@ -23,11 +23,15 @@ function createCard(mapData) {
     const card = document.createElement("div");
     card.setAttribute("class", "card");
 
-    const img = document.createElement("img");
-    img.setAttribute("src", mapData.thumbnail);
-    img.setAttribute("class", "card-img-top");
-    img.setAttribute("alt", mapData.name);
-    img.setAttribute("loading", "lazy");
+    const web_preview = document.createElement("a");
+    web_preview.setAttribute("href", mapData.web_preview);
+    web_preview.setAttribute("target", "_blank");
+
+    const thumbnail = document.createElement("img");
+    thumbnail.setAttribute("src", mapData.thumbnail);
+    thumbnail.setAttribute("class", "card-img-top");
+    thumbnail.setAttribute("alt", mapData.name);
+    thumbnail.setAttribute("loading", "lazy");
 
     const card_body = document.createElement("div");
     card_body.setAttribute("class", "card-body");
@@ -46,11 +50,13 @@ function createCard(mapData) {
     map_url.setAttribute("class", "btn btn-primary");
     map_url.textContent = "Go";
 
+    web_preview.appendChild(thumbnail);
+
     card_body.appendChild(card_title);
     card_body.appendChild(card_text);
     card_body.appendChild(map_url);
 
-    card.appendChild(img);
+    card.appendChild(web_preview);
     card.appendChild(card_body);
 
     return card;

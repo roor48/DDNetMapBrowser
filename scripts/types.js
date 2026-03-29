@@ -3,6 +3,7 @@
  * @property {string} name - 맵 이름
  * @property {string} website - 맵 URL
  * @property {string} thumbnail - 썸네일 URL
+ * @property {string} web_preview - 맵뷰어 URL
  * @property {string} type - 맵 타입 (novice, moderate, brutal 등)
  * @property {number} points - 포인트
  * @property {number} difficulty - 난이도 (0-5)

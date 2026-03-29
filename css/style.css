@@ -80,3 +80,13 @@
     transform: scale(1.1);
     transition-duration: 0.13s;
 }
+
+.map_cards .card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.map_cards .card-img-top {
+    border-radius: 6px;
+}

@@ -13,7 +13,7 @@ createTileFilter(tiles);
 createMapCard(mapDataList);
 
 const filter = {
-    "types": [],
+    "types": ["Event"],
     "difficulties": [],
     "tiles": []
 };
