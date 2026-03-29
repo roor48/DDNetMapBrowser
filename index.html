@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDNet Map Browser</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="dark font-sans">
+  <div class="filter_bar">
+    <div class="map_type">
+      <details class="map_type__details" open>
+        <summary class="filter_summary">Map Type</summary>
+
+        <label class="map_type__label"><input id="novice" class="map_type__checkbox" type="checkbox">Novice</label>
+        <label class="map_type__label"><input id="moderate" class="map_type__checkbox" type="checkbox">Moderate</label>
+        <label class="map_type__label"><input id="brutal" class="map_type__checkbox" type="checkbox">Brutal</label>
+        <label class="map_type__label"><input id="insane" class="map_type__checkbox" type="checkbox">Insane</label>
+        <label class="map_type__label"><input id="dummy" class="map_type__checkbox" type="checkbox">Dummy</label>
+        <label class="map_type__label"><input id="oldschool" class="map_type__checkbox" type="checkbox">Oldschool</label>
+        <label class="map_type__label"><input id="solo" class="map_type__checkbox" type="checkbox">Solo</label>
+        <label class="map_type__label"><input id="race" class="map_type__checkbox" type="checkbox">Race</label>
+        <label class="map_type__label"><input id="fun" class="map_type__checkbox" type="checkbox">Fun</label>
+        <label class="map_type__label"><input id="event" class="map_type__checkbox" type="checkbox">Event</label>
+        <div id="map_type__ddmax">
+          ddmax
+          <label class="map_type__label"><input id="ddmax_easy" type="checkbox">DDmaX.Easy</label>
+          <label class="map_type__label"><input id="ddmax_next" type="checkbox">DDmaX.Next</label>
+          <label class="map_type__label"><input id="ddmax_pro" type="checkbox">DDmaX.Pro</label>
+          <label class="map_type__label"><input id="ddmax_nut" type="checkbox">DDmaX.NUT</label>
+        </div>
+      </details>
+    </div>
+
+    <div id="difficulty">
+      <details class="difficulty__details" open>
+        <summary class="filter_summary">Difficulty</summary>
+
+        <div class="btn-group" role="group" aria-label="First group">
+          <button type="button" class="btn btn-secondary difficulty__0">0</button>
+          <button type="button" class="btn btn-secondary difficulty__1">1</button>
+          <button type="button" class="btn btn-secondary difficulty__2">2</button>
+          <button type="button" class="btn btn-secondary difficulty__3">3</button>
+          <button type="button" class="btn btn-secondary difficulty__4">4</button>
+          <button type="button" class="btn btn-secondary difficulty__5">5</button>
+        </div>
+      </details>
+    </div>
+    
+    <div id="tiles">
+      <details class="tiles__details tiles__tile_parent" open>
+        <summary class="filter_summary">Tiles</summary>
+      </details>
+    </div>
+  </div>
+
+  <div class="map_cards">
+    <h2 style="color: #f0f0f0;">Loading...</h2>
+  </div>
+  
+  <script src="./scripts/index.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

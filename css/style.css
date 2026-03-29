@@ -1,0 +1,76 @@
+.dark {
+    background-color: #050505;
+}
+.font-sans {
+    font-family: sans-serif;
+}
+
+.filter_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    border-right-color: red;
+    overflow: auto;
+}
+.dark .filter_bar {
+    background-color: #090909;
+}
+.light .filter_bar {
+    background-color: #c4c4c4;
+}
+
+.filter_bar .map_type {
+    color: #f8f8e9;
+}
+.map_type__label {
+    display: block;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.filter_summary {
+    color: #f1f1f1;
+}
+
+.tile_filter {
+    height: 32px;
+    display: inline-block;
+}
+
+.tile_filter label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8f8f87;
+    padding: 0px 10px;
+    white-space: nowrap;
+    border-color: #292929;
+    margin: 6px 1.5px;
+    font-variant-caps: all-small-caps;
+}
+
+.tile_filter .tile_image {
+    height: 16px;
+    width: 16px;
+    margin-left: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: #8f8f8f;
+}
+
+.map_cards {
+    margin-left: 280px;
+    padding: 20px;
+}
+
+.map_cards .card {
+    display: inline-block;
+    width: 18rem;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
