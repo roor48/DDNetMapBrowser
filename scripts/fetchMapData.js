@@ -15,7 +15,9 @@ export default async function fetchMapData() {
         const url = isDev 
             ? './public/maps.json'
             : 'https://ddnet.org/releases/maps.json';
-        const res = await fetch(url);
+        const res = await fetch(url, {
+            cache: "no-store"
+        });
         /** @type {MapData[]} */
         const mapData = await res.json();
 
