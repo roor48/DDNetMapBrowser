@@ -21,4 +21,28 @@
  * @property {string[]} tiles - 타일
  */
 
+export const TYPES = Object.freeze({
+    Novice: "Novice",
+    Moderate: "Moderate",
+    Brutal: "Brutal",
+    Insane: "Insane",
+    Dummy: "Dummy",
+    DDmaX: "DDmaX",
+    DDmaX_Easy: "DDmaX.Easy",
+    DDmaX_Next: "DDmaX.Next",
+    DDmaX_Pro: "DDmaX.Pro",
+    DDmaX_Nut: "DDmaX.Nut",
+    Oldschool: "Oldschool",
+    Solo: "Solo",
+    Race: "Race",
+    Fun: "Fun",
+    Event: "Event",
+});
+
+export const FILTER_TYPE = Object.freeze({
+    Type: Symbol("Type"),
+    Difficulty: Symbol("Difficulty"),
+    Tile: Symbol("Tile"),
+});
+
 export default {};

@@ -35,7 +35,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: var(--filter-bar-width);  /* 변수 사용 */
+    width: var(--filter-bar-width);
     height: 100vh;
     overflow: auto;
     user-select: none;

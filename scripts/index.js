@@ -2,20 +2,12 @@
  * @typedef {import('./types.js').MapData} MapData
  * @typedef {import('./types.js').Filter} Filter
  */
-import createMapCard from "./createMapCard.js";
-import createTileFilter from "./createTileFilter.js";
-import filterMap from "./filter.js";
+import { setMaps } from "./state.js";
 import fetchMapData from "./fetchMapData.js"
+import { createFilter } from "./filter.js";
 
 const [mapDataList, tiles] = await fetchMapData();
+createFilter(tiles);
 
-createTileFilter(tiles);
-createMapCard(mapDataList);
 
-const filter = {
-    "types": ["Event"],
-    "difficulties": [],
-    "tiles": []
-};
-
-createMapCard(filterMap(mapDataList, filter));
+setMaps(mapDataList);
