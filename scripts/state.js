@@ -3,7 +3,7 @@
  * @typedef {import('./types.js').Filter} Filter
  */
 
-import createMapCard from './createMapCard.js';
+import { createMapCard } from './createMapCard.js';
 import { getFilteredMaps } from './filter.js';
 import { FILTER_TYPE } from './types.js';
 
@@ -19,6 +19,7 @@ const state = {
         tiles: []
     }
 };
+Object.freeze(state.allMaps);
 
 /**
  * 초기 데이터 설정

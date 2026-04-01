@@ -30,5 +30,6 @@ export default async function fetchMapData() {
         return [mapData, sorted_tiles];
     } catch (error) {
         console.error('Failed to fetch maps:', error);
+        return null;
     }
 }

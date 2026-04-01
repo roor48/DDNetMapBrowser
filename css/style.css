@@ -118,8 +118,16 @@
 }
 
 .map_cards {
-    margin-left: var(--filter-bar-width);
-    padding: 20px;       /* 좌우상하 여백 20px */
+    position: fixed;
+    left: var(--filter-bar-width);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.map_cards__parent {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
@@ -127,25 +135,31 @@
 
 /* 큰 화면에서 최대 4개로 제한 */
 @media (min-width: 1600px) {
-    .map_cards {
+    .map_cards__parent {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-.map_cards .card {
+.map_cards__parent .card {
     width: 100%;
     margin: 0;  /* grid gap이 대체 */
 }
-.map_cards .card:hover {
+.map_cards__parent .card:hover {
     z-index: 1;
     transform: scale(1.1);
     transition-duration: 0.13s;
 }
-.map_cards .card-text {
+.map_cards__parent .card-text {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.map_cards .card-img-top {
+.map_cards__parent .card-img-top {
     border-radius: 6px;
+}
+
+.map_cards .map_card__load_button {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
 }

@@ -179,14 +179,5 @@ function createTileFilter(tiles) {
         div.appendChild(label);
 
         tileParent.appendChild(div);
-
-        // div.addEventListener("mouseenter", () => {
-        //     label.removeChild(img);
-        //     label.append(tile);
-        // });
-        // div.addEventListener("mouseleave", () => {
-        //     label.replaceChildren();
-        //     label.appendChild(img);
-        // });
     });
 }

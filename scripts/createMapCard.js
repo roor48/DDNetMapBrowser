@@ -2,18 +2,41 @@
  * @typedef {import('./types.js').MapData} MapData
  */
 
+const MAPS_PER_PAGE = 20;
+
+
+let mapDatas = [];
+let loadButton = null;
 /**
  * 기존 맵 카드를 전부 제거 후 list 요소 순서대로 재생성합니다.
  * @param {MapData[]} mapDataList
  */
-export default function createMapCard(mapDataList) {
-    const cardParent = document.querySelector(".map_cards");
+export function createMapCard(mapDataList) {
+    mapDatas = mapDataList.slice();
+    const cardParent = document.querySelector(".map_cards .map_cards__parent");
     cardParent.replaceChildren();
+    
+    loadMoreMapCard();
+    createLoadButton();
+}
 
-    mapDataList.forEach(mapData => {
+export function loadMoreMapCard() {
+    if (mapDatas.length === 0) {
+        return;
+    }
+
+    const cardParent = document.querySelector(".map_cards .map_cards__parent");
+
+    mapDatas.slice(0, MAPS_PER_PAGE).forEach(mapData => {
         const card = createCard(mapData);
         cardParent.appendChild(card);
     });
+    mapDatas = mapDatas.slice(MAPS_PER_PAGE);
+
+    if (mapDatas.length === 0) {
+        loadButton.remove();
+        loadButton = null;
+    }
 }
 
 /**
@@ -60,4 +83,19 @@ function createCard(mapData) {
     card.appendChild(card_body);
 
     return card;
+}
+
+function createLoadButton() {
+    if (loadButton !== null || mapDatas.length === 0) {
+        return;
+    }
+
+    const button = document.createElement("button");
+    button.setAttribute("class", "map_card__load_button");
+    button.textContent = "Load More";
+    button.addEventListener("click", loadMoreMapCard);
+
+    document.querySelector(".map_cards").appendChild(button);
+
+    loadButton = button;
 }
