@@ -139,8 +139,16 @@ function createDifficultyFilter() {
 function createTileFilter(tiles) {
     const tileParent = document.querySelector(".filter__tile_parent");
     tiles.forEach(tile => {
+        // <div class="tile_filter">
+        //   <input id="BONUS" class="btn-check" type="checkbox" autocomplete="off">
+        //   <label class="btn btn-outline-primary" for="BONUS">
+        //     BONUS
+        //     <img src="https://ddnet.org/tiles/BONUS.png" alt="BONUS" class="tile_image">
+        //   </label>
+        // </div>
         const div = document.createElement("div");
         div.setAttribute("class", "tile_filter");
+        div.setAttribute("title", tile);
         
         const input = document.createElement("input");
         input.setAttribute("id", tile);
@@ -163,14 +171,22 @@ function createTileFilter(tiles) {
         label.setAttribute("for", tile);
         
         const img = document.createElement("img");
+        img.setAttribute("class", "tile_image");
         img.setAttribute("src", `https://ddnet.org/tiles/${tile}.png`);
         img.setAttribute("alt", tile);
-        img.setAttribute("class", "tile_image");
         
-        label.textContent = tile;
         label.appendChild(img);
         div.appendChild(label);
 
         tileParent.appendChild(div);
+
+        // div.addEventListener("mouseenter", () => {
+        //     label.removeChild(img);
+        //     label.append(tile);
+        // });
+        // div.addEventListener("mouseleave", () => {
+        //     label.replaceChildren();
+        //     label.appendChild(img);
+        // });
     });
 }
