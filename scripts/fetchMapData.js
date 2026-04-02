@@ -13,7 +13,7 @@ export default async function fetchMapData() {
             || window.location.hostname === '127.0.0.1'
             || window.location.protocol === 'file:';
         const url = isDev 
-            ? './public/maps.json'
+            ? './assets/maps.json'
             : 'https://ddnet.org/releases/maps.json';
         const res = await fetch(url, {
             cache: "no-store"
