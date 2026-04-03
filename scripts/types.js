@@ -39,10 +39,4 @@ export const TYPES = Object.freeze({
     Event: "Event",
 });
 
-export const FILTER_TYPE = Object.freeze({
-    Type: Symbol("Type"),
-    Difficulty: Symbol("Difficulty"),
-    Tile: Symbol("Tile"),
-});
-
 export default {};

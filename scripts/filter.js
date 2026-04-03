@@ -3,8 +3,12 @@
  * @typedef {import('./types.js').Filter} Filter
  */
 
-import { addFilter, removeFilter } from './state.js';
-import { FILTER_TYPE, TYPES } from './types.js';
+import { 
+    addFilterType, removeFilterType,
+    addFilterDifficulty, removeFilterDifficulty,
+    addFilterTile, removeFilterTile
+} from './state.js';
+import { TYPES } from './types.js';
 
 /**
  * 필터를 적용한 맵 데이터를 반환합니다.
@@ -78,9 +82,9 @@ function createTypeFilter() {
         input.setAttribute("value", "");
         input.addEventListener("change", () => {
             if (input.checked) {
-                addFilter(FILTER_TYPE.Type, type);
+                addFilterType(type);
             } else {
-                removeFilter(FILTER_TYPE.Type, type);
+                removeFilterType(type);
             }
         });
 
@@ -117,9 +121,9 @@ function createDifficultyFilter() {
         input.setAttribute("autocomplete", "off");
         input.addEventListener("change", () => {
             if (input.checked) {
-                addFilter(FILTER_TYPE.Difficulty, dif);
+                addFilterDifficulty(dif);
             } else {
-                removeFilter(FILTER_TYPE.Difficulty, dif);
+                removeFilterDifficulty(dif);
             }
         });
 
@@ -158,9 +162,9 @@ function createTileFilter(tiles) {
         
         input.addEventListener("change", () => {
             if (input.checked) {
-                addFilter(FILTER_TYPE.Tile, tile);
+                addFilterTile(tile);
             } else {
-                removeFilter(FILTER_TYPE.Tile, tile);
+                removeFilterTile(tile);
             }
         });
         

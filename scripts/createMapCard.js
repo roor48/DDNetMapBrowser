@@ -4,8 +4,9 @@
 
 const MAPS_PER_PAGE = 20;
 
-
+/** @type {MapData[]} */
 let mapDatas = [];
+/** @type {HTMLButtonElement} */
 let loadButton = null;
 /**
  * 기존 맵 카드를 전부 제거 후 list 요소 순서대로 재생성합니다.
