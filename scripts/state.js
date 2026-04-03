@@ -36,10 +36,14 @@ export function addFilterType(type) {
         return;
     }
     state.filter.types.push(type);
+
+    render();
 }
 /** @param {string} type */
 export function removeFilterType(type) {
     state.filter.types = state.filter.types.filter(t => t!==type);
+
+    render();
 }
 
 // 난이도 필터
@@ -49,10 +53,14 @@ export function addFilterDifficulty(difficulty) {
         return;
     }
     state.filter.difficulties.push(difficulty);
+
+    render();
 }
 /** @param {number} difficulty */
 export function removeFilterDifficulty(difficulty) {
     state.filter.difficulties = state.filter.difficulties.filter(d => d!==difficulty);
+
+    render();
 }
 
 // 타일 필터
@@ -62,10 +70,14 @@ export function addFilterTile(tile) {
         return;
     }
     state.filter.tiles.push(tile);
+
+    render();
 }
 /** @param {string} tile */
 export function removeFilterTile(tile) {
     state.filter.tiles = state.filter.tiles.filter(t => t!==tile);
+
+    render();
 }
 
 
