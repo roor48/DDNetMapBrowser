@@ -143,7 +143,7 @@ function createDifficultyFilter() {
 function createTileFilter(tiles) {
     const tileParent = document.querySelector(".filter__tile_parent");
     tiles.forEach(tile => {
-        // <div class="tile_filter">
+        // <div class="tile_filter" title="BONUS">
         //   <input id="BONUS" class="btn-check" type="checkbox" autocomplete="off">
         //   <label class="btn btn-outline-primary" for="BONUS">
         //     BONUS

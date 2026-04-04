@@ -48,6 +48,7 @@ function createCard(mapData) {
     card.setAttribute("class", "card bg-dark text-light");
 
     const web_preview = document.createElement("a");
+    web_preview.setAttribute("class", "card__wrapper");
     web_preview.setAttribute("href", mapData.web_preview);
     web_preview.setAttribute("target", "_blank");
 

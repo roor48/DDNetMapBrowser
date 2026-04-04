@@ -144,20 +144,23 @@
     width: 100%;
     margin: 0;  /* grid gap이 대체 */
 }
-.map_cards__parent .card:hover {
+.map_cards__parent .card .card:hover {
     z-index: 1;
     transform: scale(1.1);
     transition-duration: 0.13s;
 }
-.map_cards__parent .card-text {
+.map_cards__parent .card .card-text {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.map_cards__parent .card-img-top {
+.map_cards__parent .card .card__wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+}
+.map_cards__parent .card .card-img-top {
     border-radius: 6px;
 }
-
 .map_cards .map_card__load_button {
     margin-top: 30px;
     text-align: center;
