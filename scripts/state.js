@@ -29,9 +29,6 @@ const state = {
 };
 Object.freeze(state.allMaps);
 
-const asc_btn = document.querySelector(".map_sort .asc_icon");
-asc_btn.addEventListener("click", toggleASC);
-
 /**
  * 초기 데이터 설정
  * @param {MapData[]} maps 
@@ -94,13 +91,17 @@ export function removeFilterTile(tile) {
 
 // 정렬
 // 오름차순/내림차순
-function toggleASC() {
-    if (!asc_btn) {
-        return;
-    }
+/** @returns {boolean} */
+export function toggleSorterIsDESC() {
     state.sorter.isDESC = !state.sorter.isDESC;
-    asc_btn.setAttribute("style", `transform: scaleY(${state.sorter.isDESC ? -1 : 1});`);
-    asc_btn.setAttribute("title", `${state.sorter.isDESC ? "Descending" : "Ascending"}`);
+
+    render();
+    return state.sorter.isDESC;
+}
+// 정렬 기준
+/** @param {string} sortBy */
+export function setSorterSortBy(sortBy) {
+    state.sorter.sortBy = sortBy;
 
     render();
 }

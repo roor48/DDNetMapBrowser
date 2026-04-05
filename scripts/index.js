@@ -5,6 +5,7 @@
 import { setMaps } from "./state.js";
 import fetchMapData from "./fetchMapData.js"
 import { createFilter } from "./filter.js";
+import { createSorter } from "./sorter.js";
 
 
 async function main() {
@@ -15,6 +16,7 @@ async function main() {
     } else {
         const [mapDataList, tiles] = mapDatas;
         createFilter(tiles);
+        createSorter();
         setMaps(mapDataList);
     }
 }
