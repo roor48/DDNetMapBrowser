@@ -22,12 +22,15 @@ const state = {
     },
 
     /** @type {Sorter} */
-    sortBy: {
+    sorter: {
         sortBy: SORT_BY.Release,
         isDESC: false
     }
 };
 Object.freeze(state.allMaps);
+
+const asc_btn = document.querySelector(".map_sort .asc_icon");
+asc_btn.addEventListener("click", toggleASC);
 
 /**
  * 초기 데이터 설정
@@ -89,10 +92,22 @@ export function removeFilterTile(tile) {
     render();
 }
 
+// 정렬
+// 오름차순/내림차순
+function toggleASC() {
+    if (!asc_btn) {
+        return;
+    }
+    state.sorter.isDESC = !state.sorter.isDESC;
+    asc_btn.setAttribute("style", `transform: scaleY(${state.sorter.isDESC ? -1 : 1});`);
+    asc_btn.setAttribute("title", `${state.sorter.isDESC ? "Descending" : "Ascending"}`);
+
+    render();
+}
 
 // 재렌더링
 function render() {
     const filteredMap = getFilteredMaps(state.allMaps, state.filter);
-    const sortedMap = getSortedMaps(filteredMap, state.sortBy);
+    const sortedMap = getSortedMaps(filteredMap, state.sorter);
     createMapCard(sortedMap);
 }

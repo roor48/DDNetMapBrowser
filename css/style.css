@@ -141,6 +141,20 @@ body {
     background-color: var(--bg-gray);
 }
 
+.map_cards .map_sort {
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 10px;
+    /* border: solid 3px red; */
+}
+
+.asc_icon {
+    filter: invert(100%);
+    user-select: none;
+    cursor: pointer;
+}
+
 .map_cards {
     grid-column: 2;
     grid-row: 2;
