@@ -1,10 +1,13 @@
 /**
  * @typedef {import('./types.js').MapData} MapData
  * @typedef {import('./types.js').Filter} Filter
+ * @typedef {import('./types.js').Sorter} Sorter
  */
 
 import { createMapCard } from './createMapCard.js';
 import { getFilteredMaps } from './filter.js';
+import getSortedMaps from './sorter.js';
+import { SORT_BY } from './types.js';
 
 // 전역 상태
 const state = {
@@ -16,6 +19,12 @@ const state = {
         types: [],
         difficulties: [],
         tiles: []
+    },
+
+    /** @type {Sorter} */
+    sortBy: {
+        sortBy: SORT_BY.Release,
+        isDESC: false
     }
 };
 Object.freeze(state.allMaps);
@@ -83,5 +92,7 @@ export function removeFilterTile(tile) {
 
 // 재렌더링
 function render() {
-    createMapCard(getFilteredMaps(state.allMaps, state.filter));
+    const filteredMap = getFilteredMaps(state.allMaps, state.filter);
+    const sortedMap = getSortedMaps(filteredMap, state.sortBy);
+    createMapCard(sortedMap);
 }

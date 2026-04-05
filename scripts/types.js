@@ -21,6 +21,12 @@
  * @property {string[]} tiles - 타일
  */
 
+/**
+ * @typedef {Object} Sorter
+ * @property {string} sortBy - 정렬기준
+ * @property {boolean} isDESC - 오름차순이면 0 내림차순이면 1
+ */
+
 export const TYPES = Object.freeze({
     Novice: "Novice",
     Moderate: "Moderate",
@@ -37,6 +43,13 @@ export const TYPES = Object.freeze({
     Race: "Race",
     Fun: "Fun",
     Event: "Event",
+});
+
+export const SORT_BY = Object.freeze({
+    Release: "Release",
+    Points: "Points",
+    Difficulty: "Difficulty",
+    Name: "Name",
 });
 
 export default {};
