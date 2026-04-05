@@ -26,7 +26,7 @@
 :root {
     /* 레이아웃 */
     --filter-bar-width: 300px;
-    --top-bar-height: 75px;
+    --top-bar-height: 50px;
     
     /* 색상 */
     --scrollbar-track: #1a1a1a;
@@ -54,8 +54,7 @@ body {
     grid-column: 1 / -1;
     width: 100%;
     height: var(--top-bar-height);
-    background-color: white;
-    z-index: 1000;
+    border-bottom: solid 1px var(--border-gray);
 }
 
 .filter_bar {
