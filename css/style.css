@@ -194,10 +194,58 @@ body {
     border-color: rgb(101, 154, 175);
 }
 
-.map_cards__parent .card .card-text {
+.map_cards__parent .card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.map_cards__parent .card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.map_cards__parent .card .card__mapper {
+    font-size: 0.85rem;
+    color: #aaa;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.map_cards__parent .card .card__info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.map_cards__parent .card .card__info-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ddd;
+}
+
+.map_cards__parent .card .card__difficulty {
+    color: #ffd700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.map_cards__parent .card .card__footer {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #333;
+    margin-bottom: 0;
 }
 
 .map_cards__parent .card .card__img_wrapper {
@@ -244,6 +292,79 @@ body {
 .map_cards__parent .card .card__inner_button img {
     width: 20px;
     height: 20px;
+}
+
+.card__map-type {
+    width: fit-content;
+    background-color: var(--type-bg);
+    border-radius: 10px;
+    color: var(--type-color);
+    border: 1px solid var(--type-border);
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+/* 각 타입별 색상 */
+.card__map-type[data-type="Novice"] {
+    --type-bg: rgb(0, 83, 0);
+    --type-color: rgb(53, 221, 53);
+    --type-border: rgb(0, 156, 70);
+}
+.card__map-type[data-type="Moderate"] {
+    --type-bg: rgb(83, 83, 0);
+    --type-color: rgb(221, 221, 53);
+    --type-border: rgb(156, 156, 0);
+}
+.card__map-type[data-type="Brutal"] {
+    --type-bg: rgb(83, 0, 0);
+    --type-color: rgb(255, 100, 100);
+    --type-border: rgb(156, 0, 0);
+}
+.card__map-type[data-type="Insane"] {
+    --type-bg: rgb(60, 0, 83);
+    --type-color: rgb(200, 100, 255);
+    --type-border: rgb(120, 0, 156);
+}
+.card__map-type[data-type="Dummy"] {
+    --type-bg: rgb(83, 40, 0);
+    --type-color: rgb(255, 170, 85);
+    --type-border: rgb(156, 80, 0);
+}
+.card__map-type[data-type="DDmaX"],
+.card__map-type[data-type="DDmaX.Easy"],
+.card__map-type[data-type="DDmaX.Next"],
+.card__map-type[data-type="DDmaX.Pro"],
+.card__map-type[data-type="DDmaX.Nut"] {
+    --type-bg: rgb(0, 40, 83);
+    --type-color: rgb(100, 170, 255);
+    --type-border: rgb(0, 80, 156);
+}
+.card__map-type[data-type="Oldschool"] {
+    --type-bg: rgb(50, 50, 50);
+    --type-color: rgb(200, 200, 200);
+    --type-border: rgb(120, 120, 120);
+}
+.card__map-type[data-type="Solo"] {
+    --type-bg: rgb(0, 70, 70);
+    --type-color: rgb(85, 220, 220);
+    --type-border: rgb(0, 130, 130);
+}
+.card__map-type[data-type="Race"] {
+    --type-bg: rgb(0, 60, 100);
+    --type-color: rgb(100, 200, 255);
+    --type-border: rgb(0, 120, 180);
+}
+.card__map-type[data-type="Fun"] {
+    --type-bg: rgb(83, 0, 60);
+    --type-color: rgb(255, 130, 220);
+    --type-border: rgb(156, 0, 110);
+}
+.card__map-type[data-type="Event"] {
+    --type-bg: rgb(80, 60, 0);
+    --type-color: rgb(255, 215, 100);
+    --type-border: rgb(150, 110, 0);
 }
 
 .map_cards .map_card__load_button {

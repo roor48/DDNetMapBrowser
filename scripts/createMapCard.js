@@ -13,7 +13,6 @@ let loadButton = null;
  * @param {MapData[]} mapDataList
  */
 export function createMapCard(mapDataList) {
-    return;
     mapDatas = mapDataList.slice();
     const cardParent = document.querySelector(".map_cards .map_cards__parent");
     cardParent.replaceChildren();
@@ -48,42 +47,90 @@ function createCard(mapData) {
     const card = document.createElement("div");
     card.setAttribute("class", "card bg-dark text-light");
 
-    const web_preview = document.createElement("a");
-    web_preview.setAttribute("class", "card__wrapper");
-    web_preview.setAttribute("href", mapData.web_preview);
-    web_preview.setAttribute("target", "_blank");
+    // 이미지 래퍼
+    const imgWrapper = document.createElement("div");
+    imgWrapper.setAttribute("class", "card__img_wrapper");
 
     const thumbnail = document.createElement("img");
-    thumbnail.setAttribute("src", mapData.thumbnail);
+    thumbnail.src = mapData.thumbnail;
     thumbnail.setAttribute("class", "card-img-top");
-    thumbnail.setAttribute("alt", mapData.name);
-    thumbnail.setAttribute("loading", "lazy");
+    thumbnail.alt = mapData.name;
+    thumbnail.loading = "lazy";
 
-    const card_body = document.createElement("div");
-    card_body.setAttribute("class", "card-body");
-    
-    const card_title = document.createElement("h5");
-    card_title.setAttribute("class", "card-title");
-    card_title.textContent = mapData.name;
+    // 내부 버튼들
+    const innerButtons = document.createElement("div");
+    innerButtons.setAttribute("class", "card__inner_buttons");
 
-    const card_text = document.createElement("p");
-    card_text.setAttribute("class", "card-text");
-    card_text.textContent = mapData.mapper;
+    const previewBtn = document.createElement("a");
+    previewBtn.setAttribute("class", "card__inner_button");
+    previewBtn.href = mapData.web_preview;
+    previewBtn.target = "_blank";
+    const previewIcon = document.createElement("img");
+    previewIcon.src = "./assets/icon-fullscreen.svg";
+    previewBtn.appendChild(previewIcon);
 
-    const map_url = document.createElement("a");
-    map_url.setAttribute("href", mapData.website);
-    map_url.setAttribute("target", "_blank");
-    map_url.setAttribute("class", "btn btn-primary");
-    map_url.textContent = "Go";
+    const websiteBtn = document.createElement("a");
+    websiteBtn.setAttribute("class", "card__inner_button");
+    websiteBtn.href = mapData.website;
+    websiteBtn.target = "_blank";
+    const websiteIcon = document.createElement("img");
+    websiteIcon.src = "./assets/icon-arrowright.svg";
+    websiteBtn.appendChild(websiteIcon);
 
-    web_preview.appendChild(thumbnail);
+    innerButtons.appendChild(previewBtn);
+    innerButtons.appendChild(websiteBtn);
 
-    card_body.appendChild(card_title);
-    card_body.appendChild(card_text);
-    card_body.appendChild(map_url);
+    imgWrapper.appendChild(thumbnail);
+    imgWrapper.appendChild(innerButtons);
 
-    card.appendChild(web_preview);
-    card.appendChild(card_body);
+    // 카드 본문
+    const cardBody = document.createElement("div");
+    cardBody.setAttribute("class", "card-body");
+
+    // 맵 타입
+    const mapType = document.createElement("div");
+    mapType.setAttribute("class", "card__map-type");
+    mapType.dataset.type = mapData.type;
+    mapType.textContent = mapData.type;
+
+    // 맵 제목
+    const cardTitle = document.createElement("h5");
+    cardTitle.setAttribute("class", "card-title");
+    cardTitle.textContent = mapData.name;
+
+    // 제작자
+    const mapper = document.createElement("p");
+    mapper.setAttribute("class", "card__mapper");
+    mapper.textContent = `By ${mapData.mapper}`;
+
+    // 정보 (포인트 & 난이도)
+    const cardInfo = document.createElement("div");
+    cardInfo.setAttribute("class", "card__info");
+
+    const pointsItem = document.createElement("span");
+    pointsItem.setAttribute("class", "card__info-item");
+    pointsItem.textContent = `⭐ ${mapData.points}pts`;
+
+    const difficultyItem = document.createElement("span");
+    difficultyItem.setAttribute("class", "card__info-item card__difficulty");
+    difficultyItem.textContent = "★".repeat(mapData.difficulty) + "☆".repeat(5 - mapData.difficulty);
+
+    cardInfo.appendChild(pointsItem);
+    cardInfo.appendChild(difficultyItem);
+
+    // 출시일
+    const footer = document.createElement("p");
+    footer.setAttribute("class", "card__footer");
+    footer.textContent = `Released on ${mapData.release}`;
+
+    cardBody.appendChild(mapType);
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(mapper);
+    cardBody.appendChild(cardInfo);
+    cardBody.appendChild(footer);
+
+    card.appendChild(imgWrapper);
+    card.appendChild(cardBody);
 
     return card;
 }
