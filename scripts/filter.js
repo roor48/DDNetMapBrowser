@@ -93,6 +93,15 @@ function createTypeFilter() {
         label.setAttribute("for", type.toLowerCase());
         label.textContent = type;
 
+        // div 빈 공간 클릭시 input.click() 호출
+        div.addEventListener("click", (e) => {
+            // label || input 직접 클릭한 경우
+            if (e.target === label || e.target === input) {
+                return;
+            }
+            input.click();
+        });
+
         div.appendChild(input);
         div.appendChild(label);
 

@@ -132,6 +132,12 @@ body {
     color: var(--text-cream);
 }
 
+.map_type .form-check {
+    cursor: pointer;
+}
+.map_type input {
+    cursor: pointer;
+}
 .map_type label {
     cursor: pointer;
 }
