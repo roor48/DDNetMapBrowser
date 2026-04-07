@@ -63,6 +63,7 @@ body {
     width: 100%;
     height: var(--top-bar-height);
     border-bottom: solid 1px var(--border-gray);
+    flex-wrap: nowrap !important;
 }
 
 .topbar__map-counter {
