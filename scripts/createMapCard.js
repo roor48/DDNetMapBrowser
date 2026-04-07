@@ -13,6 +13,7 @@ let loadButton = null;
  * @param {MapData[]} mapDataList
  */
 export function createMapCard(mapDataList) {
+    return;
     mapDatas = mapDataList.slice();
     const cardParent = document.querySelector(".map_cards .map_cards__parent");
     cardParent.replaceChildren();

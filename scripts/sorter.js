@@ -64,7 +64,7 @@ function createDropdownItem(sortBy, isDisabled) {
 }
 
 export function createSorter() {
-    // <img class="asc_icon" title="Ascending" src="./assets/icon-sort-ascending32.png">
+    // <img class="asc_icon invert-color" title="Ascending" src="./assets/icon-sort.svg">
     // <div class="sortByDropdown">
     //   <button class="btn btn-secondary dropdown-toggle" type="button" id="sortByDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
     //     Release
@@ -81,9 +81,9 @@ export function createSorter() {
     map_sort.replaceChildren();
     
     const asc_icon = document.createElement("img");
-    asc_icon.setAttribute("class", "asc_icon");
+    asc_icon.setAttribute("class", "asc_icon invert-color");
     asc_icon.setAttribute("title", "Ascending");
-    asc_icon.setAttribute("src", "./assets/icon-sort-ascending32.png");
+    asc_icon.setAttribute("src", "./assets/icon-sort.svg");
     asc_icon.addEventListener("click", () => {
         const isDESC = toggleSorterIsDESC();
         asc_icon.setAttribute("style", `transform: scaleY(${isDESC ? -1 : 1});`);
@@ -107,7 +107,7 @@ export function createSorter() {
     
     dropDown.appendChild(dropDownButton);
     dropDown.appendChild(ul);
-    
+
     map_sort.appendChild(asc_icon);
     map_sort.appendChild(dropDown);
     
