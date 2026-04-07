@@ -29,6 +29,8 @@ const state = {
 };
 Object.freeze(state.allMaps);
 
+const mapCounter = document.querySelector(".map-counter__text");
+
 /**
  * 초기 데이터 설정
  * @param {MapData[]} maps 
@@ -111,4 +113,5 @@ function render() {
     const filteredMap = getFilteredMaps(state.allMaps, state.filter);
     const sortedMap = getSortedMaps(filteredMap, state.sorter);
     createMapCard(sortedMap);
+    mapCounter.textContent = filteredMap.length + " maps";
 }

@@ -10,9 +10,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body class="bg-black">
-  <div class="top_bar">
-    <a href="./">DDNetMapBrowser</a>
-  </div>
+  <nav class="topbar navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./">DDNetMapBrowser</a>
+    </div>
+
+    <div class="topbar__map-counter">
+      <img class="invert-color map-counter__img" src="./assets/icon-map.svg">
+      <span class="map-counter__text">-1 maps</span>
+    </div>
+  </nav>
 
   <div class="filter_bar">
     <div class="filter_bar__div map_type">
@@ -44,7 +51,6 @@
     <div class="map_sort">
     </div>
     <div class="map_cards__parent">
-      <!-- <h2 style="color: #f0f0f0;">Loading...</h2> -->
       <div class="card bg-dark text-light">
         <div class="card__img_wrapper">
           <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
@@ -70,213 +76,6 @@
             <span class="card__info-item card__difficulty">★★★★☆</span>
           </div>
           <p class="card__footer">Released on 2026-03-22 14:00</p>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Moderate">
-            Moderate
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-      
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Insane">
-            Insane
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-      
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Dummy">
-            Dummy
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-      
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Oldschool">
-            Oldschool
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-      
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="DDmaX.Pro">
-            DDmaX.Pro
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-      
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Solo">
-            Solo
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Race">
-            Race
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Fun">
-            Fun
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
-        </div>
-      </div>
-
-      <div class="card bg-dark text-light">
-        <div class="card__img_wrapper">
-          <img src="https://ddnet.org/ranks/maps/Monochrome.png" class="card-img-top" alt="Monochrome" loading="lazy">
-
-          <div class="card__inner_buttons">
-            <a class="card__inner_button" href="https://ddnet.org/mappreview/?map=Monochrome" target="_blank">
-              <img class="" src="./assets/icon-fullscreen.svg">
-            </a>
-            <a class="card__inner_button" href="https://ddnet.org/maps/Monochrome" target="_blank">
-              <img class="" src="./assets/icon-arrowright.svg">
-            </a>
-          </div>
-        </div>
-        
-        <div class="card-body">
-          <div class="card__map-type" data-type="Event">
-            Event
-          </div>
-          <h5 class="card-title">Monochrome</h5>
-          <p class="card__mapper">shini❡ami &amp; матвей</p>
         </div>
       </div>
     </div>

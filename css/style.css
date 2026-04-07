@@ -52,13 +52,38 @@ body {
     filter: invert(100%);
 }
 
-.top_bar {
+.topbar {
     position: sticky;
     top: 0;
     grid-column: 1 / -1;
     width: 100%;
     height: var(--top-bar-height);
     border-bottom: solid 1px var(--border-gray);
+}
+
+.topbar__map-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    margin-right: 20px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.topbar__map-counter .map-counter__img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+}
+
+.topbar__map-counter .map-counter__text {
+    color: var(--text-light);
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 .filter_bar {
