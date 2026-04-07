@@ -28,6 +28,12 @@
  * @property {boolean} isDESC - 오름차순이면 0 내림차순이면 1
  */
 
+/**
+ * @typedef {Object} PointCalculate
+ * @property {number} Multiplier - 난이도 배수
+ * @property {number} Offset - 난이도 오프셋
+ */
+
 export const TYPES = Object.freeze({
     Novice: "Novice",
     Moderate: "Moderate",
@@ -51,6 +57,50 @@ export const SORT_BY = Object.freeze({
     Points: "Points",
     Difficulty: "Difficulty",
     Name: "Name",
+});
+
+/** @type {Record<string, PointCalculate>} */
+export const LEVEL_OFFSET = Object.freeze({
+    [TYPES.Novice]: {
+        "Multiplier": 1,
+        "Offset": 0
+    },
+    [TYPES.Moderate]: {
+        "Multiplier": 2,
+        "Offset": 5
+    },
+    [TYPES.Brutal]: {
+        "Multiplier": 3,
+        "Offset": 15
+    },
+    [TYPES.Insane]: {
+        "Multiplier": 4,
+        "Offset": 30
+    },
+    [TYPES.Dummy]: {
+        "Multiplier": 5,
+        "Offset": 5
+    },
+    [TYPES.DDmaX]: {
+        "Multiplier": 4,
+        "Offset": 0
+    },
+    [TYPES.Event]: {
+        "Multiplier": 4,
+        "Offset": 0
+    },
+    [TYPES.Oldschool]: {
+        "Multiplier": 6,
+        "Offset": 0
+    },
+    [TYPES.Solo]: {
+        "Multiplier": 4,
+        "Offset": 0
+    },
+    [TYPES.Race]: {
+        "Multiplier": 2,
+        "Offset": 0
+    },
 });
 
 export default {};
