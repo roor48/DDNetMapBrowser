@@ -17,7 +17,8 @@
 /**
  * @typedef {Object} Filter
  * @property {string[]} types - 타입
- * @property {number[]} difficulties - 난이도
+ * @property {number} difficultyMin - 난이도
+ * @property {number} difficultyMax - 난이도
  * @property {string[]} tiles - 타일
  */
 

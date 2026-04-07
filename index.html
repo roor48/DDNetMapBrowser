@@ -35,7 +35,16 @@
       <details class="difficulty__details" open>
         <summary class="filter_summary">Difficulty</summary>
 
-        <div class="btn-group filter__difficulty_parent" role="group" aria-label="First group">
+        <div class="difficulty__range-container">
+          <div class="difficulty__labels">
+            <span class="difficulty__label">Min: <span class="difficulty-min-value">0</span></span>
+            <span class="difficulty__label">Max: <span class="difficulty-max-value">5</span></span>
+          </div>
+          <div class="difficulty__sliders">
+            <div class="difficulty__range-fill"></div>
+            <input type="range" class="difficulty__slider" min="0" max="5" value="0" step="1">
+            <input type="range" class="difficulty__slider" min="0" max="5" value="5" step="1">
+          </div>
         </div>
       </details>
     </div>

@@ -17,7 +17,8 @@ const state = {
     /** @type {Filter} */
     filter: {
         types: [],
-        difficulties: [],
+        difficultyMin: 0,
+        difficultyMax: 5,
         tiles: []
     },
 
@@ -58,18 +59,11 @@ export function removeFilterType(type) {
 }
 
 // 난이도 필터
-/** @param {number} difficulty */
-export function addFilterDifficulty(difficulty) {
-    if (state.filter.difficulties.includes(difficulty)) {
-        return;
-    }
-    state.filter.difficulties.push(difficulty);
+/** @param {number} difficultyMin  @param {number} difficultyMax */
+export function setFilterDifficulty(difficultyMin, difficultyMax) {
 
-    render();
-}
-/** @param {number} difficulty */
-export function removeFilterDifficulty(difficulty) {
-    state.filter.difficulties = state.filter.difficulties.filter(d => d!==difficulty);
+    state.filter.difficultyMin = difficultyMin;
+    state.filter.difficultyMax = difficultyMax;
 
     render();
 }

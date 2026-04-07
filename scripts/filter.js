@@ -5,7 +5,7 @@
 
 import { 
     addFilterType, removeFilterType,
-    addFilterDifficulty, removeFilterDifficulty,
+    setFilterDifficulty,
     addFilterTile, removeFilterTile
 } from './state.js';
 import { TYPES } from './types.js';
@@ -24,7 +24,7 @@ export function getFilteredMaps(mapDataList, filter) {
             return false;
 
         // 난이도 필터
-        if (filter.difficulties.length > 0 && !filter.difficulties.includes(mapData.difficulty))
+        if (filter.difficultyMin > mapData.difficulty || filter.difficultyMax < mapData.difficulty)
             return false;
 
         // 타일 필터
@@ -47,7 +47,7 @@ export function getFilteredMaps(mapDataList, filter) {
  */
 export function createFilter(tiles) {
     createTypeFilter();
-    createDifficultyFilter();
+    initDifficultyFilter();
     createTileFilter(tiles);
 }
 
@@ -106,35 +106,41 @@ function createTypeFilter() {
     typeParent.appendChild(ddmax_div);
 }
 
-function createDifficultyFilter() {
+function initDifficultyFilter() {
     
-    const difficultyParent = document.querySelector(".filter_bar .filter__difficulty_parent");
-    difficultyParent.replaceChildren();
-    
-    [0, 1, 2, 3, 4, 5].forEach((dif) => {
-        // <input type="checkbox" class="btn-check" id="difficulty__0" autocomplete="off">
-        // <label class="btn btn-secondary" for="difficulty__0">0</label>
-        const input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
-        input.setAttribute("class", "btn-check");
-        input.setAttribute("id", "difficulty__" + dif);
-        input.setAttribute("autocomplete", "off");
-        input.addEventListener("change", () => {
-            if (input.checked) {
-                addFilterDifficulty(dif);
-            } else {
-                removeFilterDifficulty(dif);
-            }
-        });
+    /** @type {NodeListOf<HTMLInputElement>} */
+    const sliders = document.querySelectorAll(".difficulty__slider");
+    /** @type {HTMLDivElement} */
+    const fill = document.querySelector(".difficulty__range-fill");
 
-        const label = document.createElement("label");
-        label.setAttribute("class", "btn btn-secondary");
-        label.setAttribute("for", "difficulty__" + dif);
-        label.textContent = dif.toString();
+    const minText = document.querySelector(".difficulty-min-value");
+    const maxText = document.querySelector(".difficulty-max-value");
 
-        difficultyParent.appendChild(input);
-        difficultyParent.appendChild(label);
-    })
+    function updateFill() {
+        const [slider1, slider2] = sliders;
+        
+        const slider1Value = parseInt(slider1.value);
+        const slider2Value = parseInt(slider2.value);
+        
+        const min = Math.min(slider1Value, slider2Value);
+        const max = Math.max(slider1Value, slider2Value);
+
+        // 0-5 범위를 0-100% 비율로 변환
+        const minPercent = (min / 5) * 100;
+        const maxPercent = (max / 5) * 100;
+        
+        // fill의 위치 너비 조정
+        fill.style.left = minPercent + '%';
+        fill.style.width = (maxPercent - minPercent) + '%';
+
+        minText.textContent = min.toString();
+        maxText.textContent = max.toString();
+        setFilterDifficulty(min, max);
+    }
+
+    sliders.forEach(slider => {
+        slider.addEventListener("input", updateFill);
+    });
 }
 
 /**
