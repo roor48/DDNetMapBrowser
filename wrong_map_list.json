@@ -1,0 +1,112 @@
+{
+    "Island Rush": {
+        "points": 3,
+        "type": "Novice",
+        "reason": "infomation not same"
+    },
+    "Multeasymap": {
+        "points": 5,
+        "type": "Novice",
+        "reason": "infomation not same"
+    },
+    "Back in Time": {
+        "points": 27,
+        "type": "Brutal",
+        "reason": "infomation not same"
+    },
+    "Arctic Frost": {
+        "points": 30,
+        "type": "Brutal",
+        "reason": "infomation not same"
+    },
+    "Barren": {
+        "points": 21,
+        "type": "Brutal",
+        "reason": "infomation not same"
+    },
+    "Bumblebee": {
+        "points": 18,
+        "type": "Brutal",
+        "reason": "infomation not same"
+    },
+    "Mirai": {
+        "points": 30,
+        "type": "Brutal",
+        "reason": "infomation not same"
+    },
+    "ThereIsNoTruth": {
+        "points": 18,
+        "type": "Brutal",
+        "reason": "infomation not same"
+    },
+    "Falling Down": {
+        "points": 38,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "Generic World": {
+        "points": 34,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "Ghoul": {
+        "points": 42,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "Hostile 3": {
+        "points": 38,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "New Generation": {
+        "points": 38,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "Tatooine 2": {
+        "points": 42,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "The Enchanted Clearing": {
+        "points": 34,
+        "type": "Insane",
+        "reason": "infomation not same"
+    },
+    "chainism": {
+        "points": 25,
+        "type": "Dummy",
+        "reason": "infomation not same"
+    },
+    "DARKness 1": {
+        "points": 8,
+        "type": "DDmaX.Next",
+        "reason": "infomation not same"
+    },
+    "DARKness 2": {
+        "points": 12,
+        "type": "DDmaX.Next",
+        "reason": "infomation not same"
+    },
+    "Jajka": {
+        "points": 20,
+        "type": "DDmaX.Pro",
+        "reason": "infomation not same"
+    },
+    "Multimap": {
+        "points": 6,
+        "type": "Oldschool",
+        "reason": "infomation not same"
+    },
+    "Lifture": {
+        "points": 16,
+        "type": "Solo",
+        "reason": "infomation not same"
+    },
+    "Arctic Festivity": {
+        "points": 20,
+        "type": "Event",
+        "reason": "infomation not same"
+    }
+}
