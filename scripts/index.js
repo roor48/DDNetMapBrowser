@@ -6,19 +6,31 @@ import { setMaps } from "./state.js";
 import fetchMapData from "./fetchMapData.js"
 import { createFilter } from "./filter.js";
 import { createSorter } from "./sorter.js";
+import { loadMoreMapCard } from "./createMapCard.js";
 
-
-async function main() {
+document.addEventListener("DOMContentLoaded", async () => {
     const mapDatas = await fetchMapData();
     if (mapDatas === null) {
         // 에러 메시지 띄우기
         return;
-    } else {
-        const [mapDataList, tiles] = mapDatas;
-        createFilter(tiles);
-        createSorter();
-        setMaps(mapDataList);
     }
-}
 
-main();
+    const [mapDataList, tiles] = mapDatas;
+    createFilter(tiles);
+    createSorter();
+    setMaps(mapDataList);
+    
+    // 스피너 기준으로 무한 스크롤
+    const loadingSpinner = document.querySelector(".loading-dot");
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            loadMoreMapCard();
+        }
+    }, {
+        rootMargin: "100px"  // 100px 전에 미리 로드
+    });
+    
+    if (loadingSpinner) {
+        observer.observe(loadingSpinner);
+    }
+});

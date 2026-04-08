@@ -106,6 +106,14 @@ export function setSorterSortBy(sortBy) {
 function render() {
     const filteredMap = getFilteredMaps(state.allMaps, state.filter);
     const sortedMap = getSortedMaps(filteredMap, state.sorter);
+
     createMapCard(sortedMap);
+    
+    // 최상단으로 스크롤
+    const mapCards = document.querySelector(".map_cards");
+    if (mapCards) {
+        mapCards.scrollTop = 0;
+    }
+
     mapCounter.textContent = filteredMap.length + " maps";
 }

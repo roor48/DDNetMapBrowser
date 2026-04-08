@@ -7,12 +7,6 @@ const MAPS_PER_PAGE = 20;
 /** @type {MapData[]} */
 let mapDatas = [];
 
-/** @type {HTMLButtonElement} */
-const loadButton = document.querySelector(".map_card__load_button");
-if (loadButton) {
-    loadButton.addEventListener("click", loadMoreMapCard);
-}
-
 /**
  * 기존 맵 카드를 전부 제거 후 list 요소 순서대로 재생성합니다.
  * @param {MapData[]} mapDataList
@@ -23,7 +17,7 @@ export default function createMapCard(mapDataList) {
     cardParent.replaceChildren();
     
     loadMoreMapCard();
-    updateLoadButton();
+    updateLoadingDot();
 }
 
 export function loadMoreMapCard() {
@@ -39,7 +33,7 @@ export function loadMoreMapCard() {
     });
     mapDatas = mapDatas.slice(MAPS_PER_PAGE);
     
-    updateLoadButton();
+    updateLoadingDot();
 }
 
 /**
@@ -137,10 +131,10 @@ function createCard(mapData) {
     return card;
 }
 
-function updateLoadButton() {
-    if (loadButton) {
-        loadButton.style.display = mapDatas.length > 0 ? "block" : "none";
+function updateLoadingDot() {
+    /** @type {HTMLDivElement} */
+    const loading_dot = document.querySelector(".loading-dot");
+    if (loading_dot) {
+        loading_dot.style.display = mapDatas.length > 0 ? "flex" : "none";
     }
 }
-
-
