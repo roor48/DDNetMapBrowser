@@ -1,5 +1,8 @@
 import json
 import requests
+from changeDirToHere import ChangeDir
+ChangeDir()
+
 TYPES = [
     "Novice",
     "Moderate",
@@ -66,7 +69,7 @@ for mapName, mapData1 in myMapData.items():
             "reason": "infomation not same"
         }
 
-with open("wrong_map_list.json", "w", encoding="utf-8") as f:
+with open("../wrong_map_list.json", "w", encoding="utf-8") as f:
     json.dump(wrongMapDict, f, indent=4, ensure_ascii=False)
 
 print("saved")
