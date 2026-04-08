@@ -4,7 +4,7 @@
  * @typedef {import('./types.js').Sorter} Sorter
  */
 
-import { createMapCard } from './createMapCard.js';
+import createMapCard from './createMapCard.js';
 import { getFilteredMaps } from './filter.js';
 import getSortedMaps from './sorter.js';
 import { SORT_BY } from './types.js';
