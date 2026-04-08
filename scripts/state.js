@@ -110,10 +110,7 @@ function render() {
     createMapCard(sortedMap);
     
     // 최상단으로 스크롤
-    const mapCards = document.querySelector(".map_cards");
-    if (mapCards) {
-        mapCards.scrollTop = 0;
-    }
+    window.scrollTo({ top: 0, behavior: "instant"});
 
     mapCounter.textContent = filteredMap.length + " maps";
 }

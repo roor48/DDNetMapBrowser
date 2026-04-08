@@ -43,7 +43,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: var(--filter-bar-width) 1fr;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     font-family: sans-serif;
 }
@@ -57,13 +57,19 @@ body {
 }
 
 .topbar {
+    display: flex;
     position: sticky;
     top: 0;
+    z-index: 100;
     grid-column: 1 / -1;
-    width: 100%;
+    grid-row: 1;
     height: var(--top-bar-height);
     border-bottom: solid 1px var(--border-gray);
-    flex-wrap: nowrap !important;
+    align-items: center;
+}
+
+.topbar .navbar {
+    flex: 1;
 }
 
 .topbar__map-counter {
@@ -94,6 +100,9 @@ body {
 .filter_bar {
     grid-column: 1;
     grid-row: 2;
+    position: sticky;
+    top: var(--top-bar-height);
+    height: calc(100vh - var(--top-bar-height));
     overflow-y: auto;
     user-select: none;
 }
@@ -275,6 +284,12 @@ body {
     font-variant-caps: all-small-caps;
 }
 
+.map_cards {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 20px;
+}
+
 .tile_filter .tile_image {
     height: 25px;
     width: 25px;
@@ -298,13 +313,6 @@ body {
 }
 .map_sort .sortByDropdown {
     display: inline-block;
-}
-
-.map_cards {
-    grid-column: 2;
-    grid-row: 2;
-    overflow-y: auto;
-    padding: 20px;
 }
 
 .map_cards__parent {
