@@ -104,6 +104,7 @@ body {
     top: var(--top-bar-height);
     height: calc(100vh - var(--top-bar-height));
     overflow-y: auto;
+    overscroll-behavior: contain;
     user-select: none;
 }
 
