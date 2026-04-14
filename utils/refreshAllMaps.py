@@ -1,8 +1,10 @@
 from helper import *
+from changeDirToHere import ChangeDir
 import time
 from datetime import datetime
 import os
 import json
+ChangeDir()
 
 def main():
     print("=" * 60)
