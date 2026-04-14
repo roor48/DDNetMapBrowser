@@ -27641,26 +27641,6 @@
         ]
     },
     {
-        "name": "Black",
-        "website": "https://ddnet.org/maps/Black",
-        "thumbnail": "https://ddnet.org/ranks/maps/Black.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=Black",
-        "type": "DDmaX.Next",
-        "points": 12,
-        "difficulty": 3,
-        "mapper": "Ama",
-        "release": "2015-09-04 19:41",
-        "width": 1208,
-        "height": 1208,
-        "tiles": [
-            "DFREEZE",
-            "SOLO_START",
-            "WEAPON_RIFLE",
-            "STOP",
-            "TELEIN"
-        ]
-    },
-    {
         "name": "Verification 3.4",
         "website": "https://ddnet.org/maps/Verification-32-3-46-4",
         "thumbnail": "https://ddnet.org/ranks/maps/Verification_3_4.png",
@@ -36826,6 +36806,26 @@
         ]
     },
     {
+        "name": "Black",
+        "website": "https://ddnet.org/maps/Black",
+        "thumbnail": "https://ddnet.org/ranks/maps/Black.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Black",
+        "type": "DDmaX.Next",
+        "points": 12,
+        "difficulty": 3,
+        "mapper": "Ama",
+        "release": "2015-05-03 13:30",
+        "width": 1208,
+        "height": 1208,
+        "tiles": [
+            "DFREEZE",
+            "SOLO_START",
+            "WEAPON_RIFLE",
+            "STOP",
+            "TELEIN"
+        ]
+    },
+    {
         "name": "Blizzard!",
         "website": "https://ddnet.org/maps/Blizzard-33-",
         "thumbnail": "https://ddnet.org/ranks/maps/Blizzard_.png",
@@ -36878,26 +36878,6 @@
             "TELEINEVIL",
             "TELECHECK",
             "BOOST"
-        ]
-    },
-    {
-        "name": "Black",
-        "website": "https://ddnet.org/maps/Black",
-        "thumbnail": "https://ddnet.org/ranks/maps/Black.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=Black",
-        "type": "DDmaX.Next",
-        "points": 12,
-        "difficulty": 3,
-        "mapper": "Ama",
-        "release": "2015-05-03 13:30",
-        "width": 1208,
-        "height": 1208,
-        "tiles": [
-            "DFREEZE",
-            "SOLO_START",
-            "WEAPON_RIFLE",
-            "STOP",
-            "TELEIN"
         ]
     },
     {
