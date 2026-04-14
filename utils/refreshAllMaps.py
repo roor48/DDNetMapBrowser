@@ -34,7 +34,7 @@ def main():
             print(f"> 진행: {idx}/{total} ({idx/total*100:.1f}%)")
 
         time.sleep(1)
- 
+
 
     print("="*60)
     if failed:
