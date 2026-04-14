@@ -53,8 +53,11 @@ def saveMapFile(maps: List[MapData]) -> None:
 def get_single_map_data(map_name: str) -> Optional[MapData]:
     """개별 맵 데이터 조회"""
     try:
-        url = f'https://ddnet.org/maps/?json={map_name}'
-        response = requests.get(url, timeout=10)
+        response = requests.get(
+            'https://ddnet.org/maps/',
+            params={'json': map_name},
+            timeout=10
+        )
     
         if response.status_code != 200:
             return None
@@ -70,3 +73,20 @@ def get_single_map_data(map_name: str) -> Optional[MapData]:
     except Exception as e:
         print(f"  ❌ {map_name}: {e}")
         return None
+
+def save_log(log_data: dict, log_type: str = "temp") -> None:
+    """로그 파일 저장
+    
+    Args:
+        log_data: 저장할 로그 데이터
+        log_type: 로그 타입 (refresh, retry 등)
+    """
+    import json
+    import os
+    from datetime import datetime
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs("logs", exist_ok=True)
+    
+    with open(f"logs/{log_type}_{timestamp}.json", "w", encoding="utf-8") as f:
+        json.dump(log_data, f, indent=4, ensure_ascii=False)

@@ -28775,7 +28775,7 @@
         "mapper": "Meliodafu",
         "release": "2015-07-29 17:51",
         "width": 305,
-        "height": 349,
+        "height": 305,
         "tiles": [
             "DEATH",
             "THROUGH",
@@ -29668,7 +29668,7 @@
         "mapper": "Xeno",
         "release": "2015-07-15 12:00",
         "width": 400,
-        "height": 360,
+        "height": 400,
         "tiles": [
             "THROUGH",
             "EHOOK_START",
@@ -29696,7 +29696,7 @@
         "mapper": "Knight :3",
         "release": "2015-07-15 12:00",
         "width": 470,
-        "height": 300,
+        "height": 470,
         "tiles": [
             "THROUGH",
             "DFREEZE",
@@ -36814,7 +36814,7 @@
         "mapper": "Evgesha",
         "release": "2015-05-04 17:30",
         "width": 639,
-        "height": 315,
+        "height": 639,
         "tiles": [
             "THROUGH",
             "DFREEZE",
@@ -37497,7 +37497,7 @@
         "mapper": "DaSpongi :> & DaGiese :>",
         "release": "2015-04-27 11:53",
         "width": 409,
-        "height": 502,
+        "height": 409,
         "tiles": [
             "DEATH",
             "THROUGH",
@@ -40682,7 +40682,7 @@
         "mapper": "Waschlappen & Broken",
         "release": "2014-12-28 18:08",
         "width": 403,
-        "height": 579,
+        "height": 403,
         "tiles": [
             "DEATH",
             "THROUGH",
@@ -42989,7 +42989,7 @@
         "mapper": "Kenji",
         "release": "2014-10-08 12:56",
         "width": 310,
-        "height": 300,
+        "height": 310,
         "tiles": [
             "THROUGH",
             "DFREEZE",
@@ -45976,7 +45976,7 @@
         "mapper": "Ezio",
         "release": "2014-07-10 01:29",
         "width": 250,
-        "height": 275,
+        "height": 250,
         "tiles": [
             "DEATH",
             "WEAPON_GRENADE",
@@ -46500,7 +46500,7 @@
         "mapper": "Jamby",
         "release": "2014-06-23 19:30",
         "width": 303,
-        "height": 301,
+        "height": 303,
         "tiles": [
             "THROUGH",
             "DFREEZE",
@@ -48879,7 +48879,7 @@
         "mapper": "Maple & mikey12",
         "release": "2014-04-05 10:55",
         "width": 500,
-        "height": 1000,
+        "height": 500,
         "tiles": [
             "THROUGH",
             "DFREEZE",
@@ -51355,7 +51355,7 @@
         "mapper": "Nickel",
         "release": "2013-12-25 04:28",
         "width": 1015,
-        "height": 1001,
+        "height": 1015,
         "tiles": [
             "DEATH",
             "THROUGH",
@@ -58474,7 +58474,7 @@
         "mapper": ".me'",
         "release": "",
         "width": 500,
-        "height": 150,
+        "height": 500,
         "tiles": [
             "DEATH",
             "THROUGH",
@@ -58503,7 +58503,7 @@
         "mapper": ".me'",
         "release": "",
         "width": 405,
-        "height": 402,
+        "height": 405,
         "tiles": [
             "DEATH",
             "THROUGH",

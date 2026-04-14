@@ -2,8 +2,6 @@ from helper import *
 from changeDirToHere import ChangeDir
 import time
 from datetime import datetime
-import os
-import json
 ChangeDir()
 
 def main():
@@ -11,8 +9,8 @@ def main():
     print("🔄 전체 맵 갱신 시작")
     print("=" * 60)
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     start_time = time.time()
+    start_datetime = datetime.now()
 
     release_maps = getReleaseData()
     total = len(release_maps)
@@ -58,7 +56,8 @@ def main():
     successful_count = total - len(failed)
     
     log_data = {
-        "timestamp": datetime.now().isoformat(),
+        "start_time": start_datetime.isoformat(),
+        "end_time": datetime.now().isoformat(),
         "total_maps": total,
         "successful": successful_count,
         "failed_count": len(failed),
@@ -66,9 +65,7 @@ def main():
         "execution_time": f"{elapsed:.1f} minutes"
     }
 
-    os.makedirs("logs", exist_ok=True)
-    with open(f"logs/refresh_{timestamp}.json", "w", encoding="utf-8") as f:
-        json.dump(log_data, f, indent=4)
+    save_log(log_data, "refresh")
     
 if __name__ == "__main__":
     main()
