@@ -21,6 +21,15 @@ def getReleaseData() -> List[MapData]:
     response = requests.get("https://ddnet.org/releases/maps.json")
     return response.json()
 
+def sortMaps(maps: List[MapData]) -> List[MapData]:
+    """날짜 정렬 (최신순)"""
+    maps_with_date = [m for m in maps if m.get("release")]
+    maps_without_date = [m for m in maps if not m.get("release")]
+    
+    maps_with_date.sort(key=lambda x: x.get("release", ""), reverse=True)
+    
+    return maps_with_date + maps_without_date
+
 def mapFileToDict() -> List[MapData]:
     """/assets/maps.json에서 맵 데이터 로드"""
     import json
@@ -30,10 +39,11 @@ def mapFileToDict() -> List[MapData]:
     return data
 
 def saveMapFile(maps: List[MapData]) -> None:
-    """/assets/maps.json에 맵 데이터 저장"""
+    """maps를 정렬 후 /assets/maps.json에 맵 데이터 저장"""
     import json
-    
+
     print("maps.json 저장 중")
+    maps = sortMaps(maps)
 
     with open("../assets/maps.json", 'w', encoding='utf-8') as f:
         json.dump(maps, f, indent=4, ensure_ascii=False)
