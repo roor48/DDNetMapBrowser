@@ -1,0 +1,47 @@
+name: Monthly Refresh All Maps
+
+on:
+  schedule:
+    # 매월 1일 오전 2시 (UTC)
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-all-maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      
+      - name: Install uv
+        run: pip install uv
+      
+      - name: Install dependencies
+        run: |
+          cd utils
+          uv sync
+      
+      - name: Run refreshAllMaps
+        run: |
+          cd utils
+          uv run refreshAllMaps.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/maps.json utils/logs/
+          git diff --staged --quiet || git commit -m "Monthly: Refresh all maps data"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
