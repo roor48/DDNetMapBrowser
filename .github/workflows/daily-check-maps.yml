@@ -9,9 +9,16 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-maps
+  cancel-in-progress: false
+
 jobs:
   add-missing-maps:
     runs-on: ubuntu-latest
+    
+    env:
+      PYTHONUNBUFFERED: "1"
     
     steps:
       - name: Checkout repository
@@ -35,12 +42,23 @@ jobs:
           cd utils
           uv run addMissingMaps.py
       
+      - name: Pull latest changes
+        run: git pull origin ${{ github.ref_name }}
+      
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add assets/maps.json
-          git diff --staged --quiet || git commit -m "Daily: Add missing maps"
-          git push
+          
+          if ! git diff --staged --quiet; then
+            git commit -m "Daily: Add missing maps"
+            
+            # 최대 3번 재시도
+            for i in {1..3}; do
+              git pull --rebase origin ${{ github.ref_name }} && \
+              git push && break || sleep 2
+            done
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
