@@ -27641,6 +27641,22 @@
         ]
     },
     {
+        "name": "Black&White",
+        "website": "https://ddnet.org/maps/Black-38-White",
+        "thumbnail": "https://ddnet.org/ranks/maps/Black_White.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Black%26White",
+        "type": "Brutal",
+        "points": 24,
+        "difficulty": 3,
+        "mapper": "TyxpekCZ",
+        "release": "2015-09-04 19:41",
+        "width": 250,
+        "height": 250,
+        "tiles": [
+            "THROUGH"
+        ]
+    },
+    {
         "name": "Verification 3.4",
         "website": "https://ddnet.org/maps/Verification-32-3-46-4",
         "thumbnail": "https://ddnet.org/ranks/maps/Verification_3_4.png",
