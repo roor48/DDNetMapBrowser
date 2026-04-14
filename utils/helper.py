@@ -33,8 +33,12 @@ def saveMapFile(maps: List[MapData]) -> None:
     """/assets/maps.json에 맵 데이터 저장"""
     import json
     
+    print("maps.json 저장 중")
+
     with open("../assets/maps.json", 'w', encoding='utf-8') as f:
         json.dump(maps, f, indent=4, ensure_ascii=False)
+
+    print("  ✅ 완료")
 
 def get_single_map_data(map_name: str) -> Optional[MapData]:
     """개별 맵 데이터 조회"""
