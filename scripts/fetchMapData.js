@@ -33,40 +33,29 @@ export default async function fetchMapData() {
             window.location.hostname === 'localhost' 
             || window.location.hostname === '127.0.0.1'
             || window.location.protocol === 'file:';
-        const url = isDev 
-            ? './assets/maps.json'
-            : 'https://ddnet.org/releases/maps.json';
-        const res = await fetch(url, {
-            cache: "no-store"
-        });
+
+        const mapPath = './assets/maps.json';
+        const releaseUrl = isDev ? './assets/releases-map.json' : 'https://ddnet.org/releases/maps.json';
+        
+        const fileRes = await fetch(mapPath, { cache: "no-store"});
         /** @type {MapData[]} */
-        const mapData = await res.json();
+        const mapData = await fileRes.json();
+        /** @type {Record<string, MapData>} */
+        const mapDict = Object.fromEntries(
+            mapData.map(map => [map.name, map])
+        );
 
-        const mapCorrectionsRes = await fetch("./wrong_map_list.json", {
-            cache: "no-store"
+        const releaseRes = await fetch(releaseUrl, { cache: "no-store" });
+        /** @type {MapData[]} */
+        const releaseData = await releaseRes.json();
+
+        /** @type {MapData[]} */
+        const fixedMapData = releaseData.map(map => {
+            return mapDict[map.name] ?? map;
         });
-        const mapCorrections = await mapCorrectionsRes.json();
-
+        
         const tiles = new Set();
-        /** @type {MapData[]} */
-        const fixedMapData = []
-
         mapData.forEach(map => {
-            // add maps
-            // 잘못된 맵이면 정정
-            if (mapCorrections[map.name]) {
-                const correction = mapCorrections[map.name];
-                const correctedMap = {
-                    ...map,
-                    type: correction.type,
-                    points: correction.points,
-                    difficulty: getMapDifficulty(correction.type, correction.points) ?? map.difficulty
-                };
-                fixedMapData.push(correctedMap);
-            } else {
-                fixedMapData.push(map);
-            }
-
             // add tiles
             map.tiles.forEach(tile => {
                 tiles.add(tile);
