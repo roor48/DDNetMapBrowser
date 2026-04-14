@@ -23,7 +23,8 @@ def get_latest_log() -> dict | None:
         log_data = json.load(f)
     
     print(f"📄 로그 파일: {os.path.basename(latest_log)}")
-    print(f"   시간: {log_data['timestamp']}")
+    time_str = log_data.get('start_time')
+    print(f"   시간: {time_str}")
     print(f"   실패 맵: {log_data['failed_count']}개\n")
     
     return log_data

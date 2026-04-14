@@ -2,6 +2,7 @@ from typing import List
 from changeDirToHere import ChangeDir
 from helper import *
 from datetime import datetime
+import time
 import json
 import os
 ChangeDir()
@@ -47,6 +48,8 @@ def main() -> None:
         else:
             failed_maps.append(map_name)
             print(f"  ❌ {map_name} 조회 실패")
+        
+        time.sleep(1)
 
     if not added_count and not failed_maps:
         print("\n✅ 새로운 맵이 없습니다.")
