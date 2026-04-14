@@ -3,5 +3,4 @@ node_modules/
 __pycache__/
 *.pyc
 
-maps.json
 todolist.md
