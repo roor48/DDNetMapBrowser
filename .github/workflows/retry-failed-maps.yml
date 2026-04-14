@@ -1,22 +1,19 @@
-name: Monthly Refresh All Maps
+name: Retry Failed Maps
 
 on:
-  schedule:
-    # 매월 1일 오전 2시 (UTC)
-    - cron: '0 2 1 * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: monthly-maps
+  group: retry-failed-maps
   cancel-in-progress: false
 
 jobs:
-  refresh-all-maps:
+  retry-failed-maps:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 30
     
     env:
       PYTHONUNBUFFERED: "1"
@@ -38,19 +35,14 @@ jobs:
           cd utils
           uv sync
       
-      - name: Run refreshAllMaps
-        run: |
-          cd utils
-          uv run refreshAllMaps.py
-
       - name: Retry failed maps
         run: |
           cd utils
           uv run retryFailedMaps.py
-      
+
       - name: Pull latest changes
         run: git pull origin ${{ github.ref_name }}
-      
+
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -58,7 +50,7 @@ jobs:
           git add assets/maps.json utils/logs/
           
           if ! git diff --staged --quiet; then
-            git commit -m "Monthly: Refresh all maps data"
+            git commit -m "Retry: Recover failed maps"
             
             # 최대 3번 재시도
             for i in {1..3}; do
