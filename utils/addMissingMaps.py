@@ -1,9 +1,14 @@
 from typing import List
 from changeDirToHere import ChangeDir
 from helper import *
+from datetime import datetime
+import json
+import os
 ChangeDir()
 
 def main() -> None:
+    start_datetime = datetime.now()
+    
     mapDatas: List[MapData] = mapFileToDict()
     
     # 기존 맵 이름
@@ -25,7 +30,7 @@ def main() -> None:
         return
 
     added_count = 0
-    failed_count = 0
+    failed_maps = []
     
     for map_name in missing_maps:
         map_data = get_single_map_data(map_name)
@@ -40,19 +45,32 @@ def main() -> None:
             added_count += 1
             print(f"  ✅ {map_name} 추가 완료")
         else:
-            failed_count += 1
+            failed_maps.append(map_name)
             print(f"  ❌ {map_name} 조회 실패")
 
+    if not added_count and not failed_maps:
+        print("\n✅ 새로운 맵이 없습니다.")
     
     # 추가된 맵이 있으면 저장
-    if added_count > 0:
+    if added_count:
         saveMapFile(mapDatas)
-        
         print(f"\n✅ {added_count}개 맵 추가 완료")
-        if failed_count > 0:
-            print(f"⚠️  {failed_count}개 맵 조회 실패")
-    else:
-        print("\n✅ 새로운 맵이 없습니다.")
+    
+    # 실패한 맵이 있으면 로그 저장
+    if failed_maps:
+        print(f"⚠️  {len(failed_maps)}개 맵 조회 실패")
+        log_data = {
+            "start_time": start_datetime.isoformat(),
+            "end_time": datetime.now().isoformat(),
+            "found_new_maps": len(missing_maps),
+            "added": added_count,
+            "failed_count": len(failed_maps),
+            "failed_maps": failed_maps
+        }
+        
+        os.makedirs("./logs", exist_ok=True)
+        with open("./logs/lastMissedMap.json", "w", encoding="utf-8") as f:
+            json.dump(log_data, f, indent=4, ensure_ascii=False)
 
 
 if __name__=="__main__":
