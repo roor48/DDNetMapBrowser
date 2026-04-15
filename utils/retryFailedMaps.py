@@ -16,8 +16,8 @@ def get_latest_log() -> dict | None:
         print("❌ 로그 파일이 없습니다.")
         return None
     
-    # 가장 최근 파일
-    latest_log = max(log_files, key=os.path.getmtime)
+    # 파일명 기준
+    latest_log = max(log_files)
     
     with open(latest_log, 'r', encoding='utf-8') as f:
         log_data = json.load(f)
