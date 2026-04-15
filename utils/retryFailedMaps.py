@@ -37,7 +37,7 @@ def main():
     if not log_data:
         return
     
-    failed_maps = log_data.get("failed_maps", [])
+    failed_maps = log_data.get("failed_maps")
     
     if not failed_maps:
         print("✅ 실패한 맵이 없습니다.")
