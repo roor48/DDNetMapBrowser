@@ -10,7 +10,7 @@ ChangeDir()
 
 def get_latest_log() -> dict | None:
     """가장 최근 로그 파일 읽기"""
-    log_files = glob.glob("./logs/refresh_*.json")
+    log_files = glob.glob("./logs/refresh/refresh_*.json")
     
     if not log_files:
         print("❌ 로그 파일이 없습니다.")

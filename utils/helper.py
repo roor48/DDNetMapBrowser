@@ -86,7 +86,7 @@ def save_log(log_data: dict, log_type: str = "temp") -> None:
     from datetime import datetime
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    os.makedirs("logs", exist_ok=True)
+    os.makedirs(f"./logs/{log_type}", exist_ok=True)
     
-    with open(f"logs/{log_type}_{timestamp}.json", "w", encoding="utf-8") as f:
+    with open(f"./logs/{log_type}/{log_type}_{timestamp}.json", "w", encoding="utf-8") as f:
         json.dump(log_data, f, indent=4, ensure_ascii=False)
