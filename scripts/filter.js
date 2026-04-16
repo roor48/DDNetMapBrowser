@@ -4,7 +4,7 @@
  */
 
 import { 
-    setFilterMapName,
+    setFilterMapName, setFilterMapperName,
     addFilterType, removeFilterType,
     setFilterDifficulty,
     addFilterTile, removeFilterTile
@@ -25,16 +25,26 @@ export function getFilteredMaps(mapDataList, filter) {
     /** @type {MapData[]} */
     let results = mapDataList;
 
-    if (filter.mapName) {
-        const fuse = new Fuse(mapDataList, {
-            keys: ["name"],
-            threshold: 0.4,
-            includeScore: true
-        });
-        // @ts-ignore
-        results = fuse.search(filter.mapName).map(result => result.item);
-    }
+    const searchKeys = [
+        filter.name && "name",
+        filter.mapper && "mapper"
+    ].filter(Boolean);
 
+    if (searchKeys.length > 0) {
+        const fuse = new Fuse(mapDataList, {
+            keys: searchKeys,
+            threshold: 0.4
+        });
+
+        const conditions = [
+            filter.name && { name: filter.name },
+            filter.mapper && { mapper: filter.mapper }
+        ].filter(Boolean);
+
+        // @ts-ignore
+        results = fuse.search({ $and: conditions }).map(r => r.item);
+    }
+    
     return results.filter(mapData => {
         // 타입 필터
         if (filter.types.length > 0 && !filter.types.includes(mapData.type))
@@ -70,22 +80,47 @@ export function createFilter(tiles) {
 }
 
 function initSearchFilter() {
+    // map
     /** @type {HTMLInputElement} */
     const map_search = document.querySelector(".filter__map-search");
     
     /** @type {number} */
-    let timer;
+    let map_timer;
     map_search.addEventListener("input", (e) => {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
-        clearTimeout(timer);
+        clearTimeout(map_timer);
         
         const value = target.value;
-        timer = setTimeout(() => {
+        map_timer = setTimeout(() => {
             setFilterMapName(value);
         }, 200);
     });
 
     map_search.addEventListener("keydown", (e) => {
+        const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+
+        if (e.key === "Enter") {
+            target.blur();
+        }
+    });
+
+    // mapper
+    /** @type {HTMLInputElement} */
+    const mapper_search = document.querySelector(".filter__mapper-search");
+        
+    /** @type {number} */
+    let mapper_timer;
+    mapper_search.addEventListener("input", (e) => {
+        const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+        clearTimeout(mapper_timer);
+        
+        const value = target.value;
+        mapper_timer = setTimeout(() => {
+            setFilterMapperName(value);
+        }, 200);
+    });
+
+    mapper_search.addEventListener("keydown", (e) => {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
 
         if (e.key === "Enter") {

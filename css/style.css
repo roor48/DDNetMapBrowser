@@ -140,7 +140,14 @@ body {
     display: none;
 }
 
-.filter_bar .map-search-wrapper {
+.filter_bar .search_map {
+    display: grid;
+    grid-template-rows: 2;
+    grid-template-columns: 1;
+    gap: 8px;
+}
+
+.filter_bar .search-wrapper {
     margin-right: 15px;
 }
 

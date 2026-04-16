@@ -16,7 +16,8 @@
 
 /**
  * @typedef {Object} Filter
- * @property {string} mapName - 맵 이름
+ * @property {string} name - 맵 이름
+ * @property {string} mapper - 제작자
  * @property {string[]} types - 타입
  * @property {number} difficultyMin - 난이도
  * @property {number} difficultyMax - 난이도

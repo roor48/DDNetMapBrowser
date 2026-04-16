@@ -16,7 +16,8 @@ const state = {
     
     /** @type {Filter} */
     filter: {
-        mapName: '',
+        name: '',
+        mapper: '',
         types: [],
         difficultyMin: 0,
         difficultyMax: 5,
@@ -43,9 +44,16 @@ export function setMaps(maps) {
 }
 
 // 맵 이름 필터
-/** @param {string} mapName */
-export function setFilterMapName(mapName) {
-    state.filter.mapName = mapName?.trim() ?? '';
+/** @param {string} name */
+export function setFilterMapName(name) {
+    state.filter.name = name?.trim() ?? '';
+
+    render();
+}
+// 매퍼 필터
+/** @param {string} mapper */
+export function setFilterMapperName(mapper) {
+    state.filter.mapper = mapper?.trim() ?? '';
 
     render();
 }
@@ -122,7 +130,7 @@ function render() {
 
     let maps = getFilteredMaps(state.allMaps, state.filter);
 
-    if (!state.filter.mapName) {
+    if (!state.filter.name && !state.filter.mapper) {
         maps = getSortedMaps(maps, state.sorter);
     }
 
