@@ -4,21 +4,38 @@
  */
 
 import { 
+    setFilterMapName,
     addFilterType, removeFilterType,
     setFilterDifficulty,
     addFilterTile, removeFilterTile
 } from './state.js';
 import { TYPES } from './types.js';
+// @ts-ignore
+import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.3.0/dist/fuse.mjs'
 
 /**
- * 필터를 적용한 맵 데이터를 반환합니다.
+ * 필터를 적용한 맵 데이터를 반환합니다.  
+ * 이름 검색이 적용 된 경우 유사도 기준으로 정렬된 맵 데이터를 반환합니다.
  * @param {MapData[]} mapDataList
  * @param {Filter} filter
  * 
  * @returns {MapData[]} 필터링 된 맵 데이터
  */
 export function getFilteredMaps(mapDataList, filter) {
-    return mapDataList.filter(mapData => {
+    /** @type {MapData[]} */
+    let results = mapDataList;
+
+    if (filter.mapName) {
+        const fuse = new Fuse(mapDataList, {
+            keys: ["name"],
+            threshold: 0.4,
+            includeScore: true
+        });
+        // @ts-ignore
+        results = fuse.search(filter.mapName).map(result => result.item);
+    }
+
+    return results.filter(mapData => {
         // 타입 필터
         if (filter.types.length > 0 && !filter.types.includes(mapData.type))
             return false;
@@ -46,9 +63,35 @@ export function getFilteredMaps(mapDataList, filter) {
  * @param {string[]} tiles
  */
 export function createFilter(tiles) {
+    initSearchFilter();
     createTypeFilter();
     initDifficultyFilter();
     createTileFilter(tiles);
+}
+
+function initSearchFilter() {
+    /** @type {HTMLInputElement} */
+    const map_search = document.querySelector(".filter__map-search");
+    
+    /** @type {number} */
+    let timer;
+    map_search.addEventListener("input", (e) => {
+        const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+        clearTimeout(timer);
+        
+        const value = target.value;
+        timer = setTimeout(() => {
+            setFilterMapName(value);
+        }, 200);
+    });
+
+    map_search.addEventListener("keydown", (e) => {
+        const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+
+        if (e.key === "Enter") {
+            target.blur();
+        }
+    });
 }
 
 function createTypeFilter() {

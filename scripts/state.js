@@ -16,6 +16,7 @@ const state = {
     
     /** @type {Filter} */
     filter: {
+        mapName: '',
         types: [],
         difficultyMin: 0,
         difficultyMax: 5,
@@ -41,10 +42,18 @@ export function setMaps(maps) {
     render();
 }
 
+// 맵 이름 필터
+/** @param {string} mapName */
+export function setFilterMapName(mapName) {
+    state.filter.mapName = mapName?.trim() ?? '';
+
+    render();
+}
+
 // 타입 필터
 /** @param {string} type */
 export function addFilterType(type) {
-    if (state.filter.types.includes(type)) {
+    if (!type || state.filter.types.includes(type)) {
         return;
     }
     state.filter.types.push(type);
@@ -58,12 +67,13 @@ export function removeFilterType(type) {
     render();
 }
 
+/** @param {number} num @param {number} min @param {number} max */
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 // 난이도 필터
 /** @param {number} difficultyMin  @param {number} difficultyMax */
 export function setFilterDifficulty(difficultyMin, difficultyMax) {
-
-    state.filter.difficultyMin = difficultyMin;
-    state.filter.difficultyMax = difficultyMax;
+    state.filter.difficultyMin = clamp(difficultyMin ?? 0, 0, 5);
+    state.filter.difficultyMax = clamp(difficultyMax ?? 5, 0, 5);
 
     render();
 }
@@ -71,7 +81,7 @@ export function setFilterDifficulty(difficultyMin, difficultyMax) {
 // 타일 필터
 /** @param {string} tile */
 export function addFilterTile(tile) {
-    if (state.filter.tiles.includes(tile)) {
+    if (!tile || state.filter.tiles.includes(tile)) {
         return;
     }
     state.filter.tiles.push(tile);
@@ -97,6 +107,11 @@ export function toggleSorterIsDESC() {
 // 정렬 기준
 /** @param {string} sortBy */
 export function setSorterSortBy(sortBy) {
+    // @ts-ignore
+    if (!Object.values(SORT_BY).includes(sortBy)) {
+        return;
+    }
+    
     state.sorter.sortBy = sortBy;
 
     render();
@@ -104,13 +119,17 @@ export function setSorterSortBy(sortBy) {
 
 // 재렌더링
 function render() {
-    const filteredMap = getFilteredMaps(state.allMaps, state.filter);
-    const sortedMap = getSortedMaps(filteredMap, state.sorter);
 
-    createMapCard(sortedMap);
+    let maps = getFilteredMaps(state.allMaps, state.filter);
+
+    if (!state.filter.mapName) {
+        maps = getSortedMaps(maps, state.sorter);
+    }
+
+    createMapCard(maps);
     
     // 최상단으로 스크롤
     window.scrollTo({ top: 0, behavior: "instant"});
 
-    mapCounter.textContent = filteredMap.length + " maps";
+    mapCounter.textContent = maps.length + " maps";
 }

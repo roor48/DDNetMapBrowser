@@ -44,6 +44,7 @@ function createDropdownItem(sortBy, isDisabled) {
     button.setAttribute("class", `${"dropdown-item" + (isDisabled ? " disabled" : "")}`);
     button.textContent = sortBy;
     button.addEventListener("click", () => {
+        // @ts-ignore
         setSorterSortBy(sortBy);
         dropDownButton.textContent = sortBy;
     });
@@ -124,7 +125,7 @@ export function createSorter() {
 }
 
 /**
- * 필터를 적용한 맵 데이터를 반환합니다.
+ * 주어진 맵 데이터를 주어진 정렬 기준에 맞게 정렬합니다.
  * @param {MapData[]} mapDataList
  * @param {Sorter} sorter
  * 

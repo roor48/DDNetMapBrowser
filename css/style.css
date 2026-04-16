@@ -121,7 +121,8 @@ body {
 
 .filter_bar__div {
     padding: 15px 0px 15px 15px;
-    margin-left: 10px;
+    margin: 0 10px 0 10px;
+    /* margin-left: 10px; */
     position: relative;
 }
 
@@ -130,13 +131,17 @@ body {
     position: absolute;
     bottom: 0;
     left: 5px;
-    right: 15px;
+    right: 5px;
     height: 1px;
     background-color: var(--border-dark);
 }
 
 .filter_bar__div:last-child::after {
     display: none;
+}
+
+.filter_bar .map-search-wrapper {
+    margin-right: 15px;
 }
 
 .filter_bar .map_type {
