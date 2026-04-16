@@ -85,10 +85,12 @@ export function createSorter() {
     asc_icon.setAttribute("class", "asc_icon invert-color");
     asc_icon.setAttribute("title", "Ascending");
     asc_icon.setAttribute("src", "./assets/icon-sort.svg");
-    asc_icon.addEventListener("click", () => {
+    asc_icon.addEventListener("click", (e) => {
+        const target = /** @type {HTMLImageElement} */ (e.currentTarget);
+        
         const isDESC = toggleSorterIsDESC();
-        asc_icon.setAttribute("style", `transform: scaleY(${isDESC ? -1 : 1});`);
-        asc_icon.setAttribute("title", `${isDESC ? "Descending" : "Ascending"}`);
+        target.setAttribute("style", `transform: scaleY(${isDESC ? -1 : 1});`);
+        target.setAttribute("title", `${isDESC ? "Descending" : "Ascending"}`);
     });
 
     const dropDown = document.createElement("div");

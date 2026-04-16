@@ -123,8 +123,10 @@ function createTypeFilter() {
         input.setAttribute("class", "map_type__checkbox form-check-input");
         input.setAttribute("type", "checkbox");
         input.setAttribute("value", "");
-        input.addEventListener("change", () => {
-            if (input.checked) {
+        input.addEventListener("change", (e) => {
+            const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+            
+            if (target.checked) {
                 addFilterType(type);
             } else {
                 removeFilterType(type);
@@ -139,7 +141,7 @@ function createTypeFilter() {
         // div 빈 공간 클릭시 input.click() 호출
         div.addEventListener("click", (e) => {
             // label || input 직접 클릭한 경우
-            if (e.target === label || e.target === input) {
+            if (!(e.target instanceof HTMLDivElement)) {
                 return;
             }
             input.click();
@@ -218,8 +220,10 @@ function createTileFilter(tiles) {
         input.setAttribute("type", "checkbox");
         input.setAttribute("autocomplete", "off");
         
-        input.addEventListener("change", () => {
-            if (input.checked) {
+        input.addEventListener("change", (e) => {
+            const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+            
+            if (target.checked) {
                 addFilterTile(tile);
             } else {
                 removeFilterTile(tile);
