@@ -52,6 +52,11 @@ body {
     filter: invert(100%);
 }
 
+.inactive {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .button {
     cursor: pointer;
 }

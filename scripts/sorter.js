@@ -127,6 +127,26 @@ export function createSorter() {
 }
 
 /**
+ * 정렬 UI 활성화 여부.
+ * @param {boolean} isActive
+ */
+export function setSortUIActive(isActive) {
+    const sorterParent = document.querySelector(".map_cards .map_sort")
+
+    /** @type {HTMLImageElement} */
+    const ascImage = sorterParent.querySelector(".asc_icon");
+    if (isActive) {
+        ascImage.classList.remove("inactive")
+    } else {
+        ascImage.classList.add("inactive");
+    }
+
+    /** @type {HTMLButtonElement} */
+    const dropdown = sorterParent.querySelector(".sortByDropdown button");
+    dropdown.disabled = !isActive;
+}
+
+/**
  * 주어진 맵 데이터를 주어진 정렬 기준에 맞게 정렬합니다.
  * @param {MapData[]} mapDataList
  * @param {Sorter} sorter
@@ -134,6 +154,7 @@ export function createSorter() {
  * @returns {MapData[]} 정렬 된 맵 데이터
  */
 export default function getSortedMaps(mapDataList, sorter) {
+    setSortUIActive(true);
 
     const sortedMaps = mapDataList.slice();
 

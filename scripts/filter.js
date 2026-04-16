@@ -107,7 +107,7 @@ function initSearchFilter() {
     // mapper
     /** @type {HTMLInputElement} */
     const mapper_search = document.querySelector(".filter__mapper-search");
-        
+    
     /** @type {number} */
     let mapper_timer;
     mapper_search.addEventListener("input", (e) => {

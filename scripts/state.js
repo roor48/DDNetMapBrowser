@@ -6,7 +6,7 @@
 
 import createMapCard from './createMapCard.js';
 import { getFilteredMaps } from './filter.js';
-import getSortedMaps from './sorter.js';
+import getSortedMaps, { setSortUIActive } from './sorter.js';
 import { SORT_BY } from './types.js';
 
 // 전역 상태
@@ -132,6 +132,8 @@ function render() {
 
     if (!state.filter.name && !state.filter.mapper) {
         maps = getSortedMaps(maps, state.sorter);
+    } else {
+        setSortUIActive(false);
     }
 
     createMapCard(maps);
