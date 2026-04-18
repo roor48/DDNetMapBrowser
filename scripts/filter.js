@@ -90,9 +90,8 @@ function initSearchFilter() {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
         clearTimeout(map_timer);
         
-        const value = target.value;
         map_timer = setTimeout(() => {
-            setFilterMapName(value);
+            setFilterMapName(target.value);
         }, 200);
     });
 
@@ -101,6 +100,8 @@ function initSearchFilter() {
 
         if (e.key === "Enter") {
             target.blur();
+            clearTimeout(map_timer);
+            setFilterMapName(target.value);
         }
     });
 
@@ -114,9 +115,8 @@ function initSearchFilter() {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
         clearTimeout(mapper_timer);
         
-        const value = target.value;
         mapper_timer = setTimeout(() => {
-            setFilterMapperName(value);
+            setFilterMapperName(target.value);
         }, 200);
     });
 
@@ -125,6 +125,8 @@ function initSearchFilter() {
 
         if (e.key === "Enter") {
             target.blur();
+            clearTimeout(mapper_timer);
+            setFilterMapperName(target.value)
         }
     });
 }
