@@ -12,6 +12,18 @@
  * @property {number} width - 맵 너비
  * @property {number} height - 맵 높이
  * @property {string[]} tiles - 타일 목록
+*/
+
+/**
+ * @typedef {Object} map - tee 기준 맵 정보
+ * @property {number} finishes - 클리어 횟수
+ */
+
+/**
+ * @typedef {Object} TeeData
+ * @property {string} player - 티 이름
+ * @property {number} points - 포인트
+ * @property {Object[]} finishData - 맵 클리어 정보
  */
 
 /**

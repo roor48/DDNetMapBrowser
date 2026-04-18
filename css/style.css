@@ -73,8 +73,71 @@ body {
     align-items: center;
 }
 
+.topbar >* {
+    height: 35px;
+}
+
+.topbar * {
+    max-height: 35px;
+}
+
 .topbar .navbar {
     flex: 1;
+}
+
+.topbar__teename {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    width: fit-content;
+    width: 165px;
+    background-color: #1a1a1a;
+    border: 1px solid var(--border-gray);
+    border-radius: 9999px;
+}
+
+.topbar__teename .name-input {
+    /* flex: 1; */
+    
+    font-size: 0.9rem;
+    white-space: nowrap;
+    color: var(--text-light);
+    font-weight: 700;
+    opacity: 0.9;
+    
+    padding: 0 15px 0 15px;
+    width: 100%;
+    height: 100%;
+
+    /* outline: auto; */
+    background-color: #1a1a1a;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    border: none;
+}
+.topbar__teename .name-input:focus {
+    outline: none;
+}
+
+.topbar__teename .search-icon-wrapper {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    border: none;
+    background: none;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.topbar__teename .search-icon-wrapper:active {
+    filter: brightness(0.8);
+    transform: scale(0.95);
+}
+
+.topbar__teename .search-icon {
+    border-radius: 50%;
 }
 
 .topbar__map-counter {

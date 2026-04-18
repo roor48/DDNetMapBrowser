@@ -2,6 +2,8 @@
  * @typedef {import('./types.js').MapData} MapData
  * @typedef {import('./types.js').Filter} Filter
  * @typedef {import('./types.js').Sorter} Sorter
+ * @typedef {import('./types.js').TeeData} TeeData
+ * @typedef {import('./types.js').map} map
  */
 
 import createMapCard from './createMapCard.js';
@@ -14,6 +16,13 @@ const state = {
     /** @type {MapData[]} */
     allMaps: [],
     
+    /** @type {TeeData} */
+    teeData: {
+        player: '',
+        points: 0,
+        finishData: []
+    },
+
     /** @type {Filter} */
     filter: {
         name: '',
@@ -40,6 +49,20 @@ const mapCounter = document.querySelector(".map-counter__text");
  */
 export function setMaps(maps) {
     state.allMaps = maps;
+    render();
+}
+
+// 티 이름
+/**
+ * @param {string} teeName
+ * @param {number} points
+ * @param {Object[]} maps
+ */
+export function setTeeData(teeName, points, maps) {
+    state.teeData.player = teeName?.trim() ?? '';
+    state.teeData.points = points ?? 0;
+    state.teeData.finishData = maps.slice();
+
     render();
 }
 
@@ -128,7 +151,8 @@ export function setSorterSortBy(sortBy) {
 // 재렌더링
 function render() {
 
-    let maps = getFilteredMaps(state.allMaps, state.filter);
+    let maps = state.allMaps;
+    maps = getFilteredMaps(maps, state.filter);
 
     if (!state.filter.name && !state.filter.mapper) {
         maps = getSortedMaps(maps, state.sorter);

@@ -7,6 +7,7 @@ import fetchMapData from "./fetchMapData.js"
 import { createFilter } from "./filter.js";
 import { createSorter } from "./sorter.js";
 import { loadMoreMapCard } from "./createMapCard.js";
+import { initTeeNameSearch } from "./teeName.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const mapDatas = await fetchMapData();
@@ -16,12 +17,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const [mapDataList, tiles] = mapDatas;
+    initTeeNameSearch();
     createFilter(tiles);
     createSorter();
     setMaps(mapDataList);
     
-    // 스피너 기준으로 무한 스크롤
-    const loadingSpinner = document.querySelector(".loading-dot");
+    // 로딩 기준으로 무한 스크롤
+    const loadingDot = document.querySelector(".loading-dot");
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
             loadMoreMapCard();
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         rootMargin: "100px"  // 100px 전에 미리 로드
     });
     
-    if (loadingSpinner) {
-        observer.observe(loadingSpinner);
+    if (loadingDot) {
+        observer.observe(loadingDot);
     }
 });
