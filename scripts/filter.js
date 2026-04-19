@@ -86,7 +86,7 @@ export function getFilteredMaps(mapDataList, filter, teeData) {
 export function createFilter(tiles) {
     initSearchFilter();
     initUserDataFilter();
-    createTypeFilter();
+    initTypeFilter();
     initDifficultyFilter();
     createTileFilter(tiles);
 }
@@ -150,13 +150,6 @@ function initUserDataFilter() {
     const unfinishedDiv = document.querySelector(".user_filter .unfinished-wrapper");
     const unfinishedInput = unfinishedDiv.querySelector("input");
     
-    finishedDiv.addEventListener("click", (e) => {
-        // label || input 직접 클릭한 경우
-        if (!(e.target instanceof HTMLDivElement)) {
-            return;
-        }
-        finishedInput.click();
-    });
     finishedInput.addEventListener("change", (e) => {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
         
@@ -165,13 +158,6 @@ function initUserDataFilter() {
         setFilterIsFinished(target.checked);
     });
     
-    unfinishedDiv.addEventListener("click", (e) => {
-        // label || input 직접 클릭한 경우
-        if (!(e.target instanceof HTMLDivElement)) {
-            return;
-        }
-        unfinishedInput.click();
-    });
     unfinishedInput.addEventListener("change", (e) => {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
         
@@ -182,36 +168,15 @@ function initUserDataFilter() {
 
 }
 
-function createTypeFilter() {
-    const typeParent = document.querySelector(".filter_bar .filter__type_parent");
-    typeParent.replaceChildren();
-
-    // DDmaX 필터
-    const ddmax_div = document.createElement("div");
-    ddmax_div.setAttribute("class", "map_type__ddmax");
-    const ddmax_p = document.createElement("p");
-    ddmax_p.setAttribute("class", "map_type__ddmax__p");
-    ddmax_p.textContent = TYPES.DDmaX;
-    ddmax_div.appendChild(ddmax_p);
-
+function initTypeFilter() {
     Object.values(TYPES).forEach(type => {
-        // <div class="form-check">
-        //   <input id="novice" class="map_type__checkbox form-check-input" type="checkbox" value="">
-        //   <label class="form-check-label" for="novice">Novice</label>
-        // </div>
         if (type === TYPES.DDmaX) {
             return;
         }
 
-        const div = document.createElement("div");
-        div.setAttribute("class", "form-check");
+        const input = document.querySelector(`#${type.toLowerCase().replace('.', '_')}`);
 
-        const input = document.createElement("input");
-        input.setAttribute("id", type.toLowerCase());
-        input.setAttribute("class", "map_type__checkbox form-check-input");
-        input.setAttribute("type", "checkbox");
-        input.setAttribute("value", "");
-        input.addEventListener("change", (e) => {
+        input.addEventListener("click", (e) => {
             const target = /** @type {HTMLInputElement} */ (e.currentTarget);
             
             if (target.checked) {
@@ -220,32 +185,7 @@ function createTypeFilter() {
                 removeFilterType(type);
             }
         });
-
-        const label = document.createElement("label");
-        label.setAttribute("class", "form-check-label");
-        label.setAttribute("for", type.toLowerCase());
-        label.textContent = type;
-
-        // div 빈 공간 클릭시 input.click() 호출
-        div.addEventListener("click", (e) => {
-            // label || input 직접 클릭한 경우
-            if (!(e.target instanceof HTMLDivElement)) {
-                return;
-            }
-            input.click();
-        });
-
-        div.appendChild(input);
-        div.appendChild(label);
-
-        if (type.includes(TYPES.DDmaX)) {
-            ddmax_div.appendChild(div);
-        } else {
-            typeParent.appendChild(div);
-        }
     });
-
-    typeParent.appendChild(ddmax_div);
 }
 
 function initDifficultyFilter() {

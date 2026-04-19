@@ -203,6 +203,7 @@ body {
 .filter_bar .map_type__ddmax__p {
     font-size: 1.1rem;
     font-weight: 600;
+    margin-bottom: 0;
 }
 
 .filter_bar__div {
@@ -239,10 +240,24 @@ body {
     margin-right: 15px;
 }
 
-.form-check {
-    cursor: pointer;
+.filter-checkbox {
+    cursor:pointer;
 }
-.form-check * {
+
+.filter-checkbox:has(input:disabled) {
+    cursor: not-allowed;
+}
+
+.filter-checkbox > label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    cursor: inherit;
+}
+
+.filter-checkbox > label > input {
+    margin-right: 0.5em;
     cursor: pointer;
 }
 
