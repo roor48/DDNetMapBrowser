@@ -89,6 +89,8 @@ export function resetTeeData() {
     state.teeData.player = '';
     state.teeData.points = 0;
     state.teeData.finishData = {};
+    state.filter.isFinished = false;
+    state.filter.isUnfinished = false;
 
     render();
 }
@@ -192,15 +194,15 @@ export function setSorterSortBy(sortBy) {
 
 // 재렌더링
 function render() {
-
     // 데이터 가져오는 중엔 렌더링 비활성화
     if (state.isFetching) {
-        // 필터 비활성화
         setLoadingDotActive(true);
         resetMapCard();
         return;
     }
-
+    
+    renderTeeUI();
+    
     let maps = state.allMaps;
     maps = getFilteredMaps(maps, state.filter, state.teeData);
 
@@ -216,12 +218,17 @@ function render() {
     window.scrollTo({ top: 0, behavior: "instant"});
 
     mapCounter.textContent = maps.length + " maps";
+}
+
+function renderTeeUI() {
+    finishedCheckbox.checked = state.filter.isFinished;
+    unfinishedCheckbox.checked = state.filter.isUnfinished;
 
     // tee Data
     if (state.teeData.player) {
         finishedCheckbox.disabled = false;
         unfinishedCheckbox.disabled = false;
-
+    
         tee_points.parentElement.style.display = "";
         tee_name.parentElement.style.display = "";
         
@@ -233,8 +240,5 @@ function render() {
         
         finishedCheckbox.disabled = true;
         unfinishedCheckbox.disabled = true;
-
-        finishedCheckbox.checked = false;
-        unfinishedCheckbox.checked = false;
     }
 }
