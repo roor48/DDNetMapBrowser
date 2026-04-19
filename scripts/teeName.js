@@ -14,7 +14,7 @@ export function initTeeNameSearch() {
         if (teeName) {
             fetchTeeData(teeName);
         } else {
-                resetTeeData();
+            resetTeeData();
         }
     });
     
@@ -35,16 +35,30 @@ export function initTeeNameSearch() {
     });
 }
 
+/** @type {AbortController} */
+let activeController = null;
+let latestRequestId = 0;
 /**
  * @param {string} teeName 
  */
 async function fetchTeeData(teeName) {
+    const requestId = ++latestRequestId;
+
+    activeController?.abort();
+    activeController = new AbortController();
+    
     try {
         setIsFetching(true);
 
         const queryString = new URLSearchParams("?json2="+teeName);
-        const res = await fetch("https://ddnet.org/players/?"+queryString);
+        const res = await fetch("https://ddnet.org/players/?"+queryString, {
+            signal: activeController.signal
+        });
         const data = await res.json();
+
+        if (requestId !== latestRequestId)
+            return;
+
 
         if (Object.keys(data).length === 0) {
             resetTeeData();
@@ -67,9 +81,14 @@ async function fetchTeeData(teeName) {
 
         setTeeData(teeName, teePoints, teeMaps);
     } catch (error) {
+        if (/** @type {Error} */(error)?.name === "AbortError")
+            return;
+        
         resetTeeData();
         console.error('Failed to fetch tee data:', error);
     } finally {
-        setIsFetching(false);
+        if (requestId === latestRequestId) {
+            setIsFetching(false);
+        }
     }
 }
