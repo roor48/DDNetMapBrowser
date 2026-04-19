@@ -165,7 +165,6 @@ function initUserDataFilter() {
         setFilterIsFinished(false);
         setFilterIsUnfinished(target.checked);
     });
-
 }
 
 function initTypeFilter() {
