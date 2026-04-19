@@ -6,7 +6,7 @@
  * @typedef {import('./types.js').map} map
  */
 
-import createMapCard from './createMapCard.js';
+import createMapCard, { resetMapCard, setLoadingDotActive } from './createMapCard.js';
 import { getFilteredMaps } from './filter.js';
 import getSortedMaps, { setSortUIActive } from './sorter.js';
 import { SORT_BY } from './types.js';
@@ -15,18 +15,23 @@ import { SORT_BY } from './types.js';
 const state = {
     /** @type {MapData[]} */
     allMaps: [],
+
+    /** @type {boolean} */
+    isFetching: false,
     
     /** @type {TeeData} */
     teeData: {
         player: '',
         points: 0,
-        finishData: []
+        finishData: {}
     },
 
     /** @type {Filter} */
     filter: {
         name: '',
         mapper: '',
+        isFinished: false,
+        isUnfinished: false,
         types: [],
         difficultyMin: 0,
         difficultyMax: 5,
@@ -52,16 +57,31 @@ export function setMaps(maps) {
     render();
 }
 
+/** @param {boolean} isFetching */
+export function setIsFetching(isFetching) {
+    state.isFetching = isFetching ?? false;
+
+    render();
+}
+
 // 티 이름
 /**
  * @param {string} teeName
  * @param {number} points
- * @param {Object[]} maps
+ * @param {Record<string, boolean>} maps
  */
 export function setTeeData(teeName, points, maps) {
     state.teeData.player = teeName?.trim() ?? '';
     state.teeData.points = points ?? 0;
-    state.teeData.finishData = maps.slice();
+    state.teeData.finishData = maps ?? {};
+
+    render();
+}
+
+export function resetTeeData() {
+    state.teeData.player = '';
+    state.teeData.points = 0;
+    state.teeData.finishData = {};
 
     render();
 }
@@ -77,6 +97,21 @@ export function setFilterMapName(name) {
 /** @param {string} mapper */
 export function setFilterMapperName(mapper) {
     state.filter.mapper = mapper?.trim() ?? '';
+
+    render();
+}
+
+// 유저데이터 필터
+/** @param {boolean} isFinished */
+export function setFilterIsFinished(isFinished) {
+    state.filter.isFinished = isFinished ?? false;
+    
+    render();
+}
+
+/** @param {boolean} isUnfinished */
+export function setFilterIsUnfinished(isUnfinished) {
+    state.filter.isUnfinished = isUnfinished ?? false;
 
     render();
 }
@@ -151,8 +186,16 @@ export function setSorterSortBy(sortBy) {
 // 재렌더링
 function render() {
 
+    // 데이터 가져오는 중엔 렌더링 비활성화
+    if (state.isFetching) {
+        // 필터 비활성화
+        setLoadingDotActive(true);
+        resetMapCard();
+        return;
+    }
+
     let maps = state.allMaps;
-    maps = getFilteredMaps(maps, state.filter);
+    maps = getFilteredMaps(maps, state.filter, state.teeData);
 
     if (!state.filter.name && !state.filter.mapper) {
         maps = getSortedMaps(maps, state.sorter);

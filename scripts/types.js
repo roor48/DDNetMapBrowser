@@ -23,13 +23,15 @@
  * @typedef {Object} TeeData
  * @property {string} player - 티 이름
  * @property {number} points - 포인트
- * @property {Object[]} finishData - 맵 클리어 정보
+ * @property {Record<string, boolean>} finishData - 맵 클리어 정보
  */
 
 /**
  * @typedef {Object} Filter
  * @property {string} name - 맵 이름
  * @property {string} mapper - 제작자
+ * @property {boolean} isFinished - 클리어한 맵
+ * @property {boolean} isUnfinished - 미클리어 맵
  * @property {string[]} types - 타입
  * @property {number} difficultyMin - 난이도
  * @property {number} difficultyMax - 난이도

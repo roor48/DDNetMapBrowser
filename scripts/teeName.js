@@ -1,4 +1,4 @@
-import { setTeeData } from "./state.js";
+import { resetTeeData, setIsFetching, setTeeData } from "./state.js";
 
 export function initTeeNameSearch() {
     /** @type {HTMLInputElement} */
@@ -7,15 +7,30 @@ export function initTeeNameSearch() {
     const searchButton = document.querySelector(".topbar__teename .search-icon-wrapper");
 
     searchButton.addEventListener("click", (e) => {
+        nameInput.value = nameInput.value.trim();
+
         const teeName = nameInput.value;
-        fetchTeeData(teeName);
+
+        if (teeName) {
+            fetchTeeData(teeName);
+        } else {
+                resetTeeData();
+        }
     });
     
-    nameInput.addEventListener("keydown", (e) => {
+    nameInput.addEventListener("keyup", (e) => {
         if (e.key === "Enter") {
-            /** @type {HTMLInputElement} */(e.currentTarget).blur();
-            const teeName = /** @type {HTMLInputElement} */ (e.currentTarget).value;
-            fetchTeeData(teeName);
+            const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+
+            target.blur();
+            target.value = target.value.trim();
+            const teeName = target.value;
+
+            if (teeName) {
+                fetchTeeData(teeName);
+            } else {
+                resetTeeData();
+            }
         }
     });
 }
@@ -25,27 +40,36 @@ export function initTeeNameSearch() {
  */
 async function fetchTeeData(teeName) {
     try {
+        setIsFetching(true);
+
         const queryString = new URLSearchParams("?json2="+teeName);
         const res = await fetch("https://ddnet.org/players/?"+queryString);
         const data = await res.json();
 
+        if (Object.keys(data).length === 0) {
+            resetTeeData();
+            console.log("cannot found user: " + teeName);
+            return;
+        }
+
         const teePoints = data.points.points;
-        /** @type {Object[]} */
-        const teeMaps = [];
+        /** @type {Record<string, boolean>} */
+        const teeMaps = {};
 
         const types = data.types;
         for (const type in types) {
             const maps = types[type].maps;
 
             for (const mapName in maps) {
-                const map = {[mapName]: {"finishes": maps[mapName].finishes}};
-
-                teeMaps.push(map);
+                teeMaps[mapName] = maps[mapName].finishes > 0;
             }
         }
 
         setTeeData(teeName, teePoints, teeMaps);
     } catch (error) {
+        resetTeeData();
         console.error('Failed to fetch tee data:', error);
+    } finally {
+        setIsFetching(false);
     }
 }

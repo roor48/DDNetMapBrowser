@@ -1,10 +1,12 @@
 /**
  * @typedef {import('./types.js').MapData} MapData
  * @typedef {import('./types.js').Filter} Filter
+ * @typedef {import('./types.js').TeeData} TeeData
  */
 
 import { 
     setFilterMapName, setFilterMapperName,
+    setFilterIsFinished, setFilterIsUnfinished,
     addFilterType, removeFilterType,
     setFilterDifficulty,
     addFilterTile, removeFilterTile
@@ -18,10 +20,11 @@ import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.3.0/dist/fuse.mjs'
  * 이름 검색이 적용 된 경우 유사도 기준으로 정렬된 맵 데이터를 반환합니다.
  * @param {MapData[]} mapDataList
  * @param {Filter} filter
+ * @param {TeeData} teeData
  * 
  * @returns {MapData[]} 필터링 된 맵 데이터
  */
-export function getFilteredMaps(mapDataList, filter) {
+export function getFilteredMaps(mapDataList, filter, teeData) {
     /** @type {MapData[]} */
     let results = mapDataList;
 
@@ -46,6 +49,14 @@ export function getFilteredMaps(mapDataList, filter) {
     }
     
     return results.filter(mapData => {
+        // 유저 데이터 필터
+        if (teeData.player) {
+            if (filter.isFinished && !teeData.finishData[mapData.name])
+                return false;
+            if (filter.isUnfinished && teeData.finishData[mapData.name])
+                return false;
+        }
+        
         // 타입 필터
         if (filter.types.length > 0 && !filter.types.includes(mapData.type))
             return false;
@@ -74,6 +85,7 @@ export function getFilteredMaps(mapDataList, filter) {
  */
 export function createFilter(tiles) {
     initSearchFilter();
+    initUserDataFilter();
     createTypeFilter();
     initDifficultyFilter();
     createTileFilter(tiles);
@@ -129,6 +141,45 @@ function initSearchFilter() {
             setFilterMapperName(target.value)
         }
     });
+}
+
+function initUserDataFilter() {
+    const finishedDiv = document.querySelector(".user_filter .finished-wrapper");
+    const finishedInput = finishedDiv.querySelector("input");
+
+    const unfinishedDiv = document.querySelector(".user_filter .unfinished-wrapper");
+    const unfinishedInput = unfinishedDiv.querySelector("input");
+    
+    finishedDiv.addEventListener("click", (e) => {
+        // label || input 직접 클릭한 경우
+        if (!(e.target instanceof HTMLDivElement)) {
+            return;
+        }
+        finishedInput.click();
+    });
+    finishedInput.addEventListener("change", (e) => {
+        const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+        
+        unfinishedInput.checked = false;
+        setFilterIsUnfinished(false);
+        setFilterIsFinished(target.checked);
+    });
+    
+    unfinishedDiv.addEventListener("click", (e) => {
+        // label || input 직접 클릭한 경우
+        if (!(e.target instanceof HTMLDivElement)) {
+            return;
+        }
+        unfinishedInput.click();
+    });
+    unfinishedInput.addEventListener("change", (e) => {
+        const target = /** @type {HTMLInputElement} */ (e.currentTarget);
+        
+        finishedInput.checked = false;
+        setFilterIsFinished(false);
+        setFilterIsUnfinished(target.checked);
+    });
+
 }
 
 function createTypeFilter() {

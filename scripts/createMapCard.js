@@ -20,6 +20,12 @@ export default function createMapCard(mapDataList) {
     updateLoadingDot();
 }
 
+export function resetMapCard() {
+    mapDatas = [];
+    const cardParent = document.querySelector(".map_cards .map_cards__parent");
+    cardParent.replaceChildren();
+}
+
 export function loadMoreMapCard() {
     if (mapDatas.length === 0) {
         return;
@@ -132,9 +138,14 @@ function createCard(mapData) {
 }
 
 function updateLoadingDot() {
+    setLoadingDotActive(mapDatas.length > 0);
+}
+
+/** @param {boolean} isActive */
+export function setLoadingDotActive(isActive) {
     /** @type {HTMLDivElement} */
     const loading_dot = document.querySelector(".loading-dot");
     if (loading_dot) {
-        loading_dot.style.display = mapDatas.length > 0 ? "flex" : "none";
+        loading_dot.style.display = isActive ? "flex" : "none";
     }
 }
