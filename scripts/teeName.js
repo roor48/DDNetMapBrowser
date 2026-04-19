@@ -2,9 +2,9 @@ import { resetTeeData, setIsFetching, setTeeData } from "./state.js";
 
 export function initTeeNameSearch() {
     /** @type {HTMLInputElement} */
-    const nameInput = document.querySelector(".topbar__teename .name-input");
+    const nameInput = document.querySelector(".topbar__tee-search .name-input");
     /** @type {HTMLButtonElement} */
-    const searchButton = document.querySelector(".topbar__teename .search-icon-wrapper");
+    const searchButton = document.querySelector(".topbar__tee-search .search-icon-wrapper");
 
     searchButton.addEventListener("click", (e) => {
         nameInput.value = nameInput.value.trim();

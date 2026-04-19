@@ -48,6 +48,9 @@ Object.freeze(state.allMaps);
 
 const mapCounter = document.querySelector(".map-counter__text");
 
+const tee_points = document.querySelector(".topbar__tee-data .points");
+const tee_name = document.querySelector(".topbar__tee-data .name");
+
 /**
  * 초기 데이터 설정
  * @param {MapData[]} maps 
@@ -209,4 +212,14 @@ function render() {
     window.scrollTo({ top: 0, behavior: "instant"});
 
     mapCounter.textContent = maps.length + " maps";
+
+    if (state.teeData.player) {
+        tee_points.parentElement.style.display = "";
+        tee_name.parentElement.style.display = "";
+        tee_points.textContent = `${state.teeData.points}pts`;
+        tee_name.textContent = state.teeData.player;
+    } else {
+        tee_points.parentElement.style.display = "none";
+        tee_name.parentElement.style.display = "none";
+    }
 }
