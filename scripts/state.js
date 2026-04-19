@@ -111,15 +111,9 @@ export function setFilterMapperName(mapper) {
 }
 
 // 유저데이터 필터
-/** @param {boolean} isFinished */
-export function setFilterIsFinished(isFinished) {
+/** @param {boolean} isFinished @param {boolean} isUnfinished */
+export function setFilterFinish(isFinished, isUnfinished) {
     state.filter.isFinished = isFinished ?? false;
-    
-    render();
-}
-
-/** @param {boolean} isUnfinished */
-export function setFilterIsUnfinished(isUnfinished) {
     state.filter.isUnfinished = isUnfinished ?? false;
 
     render();

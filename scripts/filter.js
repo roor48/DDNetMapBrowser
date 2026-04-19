@@ -6,10 +6,10 @@
 
 import { 
     setFilterMapName, setFilterMapperName,
-    setFilterIsFinished, setFilterIsUnfinished,
+    setFilterFinish,
     addFilterType, removeFilterType,
     setFilterDifficulty,
-    addFilterTile, removeFilterTile
+    addFilterTile, removeFilterTile,
 } from './state.js';
 import { TYPES } from './types.js';
 // @ts-ignore
@@ -153,17 +153,13 @@ function initUserDataFilter() {
     finishedInput.addEventListener("change", (e) => {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
         
-        unfinishedInput.checked = false;
-        setFilterIsUnfinished(false);
-        setFilterIsFinished(target.checked);
+        setFilterFinish(target.checked, false);
     });
     
     unfinishedInput.addEventListener("change", (e) => {
         const target = /** @type {HTMLInputElement} */ (e.currentTarget);
         
-        finishedInput.checked = false;
-        setFilterIsFinished(false);
-        setFilterIsUnfinished(target.checked);
+        setFilterFinish(false, target.checked);
     });
 }
 
