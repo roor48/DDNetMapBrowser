@@ -174,7 +174,7 @@ function initTypeFilter() {
             return;
         }
 
-        const input = document.querySelector(`#${type.toLowerCase().replace('.', '_')}`);
+        const input = document.querySelector(`#filter_${type.toLowerCase().replace('.', '_')}`);
 
         input.addEventListener("click", (e) => {
             const target = /** @type {HTMLInputElement} */ (e.currentTarget);
