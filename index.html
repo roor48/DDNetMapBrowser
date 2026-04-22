@@ -61,11 +61,11 @@
 
   <div class="filter_bar">
     <div class="filter_bar__div search_map">
-      <div class="map-search-wrapper search-wrapper">
-        <input type="text" class="filter__map-search form-control" placeholder="Map search">
+      <div class="search-wrapper">
+        <input id="filter__map-search" type="text" class="filter__map-search" placeholder="Map search">
       </div>
-      <div class="mapper-search-wrapper search-wrapper">
-        <input type="text" class="filter__mapper-search form-control" placeholder="Mapper search">
+      <div class="search-wrapper">
+        <input id="filter__mapper-search" type="text" class="filter__mapper-search" placeholder="Mapper search">
       </div>
     </div>
 
@@ -216,9 +216,11 @@
       </details>
     </div>
     
-    <div class="filter_bar__div tiles">
-      <details class="filter__details filter__tile_parent" open>
+    <div class="filter_bar__div">
+      <details class="filter__details" open>
         <summary class="filter_summary">Tiles</summary>
+        <div class="filter__tile_parent">
+        </div>
       </details>
     </div>
   </div>
