@@ -308,9 +308,8 @@ body {
     color: var(--text-light);
 }
 
-/* Difficulty Range Slider */
 .difficulty__range-container {
-    padding: 0.625rem 1rem 0.625rem 0.5rem;
+    padding: 0.5rem;
 }
 
 .difficulty__labels {
