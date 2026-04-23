@@ -412,18 +412,17 @@ body {
 }
 
 .filter__tile_parent {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(2.8rem, 1fr));
     gap: 0.3rem;
 }
 
-.tile_filter {
+.filter__tile_parent .tile_filter {
     display: inline;
-    height: 2.8rem;
-    width: 2.8rem;
+    aspect-ratio: 1 / 1;
 }
 
-.tile_filter label {
+.filter__tile_parent .tile_filter label {
     display: flex;
     height: 100%;
     width: 100%;
@@ -519,6 +518,9 @@ body {
 .map_cards__parent .card .card__info-item {
     display: flex;
     align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     gap: 0.25rem;
     color: #ddd;
 }
