@@ -7,8 +7,9 @@ export function initTeeNameSearch() {
     const searchButton = document.querySelector(".topbar__tee-search .search-icon-wrapper");
 
     searchButton.addEventListener("click", (e) => {
-        nameInput.value = nameInput.value.trim();
+        /** @type {HTMLButtonElement} */(e.currentTarget).blur();
 
+        nameInput.value = nameInput.value.trim();
         const teeName = nameInput.value;
 
         if (teeName) {
