@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             loadMoreMapCard();
         }
     }, {
-        rootMargin: "100px"  // 100px 전에 미리 로드
+        rootMargin: "400px"  // 미리 로드
     });
     
     if (loadingDot) {
