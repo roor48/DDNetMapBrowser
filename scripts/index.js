@@ -2,7 +2,7 @@
  * @typedef {import('./types.js').MapData} MapData
  * @typedef {import('./types.js').Filter} Filter
  */
-import { setMaps } from "./state.js";
+import { setIsInited, setMaps } from "./state.js";
 import fetchMapData from "./fetchMapData.js"
 import { createFilter } from "./filter.js";
 import { createSorter } from "./sorter.js";
@@ -35,4 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (loadingDot) {
         observer.observe(loadingDot);
     }
+
+    setIsInited(true);
 });

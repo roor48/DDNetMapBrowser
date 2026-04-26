@@ -141,6 +141,9 @@ function initSearchFilter() {
             setFilterMapperName(target.value)
         }
     });
+    
+    map_search.value = '';
+    mapper_search.value = '';
 }
 
 function initUserDataFilter() {
@@ -161,6 +164,9 @@ function initUserDataFilter() {
         
         setFilterFinish(false, target.checked);
     });
+
+    finishedInput.checked = false;
+    unfinishedInput.checked = false;
 }
 
 function initTypeFilter() {
@@ -169,6 +175,7 @@ function initTypeFilter() {
             return;
         }
 
+        /** @type {HTMLInputElement} */
         const input = document.querySelector(`#filter_${type.toLowerCase().replace('.', '_')}`);
 
         input.addEventListener("click", (e) => {
@@ -180,6 +187,7 @@ function initTypeFilter() {
                 removeFilterType(type);
             }
         });
+        input.checked = false;
     });
 }
 
@@ -218,6 +226,8 @@ function initDifficultyFilter() {
     sliders.forEach(slider => {
         slider.addEventListener("input", updateFill);
     });
+    sliders[0].value = '0';
+    sliders[1].value = '5';
 }
 
 /**
@@ -268,5 +278,7 @@ function createTileFilter(tiles) {
         div.appendChild(label);
 
         tileParent.appendChild(div);
+
+        input.checked = false;
     });
 }

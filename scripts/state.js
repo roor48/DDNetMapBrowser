@@ -13,6 +13,8 @@ import { SORT_BY } from './types.js';
 
 // 전역 상태
 const state = {
+    isInited: false,
+
     /** @type {MapData[]} */
     allMaps: [],
 
@@ -54,6 +56,15 @@ const tee_name = document.querySelector(".topbar__tee-data .name");
 const finishedCheckbox = document.querySelector("#user-finished");
 /** @type {HTMLInputElement} */
 const unfinishedCheckbox = document.querySelector("#user-unfinished");
+
+/**
+ * 초기화 완료되면 호출
+ * @param {boolean} isInited 
+ */
+export function setIsInited(isInited) {
+    state.isInited = isInited ?? false;
+    render();
+}
 
 /**
  * 초기 데이터 설정
@@ -188,6 +199,10 @@ export function setSorterSortBy(sortBy) {
 
 // 재렌더링
 function render() {
+    if (!state.isInited) {
+        return;
+    }
+
     // 데이터 가져오는 중엔 렌더링 비활성화
     if (state.isFetching) {
         setLoadingDotActive(true);

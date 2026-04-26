@@ -34,6 +34,8 @@ export function initTeeNameSearch() {
             }
         }
     });
+
+    nameInput.value = '';
 }
 
 /** @type {AbortController} */
