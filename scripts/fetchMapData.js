@@ -63,6 +63,7 @@ export default async function fetchMapData() {
         });
         const sorted_tiles = Array.from(tiles).sort();
 
+        console.log(fixedMapData.length);
         return [fixedMapData, sorted_tiles];
     } catch (error) {
         console.error('Failed to fetch maps:', error);

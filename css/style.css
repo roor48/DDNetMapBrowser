@@ -261,7 +261,7 @@ body {
     width: 100%;
     height: 100%;
 
-    border-radius: 9999px;
+    border-radius: 9px;
     
     background: var(--bg-dark);
     border: 1px solid var(--border-dark);
@@ -427,7 +427,6 @@ body {
     aspect-ratio: 1 / 1;
     border: 0.15rem solid var(--border-gray);
     border-radius: 7px;
-
 }
 
 .filter__tile_parent .tile_filter:has(input:checked) {
