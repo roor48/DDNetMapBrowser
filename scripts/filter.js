@@ -256,7 +256,7 @@ function createTileFilter(tiles) {
         div.appendChild(input);
         
         const label = document.createElement("label");
-        label.setAttribute("class", "btn btn-outline-primary");
+        label.setAttribute("class", "tile_button");
         label.setAttribute("for", tile);
         
         const img = document.createElement("img");

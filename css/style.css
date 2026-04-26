@@ -63,6 +63,7 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: sans-serif;
+    background-color: #040404 !important;
 }
 
 .invert-color {
@@ -207,6 +208,7 @@ body {
     overflow-y: auto;
     overscroll-behavior: contain;
     user-select: none;
+    background-color: #080808;
 }
 
 .filter_bar summary {
@@ -417,26 +419,41 @@ body {
 }
 
 .filter__tile_parent .tile_filter {
-    display: inline;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    
     aspect-ratio: 1 / 1;
+    border: 0.15rem solid var(--border-gray);
+    border-radius: 7px;
+
+}
+
+.filter__tile_parent .tile_filter:has(input:checked) {
+    border-color: #2f00ff;
 }
 
 .filter__tile_parent .tile_filter label {
+    cursor: pointer;
+    
     display: flex;
-    height: 100%;
     width: 100%;
-
+    aspect-ratio: 1 / 1;
+    
     align-items: center;
     justify-content: center;
-
-    border-width: 0.15rem;
-    border-color: var(--border-gray);
+    
+    padding: 0.3rem;
 }
 
 .tile_filter .tile_image {
     display: block;
     height: 100%;
     aspect-ratio: 1 / 1;
+    
+    align-items: center;
+    justify-content: center;
 
     background-color: #555555;
 }
