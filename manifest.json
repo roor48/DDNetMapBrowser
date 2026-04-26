@@ -3,7 +3,7 @@
  "short_name": "DDNet Maps",
  "icons": [
   {
-   "src": "./assets/favicon/android-icon-192x192.png",
+   "src": "./assets/favicon/favicon-192x192.png",
    "sizes": "192x192",
    "type": "image/png"
   }
