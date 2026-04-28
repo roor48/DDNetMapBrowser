@@ -82,6 +82,11 @@ async function fetchTeeData(teeName) {
             }
         }
 
+        data.last_finishes.forEach((/** @type {{ map: string; }} */ map) => {
+            console.log(map.map);
+            teeMaps[map.map] = true;
+        });
+        
         setTeeData(teeName, teePoints, teeMaps);
     } catch (error) {
         if (/** @type {Error} */(error)?.name === "AbortError")
