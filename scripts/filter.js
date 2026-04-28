@@ -141,9 +141,6 @@ function initSearchFilter() {
             setFilterMapperName(target.value)
         }
     });
-    
-    map_search.value = '';
-    mapper_search.value = '';
 }
 
 function initUserDataFilter() {

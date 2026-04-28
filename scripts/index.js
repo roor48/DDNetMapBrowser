@@ -12,7 +12,8 @@ import { initTeeNameSearch } from "./teeName.js";
 document.addEventListener("DOMContentLoaded", async () => {
     const mapDatas = await fetchMapData();
     if (mapDatas === null) {
-        // 에러 메시지 띄우기
+        alert("error: cannot fetch map datas");
+        location.reload();
         return;
     }
 
