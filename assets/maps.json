@@ -136,9 +136,9 @@
         "website": "https://ddnet.org/maps/DEATHBOW",
         "thumbnail": "https://ddnet.org/ranks/maps/DEATHBOW.png",
         "web_preview": "https://ddnet.org/mappreview/?map=DEATHBOW",
-        "type": "Brutal",
-        "points": 27,
-        "difficulty": 4,
+        "type": "Insane",
+        "points": 38,
+        "difficulty": 2,
         "mapper": "Exotix",
         "release": "2026-03-15 17:49",
         "width": 974,
@@ -36827,28 +36827,6 @@
         ]
     },
     {
-        "name": "black-mountains",
-        "website": "https://ddnet.org/maps/black-45-mountains",
-        "thumbnail": "https://ddnet.org/ranks/maps/black_mountains.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=black-mountains",
-        "type": "DDmaX.Next",
-        "points": 8,
-        "difficulty": 2,
-        "mapper": "Welf",
-        "release": "2015-05-04 17:30",
-        "width": 400,
-        "height": 400,
-        "tiles": [
-            "DFREEZE",
-            "HIT_END",
-            "SOLO_START",
-            "WEAPON_GRENADE",
-            "WEAPON_RIFLE",
-            "STOP",
-            "BOOST"
-        ]
-    },
-    {
         "name": "Blue & Yellow",
         "website": "https://ddnet.org/maps/Blue-32--38--32-Yellow",
         "thumbnail": "https://ddnet.org/ranks/maps/Blue___Yellow.png",
@@ -36871,23 +36849,25 @@
         ]
     },
     {
-        "name": "Black",
-        "website": "https://ddnet.org/maps/Black",
-        "thumbnail": "https://ddnet.org/ranks/maps/Black.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=Black",
+        "name": "black-mountains",
+        "website": "https://ddnet.org/maps/black-45-mountains",
+        "thumbnail": "https://ddnet.org/ranks/maps/black_mountains.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=black-mountains",
         "type": "DDmaX.Next",
-        "points": 12,
-        "difficulty": 3,
-        "mapper": "Ama",
-        "release": "2015-05-03 13:30",
-        "width": 1208,
-        "height": 1208,
+        "points": 8,
+        "difficulty": 2,
+        "mapper": "Welf",
+        "release": "2015-05-04 17:30",
+        "width": 400,
+        "height": 400,
         "tiles": [
             "DFREEZE",
+            "HIT_END",
             "SOLO_START",
+            "WEAPON_GRENADE",
             "WEAPON_RIFLE",
             "STOP",
-            "TELEIN"
+            "BOOST"
         ]
     },
     {
@@ -36943,6 +36923,26 @@
             "TELEINEVIL",
             "TELECHECK",
             "BOOST"
+        ]
+    },
+    {
+        "name": "Black",
+        "website": "https://ddnet.org/maps/Black",
+        "thumbnail": "https://ddnet.org/ranks/maps/Black.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Black",
+        "type": "DDmaX.Next",
+        "points": 12,
+        "difficulty": 3,
+        "mapper": "Ama",
+        "release": "2015-05-03 13:30",
+        "width": 1208,
+        "height": 1208,
+        "tiles": [
+            "DFREEZE",
+            "SOLO_START",
+            "WEAPON_RIFLE",
+            "STOP",
+            "TELEIN"
         ]
     },
     {
@@ -37446,6 +37446,37 @@
         ]
     },
     {
+        "name": "#MegaRosenkohl",
+        "website": "https://ddnet.org/maps/-35-MegaRosenkohl",
+        "thumbnail": "https://ddnet.org/ranks/maps/_MegaRosenkohl.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=%23MegaRosenkohl",
+        "type": "DDmaX.Pro",
+        "points": 20,
+        "difficulty": 5,
+        "mapper": "DaSpongi :> & DaGiese :>",
+        "release": "2015-04-27 11:53",
+        "width": 409,
+        "height": 409,
+        "tiles": [
+            "DEATH",
+            "THROUGH",
+            "DFREEZE",
+            "EHOOK_START",
+            "HIT_END",
+            "SOLO_START",
+            "NPC_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "DOOR",
+            "SWITCH_TIMED",
+            "STOP",
+            "TELEINEVIL",
+            "TELEIN",
+            "BOOST"
+        ]
+    },
+    {
         "name": "-Ikarus-",
         "website": "https://ddnet.org/maps/-45-Ikarus-45-",
         "thumbnail": "https://ddnet.org/ranks/maps/_Ikarus_.png",
@@ -37529,37 +37560,6 @@
             "DFREEZE",
             "SOLO_START",
             "TELEIN"
-        ]
-    },
-    {
-        "name": "#MegaRosenkohl",
-        "website": "https://ddnet.org/maps/-35-MegaRosenkohl",
-        "thumbnail": "https://ddnet.org/ranks/maps/_MegaRosenkohl.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=%23MegaRosenkohl",
-        "type": "DDmaX.Pro",
-        "points": 20,
-        "difficulty": 5,
-        "mapper": "DaSpongi :> & DaGiese :>",
-        "release": "2015-04-27 11:53",
-        "width": 409,
-        "height": 409,
-        "tiles": [
-            "DEATH",
-            "THROUGH",
-            "DFREEZE",
-            "EHOOK_START",
-            "HIT_END",
-            "SOLO_START",
-            "NPC_START",
-            "WEAPON_SHOTGUN",
-            "WEAPON_GRENADE",
-            "WEAPON_RIFLE",
-            "DOOR",
-            "SWITCH_TIMED",
-            "STOP",
-            "TELEINEVIL",
-            "TELEIN",
-            "BOOST"
         ]
     },
     {
@@ -37714,24 +37714,6 @@
         ]
     },
     {
-        "name": "Pathway 4",
-        "website": "https://ddnet.org/maps/Pathway-32-4",
-        "thumbnail": "https://ddnet.org/ranks/maps/Pathway_4.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=Pathway+4",
-        "type": "DDmaX.Easy",
-        "points": 4,
-        "difficulty": 1,
-        "mapper": "Knight :3",
-        "release": "2015-04-25 10:07",
-        "width": 150,
-        "height": 150,
-        "tiles": [
-            "DFREEZE",
-            "STOP",
-            "BOOST"
-        ]
-    },
-    {
         "name": "Red & Orange",
         "website": "https://ddnet.org/maps/Red-32--38--32-Orange",
         "thumbnail": "https://ddnet.org/ranks/maps/Red___Orange.png",
@@ -37754,6 +37736,24 @@
             "SWITCH_TIMED",
             "STOP",
             "TELEIN",
+            "BOOST"
+        ]
+    },
+    {
+        "name": "Pathway 4",
+        "website": "https://ddnet.org/maps/Pathway-32-4",
+        "thumbnail": "https://ddnet.org/ranks/maps/Pathway_4.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Pathway+4",
+        "type": "DDmaX.Easy",
+        "points": 4,
+        "difficulty": 1,
+        "mapper": "Knight :3",
+        "release": "2015-04-25 10:07",
+        "width": 150,
+        "height": 150,
+        "tiles": [
+            "DFREEZE",
+            "STOP",
             "BOOST"
         ]
     },
@@ -55896,6 +55896,35 @@
         ]
     },
     {
+        "name": "Bootcamp #1",
+        "website": "https://ddnet.org/maps/Bootcamp-32--35-1",
+        "thumbnail": "https://ddnet.org/ranks/maps/Bootcamp__1.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Bootcamp+%231",
+        "type": "Moderate",
+        "points": 13,
+        "difficulty": 4,
+        "mapper": ".me'",
+        "release": "",
+        "width": 500,
+        "height": 500,
+        "tiles": [
+            "DEATH",
+            "THROUGH",
+            "DFREEZE",
+            "EHOOK_START",
+            "HIT_END",
+            "SOLO_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "POWERUP_NINJA",
+            "WEAPON_RIFLE",
+            "STOP",
+            "TELEINEVIL",
+            "TELEIN",
+            "BOOST"
+        ]
+    },
+    {
         "name": "3Play",
         "website": "https://ddnet.org/maps/3Play",
         "thumbnail": "https://ddnet.org/ranks/maps/3Play.png",
@@ -56258,6 +56287,33 @@
             "WEAPON_GRENADE",
             "WEAPON_RIFLE",
             "STOP",
+            "BOOST"
+        ]
+    },
+    {
+        "name": "Bootcamp #2",
+        "website": "https://ddnet.org/maps/Bootcamp-32--35-2",
+        "thumbnail": "https://ddnet.org/ranks/maps/Bootcamp__2.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Bootcamp+%232",
+        "type": "Moderate",
+        "points": 11,
+        "difficulty": 3,
+        "mapper": ".me'",
+        "release": "",
+        "width": 405,
+        "height": 405,
+        "tiles": [
+            "DEATH",
+            "THROUGH",
+            "EHOOK_START",
+            "HIT_END",
+            "SOLO_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "STOP",
+            "TELEINEVIL",
+            "TELEIN",
             "BOOST"
         ]
     },
@@ -58502,62 +58558,6 @@
             "WEAPON_RIFLE",
             "DRAGGER",
             "SWITCH",
-            "STOP",
-            "TELEINEVIL",
-            "TELEIN",
-            "BOOST"
-        ]
-    },
-    {
-        "name": "Bootcamp #1",
-        "website": "https://ddnet.org/maps/Bootcamp-32--35-1",
-        "thumbnail": "https://ddnet.org/ranks/maps/Bootcamp__1.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=Bootcamp+%231",
-        "type": "Moderate",
-        "points": 13,
-        "difficulty": 4,
-        "mapper": ".me'",
-        "release": "",
-        "width": 500,
-        "height": 500,
-        "tiles": [
-            "DEATH",
-            "THROUGH",
-            "DFREEZE",
-            "EHOOK_START",
-            "HIT_END",
-            "SOLO_START",
-            "WEAPON_SHOTGUN",
-            "WEAPON_GRENADE",
-            "POWERUP_NINJA",
-            "WEAPON_RIFLE",
-            "STOP",
-            "TELEINEVIL",
-            "TELEIN",
-            "BOOST"
-        ]
-    },
-    {
-        "name": "Bootcamp #2",
-        "website": "https://ddnet.org/maps/Bootcamp-32--35-2",
-        "thumbnail": "https://ddnet.org/ranks/maps/Bootcamp__2.png",
-        "web_preview": "https://ddnet.org/mappreview/?map=Bootcamp+%232",
-        "type": "Moderate",
-        "points": 11,
-        "difficulty": 3,
-        "mapper": ".me'",
-        "release": "",
-        "width": 405,
-        "height": 405,
-        "tiles": [
-            "DEATH",
-            "THROUGH",
-            "EHOOK_START",
-            "HIT_END",
-            "SOLO_START",
-            "WEAPON_SHOTGUN",
-            "WEAPON_GRENADE",
-            "WEAPON_RIFLE",
             "STOP",
             "TELEINEVIL",
             "TELEIN",
