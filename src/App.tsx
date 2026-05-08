@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import {type Filter as FilterState, type Sorter as SorterState, type MapData, type TeeData, SORT_BY} from './types.js'
+import {type Filter as FilterState, type MapData, type TeeData} from './types.js'
 
 import upCircleIcon from './assets/icon-up-circle.svg'
 import Topbar from './components/Topbar'
@@ -7,8 +7,6 @@ import Filter from './components/Filter'
 import getFilteredMaps from './filterMaps.js'
 import MapCards from './components/MapCards.js';
 import fetchMapData from './fetchMapData';
-import Sorter from './components/Sorter.js';
-import getSortedMaps from './sorterMaps.js';
 
 const initialFilter: FilterState = {
   name: '',
@@ -27,11 +25,6 @@ const initialTeeData: TeeData = {
   finishData: {}
 };
 
-const initialSorter: SorterState = {
-  sortBy: SORT_BY.Release,
-  isDESC: false
-};
-
 const MAPS_PER_PAGE: number = 20;
 
 function App() {
@@ -44,7 +37,6 @@ function App() {
   });
   const [filter, setFilter] = useState<FilterState>(initialFilter);
   const [teeData, setTeeData] = useState<TeeData>(initialTeeData);
-  const [sorter, setSorter] = useState<SorterState>(initialSorter);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -81,7 +73,6 @@ function App() {
     () => getFilteredMaps(allMaps, filter, teeData),
     [allMaps, filter, teeData]
   );
-  const isFilterSearchActive = filter.name.trim() !== '' || filter.mapper.trim() !== '';
   const filterKey = useMemo(() => JSON.stringify(filter), [filter]);
   const resultKey = `${allMaps.length}:${teeData.player}:${filterKey}`;
   const visibleCount = pagination.key === resultKey ? pagination.visibleCount : MAPS_PER_PAGE;
@@ -122,10 +113,7 @@ function App() {
   }, [filteredMaps.length, resultKey, visibleCount, isLoading]);
 
 
-  const displayMaps = useMemo(
-    () => (isFilterSearchActive ? filteredMaps : getSortedMaps(filteredMaps, sorter)),
-    [filteredMaps, sorter, isFilterSearchActive]
-  );
+  const displayMaps = filteredMaps;
 
 	return (
   <>
@@ -133,10 +121,6 @@ function App() {
     <Filter hasTeeData={Boolean(teeData.player)} allTiles={allTiles} filter={filter} setFilter={setFilter}/>
 
     <div className="map_cards">
-      <div className="map_sort">
-        <Sorter sorter={sorter} setSorter={setSorter} disabled={isFilterSearchActive} />
-      </div>
-
       <div className="map_cards__parent">
         <MapCards mapDatas={displayMaps} loadAmount={visibleCount}/>
       </div>
