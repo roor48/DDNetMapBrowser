@@ -49,7 +49,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add assets/maps.json
+          git add src/assets/maps.json
           
           if ! git diff --staged --quiet; then
             git commit -m "Daily: Add missing maps"

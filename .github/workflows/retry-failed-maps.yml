@@ -47,7 +47,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add assets/maps.json utils/logs/
+          git add src/assets/maps.json utils/logs/
           
           if ! git diff --staged --quiet; then
             git commit -m "Retry: Recover failed maps"
