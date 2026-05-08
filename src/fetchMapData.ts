@@ -1,4 +1,5 @@
 import type { MapData } from "./types";
+import mapsUrl from "./assets/maps.json?url";
 
 /**
  * 맵 데이터와 타일 목록을 가져옵니다.
@@ -11,10 +12,9 @@ export default async function fetchMapData(): Promise<[MapData[], string[]] | nu
             || window.location.hostname === '127.0.0.1'
             || window.location.protocol === 'file:';
 
-        const mapPath = '/maps.json';
         const releaseUrl = 'https://ddnet.org/releases/maps.json';
         
-        const fileRes = await fetch(mapPath, { cache: "no-store"});
+        const fileRes = await fetch(mapsUrl, { cache: "no-store" });
         const mapData: MapData[] = await fileRes.json();
         const mapDict: Record<string, MapData> = Object.fromEntries(
             mapData.map(map => [map.name, map])
