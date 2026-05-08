@@ -66,6 +66,10 @@ body {
     background-color: #040404 !important;
 }
 
+#root {
+    display: contents;
+}
+
 .invert-color {
     filter: invert(100%);
 }
@@ -241,8 +245,8 @@ body {
 
 .filter_bar .search_map {
     display: grid;
-    grid-template-rows: 2;
-    grid-template-columns: 1;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 1fr;
     gap: 0.7rem;
 }
 

@@ -12,238 +12,28 @@
   <meta property="og:site_name" content="DDNet Map Browser">
   <meta property="og:title" content="DDNet Map Browser">
   <meta property="og:description" content="Browse and filter DDNet maps...">
-  <meta property="og:image" content="https://www.ddmap.org/assets/OG_image.png">
+  <meta property="og:image" content="https://www.ddmap.org/OG_image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://www.ddmap.org">
   <link rel="canonical" href="https://www.ddmap.org">
   
   <title>DDNet Map Browser</title>
-  <link rel="stylesheet" href="./css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="sitemap" type="application/xml" href="./sitemap.xml">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
   <!-- favicon -->
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/favicon-192x192.png">
-  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon-192x192.png">
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <div class="topbar bg-black">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./">DDNetMapBrowser</a>
-      </div>
-    </nav>
-
-    <div class="topbar__tee-data" style="display: none;">
-      <span class="points"></span>
-    </div>
-    <div class="topbar__tee-data" style="display: none;">
-      <span class="name"></span>
-    </div>
-    <div class="topbar__tee-search">
-      <input id="teename-input" type="text" class="name-input" placeholder="Tee name">
-      <button class="search-icon-wrapper">
-        <img src="./assets/icon-arrow-circle-right.svg" class="search-icon invert-color">
-      </button>
-    </div>
-
-    <div class="topbar__map-counter">
-      <img class="invert-color map-counter__img" src="./assets/icon-map.svg">
-      <span class="map-counter__text">0 maps</span>
-    </div>
-  </div>
-
-  <div class="filter_bar">
-    <div class="filter_bar__div search_map">
-      <div class="search-wrapper">
-        <input id="filter__map-search" type="text" class="filter__map-search" placeholder="Map search">
-      </div>
-      <div class="search-wrapper">
-        <input id="filter__mapper-search" type="text" class="filter__mapper-search" placeholder="Mapper search">
-      </div>
-    </div>
-
-    <div class="filter_bar__div user_filter">
-      <details class="filter__details" open>
-        <summary class="filter_summary">Finished</summary>
-
-        <div class="filter-checkbox finished-wrapper">
-          <label for="user-finished">
-            <input id="user-finished" class="form-check-input" type="checkbox" value="" disabled>
-            Finished
-          </label>
-        </div>
-        <div class="filter-checkbox unfinished-wrapper">
-          <label for="user-unfinished">
-            <input id="user-unfinished" class="form-check-input" type="checkbox" value="" disabled>
-            Unfinished
-          </label>
-        </div>
-      </details>
-    </div>
-
-    <div class="filter_bar__div">
-      <details class="filter__details" open>
-        <summary class="filter_summary">Map Type</summary>
-
-        <div class="filter__type_parent">
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_novice">
-              <input id="filter_novice" class="form-check-input" type="checkbox" value="">
-              Novice
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_moderate">
-              <input id="filter_moderate" class="form-check-input" type="checkbox" value="">
-              Moderate
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_brutal">
-              <input id="filter_brutal" class="form-check-input" type="checkbox" value="">
-              Brutal
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_insane">
-              <input id="filter_insane" class="form-check-input" type="checkbox" value="">
-              Insane
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_dummy">
-              <input id="filter_dummy" class="form-check-input" type="checkbox" value="">
-              Dummy
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_oldschool">
-              <input id="filter_oldschool" class="form-check-input" type="checkbox" value="">
-              Oldschool
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_solo">
-              <input id="filter_solo" class="form-check-input" type="checkbox" value="">
-              Solo
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_race">
-              <input id="filter_race" class="form-check-input" type="checkbox" value="">
-              Race
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_fun">
-              <input id="filter_fun" class="form-check-input" type="checkbox" value="">
-              Fun
-            </label>
-          </div>
-
-          <div class="filter-checkbox unfinished-wrapper">
-            <label for="filter_event">
-              <input id="filter_event" class="form-check-input" type="checkbox" value="">
-              Event
-            </label>
-          </div>
-
-          <div class="map_type__ddmax">
-            <p class="map_type__ddmax__p">DDmaX</p>
-
-            <div class="filter-checkbox unfinished-wrapper">
-              <label for="filter_ddmax_easy">
-                <input id="filter_ddmax_easy" class="form-check-input" type="checkbox" value="">
-                DDmaX.Easy
-              </label>
-            </div>
-
-            <div class="filter-checkbox unfinished-wrapper">
-              <label for="filter_ddmax_next">
-                <input id="filter_ddmax_next" class="form-check-input" type="checkbox" value="">
-                DDmaX.Next
-              </label>
-            </div>
-
-            <div class="filter-checkbox unfinished-wrapper">
-              <label for="filter_ddmax_pro">
-                <input id="filter_ddmax_pro" class="form-check-input" type="checkbox" value="">
-                DDmaX.Pro
-              </label>
-            </div>
-
-            <div class="filter-checkbox unfinished-wrapper">
-              <label for="filter_ddmax_nut">
-                <input id="filter_ddmax_nut" class="form-check-input" type="checkbox" value="">
-                DDmaX.Nut
-              </label>
-            </div>
-          </div>
-        </div>
-      </details>
-    </div>
-
-    <div class="filter_bar__div">
-      <details class="filter__details" open>
-        <summary class="filter_summary">Difficulty</summary>
-
-        <div class="difficulty__range-container">
-          <div class="difficulty__labels">
-            <span class="difficulty__label">Min: <span class="difficulty-min-value">0</span></span>
-            <span class="difficulty__label">Max: <span class="difficulty-max-value">5</span></span>
-          </div>
-          <div class="difficulty__sliders">
-            <div class="difficulty__range-fill"></div>
-            <input type="range" class="difficulty__slider" min="0" max="5" value="0" step="1">
-            <input type="range" class="difficulty__slider" min="0" max="5" value="5" step="1">
-          </div>
-        </div>
-      </details>
-    </div>
-    
-    <div class="filter_bar__div">
-      <details class="filter__details" open>
-        <summary class="filter_summary">Tiles</summary>
-        <div class="filter__tile_parent">
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <div class="map_cards">
-    <div class="map_sort">
-    </div>
-    
-    <div class="map_cards__parent">
-    </div>
-
-    <div class="loading-dot">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
-  <div class="up-button">
-    <img class="invert-color" src="assets/icon-up-circle.svg" onclick="window.scrollTo({ top: 0, behavior: 'smooth'});">
-  </div>
-
-  <script src="./scripts/index.js" type="module"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
