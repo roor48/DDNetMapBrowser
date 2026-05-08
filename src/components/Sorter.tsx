@@ -1,4 +1,5 @@
 import { SORT_BY, type Sorter } from "../types"
+import iconSort from "../assets/icon-sort.svg";
 
 type SorterProps = {
   sorter: Sorter,
@@ -12,7 +13,7 @@ export default function Sorter({ sorter, setSorter, disabled = false }: SorterPr
     <img
       className="asc_icon invert-color"
       title={disabled ? "Sorting disabled while filtering by search" : sorter.isDESC ? "Descending" : "Ascending"}
-      src="/src/assets/icon-sort.svg"
+      src={iconSort}
       style={{
         transform: sorter.isDESC ? "scaleY(-1)" : "scaleY(1)",
         opacity: disabled ? 0.45 : 1,
