@@ -1,5 +1,27 @@
 [
     {
+        "name": "azazel",
+        "website": "https://ddnet.org/maps/azazel",
+        "thumbnail": "https://ddnet.org/ranks/maps/azazel.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=azazel",
+        "type": "Dummy",
+        "points": 20,
+        "difficulty": 3,
+        "mapper": "Nixus",
+        "release": "2026-05-09 19:00",
+        "width": 417,
+        "height": 417,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "DOOR",
+            "SWITCH",
+            "STOP",
+            "THROUGH_ALL",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "DrawGuess",
         "website": "https://ddnet.org/maps/DrawGuess",
         "thumbnail": "https://ddnet.org/ranks/maps/DrawGuess.png",
