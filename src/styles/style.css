@@ -41,8 +41,9 @@ html {
 
 :root {
     /* 레이아웃 */
-    --filter-bar-width: 18rem;
     --top-bar-height: 3.5rem;
+    --filter-bar-width: 18rem;
+    --filter-title-height: 4rem;
     
     /* 색상 */
     --scrollbar-track: #1a1a1a;
@@ -58,7 +59,7 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: var(--top-bar-height) 1fr;
     grid-template-columns: var(--filter-bar-width) 1fr;
     min-height: 100vh;
     margin: 0;
@@ -88,7 +89,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    grid-column: 1 / -1;
+    grid-column: 2;
     grid-row: 1;
     height: var(--top-bar-height);
     border-bottom: 1px solid var(--border-gray);
@@ -205,14 +206,80 @@ body {
 
 .filter_bar {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1 / -1;
     position: sticky;
-    top: var(--top-bar-height);
-    height: calc(100vh - var(--top-bar-height));
+    top: 0px;
+    height: 100vh;
+    background-color: #080808;
+    border-right: 1px solid var(--border-gray);
+}
+
+.filter_title {
+    display: flex;
+    
+    height: 4rem;
+    border-bottom: 1px solid var(--border-gray);
+    
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter_title .text {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.filter_title .text img {
+    width: 1.5rem;
+    aspect-ratio: 1 / 1;
+}
+
+.filter_title .text span {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.filter_title .clear_button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    
+    height: 2rem;
+    margin-right: 1rem;
+
+    border-radius: 7px;
+    border: none;
+    background: none;
+
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+.filter_title .clear_button:hover {
+    background-color: #2e2e2e;
+    font-weight: 550;
+    opacity: 1;
+}
+
+.filter_title .clear_button img {
+    width: 1.5rem;
+    aspect-ratio: 1 / 1;
+}
+.filter_title .clear_button span {
+    margin-right: 3px;
+    color: var(--text-light);
+}
+
+.filter_content {
     overflow-y: auto;
     overscroll-behavior: contain;
     user-select: none;
-    background-color: #080808;
+    height: calc(100vh - var(--filter-title-height));
+    /* height: 100vh; */
 }
 
 .filter_bar summary {

@@ -1,9 +1,24 @@
-import { useState } from "react"
-import { type Filter, type MapType, TYPES } from "../types"
+import { type Filter, type MapType, TYPES, initialFilter } from "../types"
+
+import FilterIcon from "../assets/icon-filter.svg"
+import XMark from "../assets/icon-xmark.svg"
 
 type FilterProps = {
   filter: Filter,
   setFilter: React.Dispatch<React.SetStateAction<Filter>>
+}
+
+function isDefaultFilter(filter: Filter): boolean {
+  return (
+    filter.name === initialFilter.name &&
+    filter.mapper === initialFilter.mapper &&
+    filter.isFinished === initialFilter.isFinished &&
+    filter.isUnfinished === initialFilter.isUnfinished &&
+    filter.types.length === initialFilter.types.length &&
+    Math.min(filter.difficultyRange[0], filter.difficultyRange[1]) === initialFilter.difficultyRange[0] &&
+    Math.max(filter.difficultyRange[0], filter.difficultyRange[1]) === initialFilter.difficultyRange[1] &&
+    filter.tiles.length === initialFilter.tiles.length
+  )
 }
 
 function SearchMapFilter({ filter, setFilter }: FilterProps) {
@@ -159,17 +174,17 @@ function MapTypeFilter({ filter, setFilter }: FilterProps) {
   )
 }
 
-function DifficultyFilter({ setFilter }: FilterProps) {
-  const [values, setValues] = useState([0, 5])
-
+type DifficultyFilterProps = Pick<FilterProps, "setFilter"> & {
+  values: [number, number],
+}
+function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
   const handleChange = (index: number, raw: number) => {
-    const next = [...values]
+    const next = [...values] as [number, number]
     next[index] = raw
-    setValues(next)
+
     setFilter(prev => ({
       ...prev,
-      difficultyMin: Math.min(next[0], next[1]),
-      difficultyMax: Math.max(next[0], next[1]),
+      difficultyRange: next,
     }))
   }
 
@@ -217,8 +232,6 @@ function DifficultyFilter({ setFilter }: FilterProps) {
   )
 }
 
-type TileFilterProps = Pick<FilterProps, "filter" | "setFilter"> & { allTiles: string[] }
-
 type TileCheckBoxProps = Pick<FilterProps, "filter" | "setFilter"> & { tile: string }
 function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
   const id = `filter_${tile.toLowerCase()}`
@@ -251,6 +264,7 @@ function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
   )
 }
 
+type TileFilterProps = Pick<FilterProps, "filter" | "setFilter"> & { allTiles: string[] }
 function TileFilter({ allTiles, filter, setFilter }: TileFilterProps) {
   return (
   <div className="filter_bar__div">
@@ -270,11 +284,28 @@ type FilterContainerProps = FilterProps & { hasTeeData: boolean, allTiles: strin
 export default function Filter({ hasTeeData, allTiles, filter, setFilter }: FilterContainerProps) {
   return (
     <div className="filter_bar">
-      <SearchMapFilter filter={filter} setFilter={setFilter}/>
-      <FinishStatusFilter hasTeeData={hasTeeData} filter={filter} setFilter={setFilter}/>
-      <MapTypeFilter filter={filter} setFilter={setFilter}/>
-      <DifficultyFilter filter={filter} setFilter={setFilter}/>
-      <TileFilter allTiles={allTiles} filter={filter} setFilter={setFilter}/>
+      <div className="filter_title">
+        <div className="text">
+          <img className="invert-color" src={FilterIcon}/>
+          <span>Filters</span>
+        </div>
+
+        {!isDefaultFilter(filter) && (
+          <button className="clear_button"
+            onClick={() => setFilter(initialFilter)}
+          >
+            <img className="invert-color" src={XMark}/>
+            <span>Clear</span>
+          </button>
+        )}
+      </div>
+      <div className="filter_content">
+          <SearchMapFilter filter={filter} setFilter={setFilter}/>
+          <FinishStatusFilter hasTeeData={hasTeeData} filter={filter} setFilter={setFilter}/>
+          <MapTypeFilter filter={filter} setFilter={setFilter}/>
+          <DifficultyFilter setFilter={setFilter} values={filter.difficultyRange}/>
+          <TileFilter allTiles={allTiles} filter={filter} setFilter={setFilter}/>
+      </div>
     </div>
   )
 }

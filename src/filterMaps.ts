@@ -49,7 +49,9 @@ export default function getFilteredMaps(mapDataList: MapData[], filter: Filter, 
             return false;
 
         // 난이도 필터
-        if (filter.difficultyMin > mapData.difficulty || filter.difficultyMax < mapData.difficulty)
+        const difficultyMin = Math.min(filter.difficultyRange[0], filter.difficultyRange[1]);
+        const difficultyMax = Math.max(filter.difficultyRange[0], filter.difficultyRange[1]);
+        if (difficultyMin > mapData.difficulty || difficultyMax < mapData.difficulty)
             return false;
 
         // 타일 필터

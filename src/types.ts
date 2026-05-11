@@ -54,9 +54,18 @@ export interface Filter {
     isFinished: boolean;
     isUnfinished: boolean;
     types: MapType[];
-    difficultyMin: number;
-    difficultyMax: number;
+    difficultyRange: [number, number];
     tiles: string[];
+};
+
+export const initialFilter: Filter = {
+    name: '',
+    mapper: '',
+    isFinished: false,
+    isUnfinished: false,
+    types: [],
+    difficultyRange: [0, 5],
+    tiles: []
 };
 
 export interface Sorter {

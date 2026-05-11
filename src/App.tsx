@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import {type Filter as FilterState, type MapData, type TeeData} from './types.js'
+import {type Filter as FilterState, type MapData, type TeeData, initialFilter} from './types.js'
 
 import upCircleIcon from './assets/icon-up-circle.svg'
 import Topbar from './components/Topbar'
@@ -8,16 +8,7 @@ import getFilteredMaps from './filterMaps.js'
 import MapCards from './components/MapCards.js';
 import fetchMapData from './fetchMapData';
 
-const initialFilter: FilterState = {
-  name: '',
-  mapper: '',
-  isFinished: false,
-  isUnfinished: false,
-  types: [],
-  difficultyMin: 0,
-  difficultyMax: 5,
-  tiles: []
-};
+
 
 const initialTeeData: TeeData = {
   player: '',
