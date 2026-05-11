@@ -92,7 +92,7 @@ export default function Topbar({ mapCount, teeData, setTeeData }: TopbarProps) {
   <div className="topbar bg-black">
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="./">DDNetMapBrowser</a>
+        <h1><a className="navbar-brand" href="/">DDNetMapBrowser</a></h1>
       </div>
     </nav>
 
