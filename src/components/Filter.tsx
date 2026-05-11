@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { type Filter, TYPES } from "../types"
+import { type Filter, type MapType, TYPES } from "../types"
 
 type FilterProps = {
   filter: Filter,
@@ -107,7 +107,7 @@ const DDMAX_TYPES = [
   TYPES.DDmaX_Easy, TYPES.DDmaX_Next, TYPES.DDmaX_Pro, TYPES.DDmaX_Nut,
 ]
 
-type TypeCheckboxProps = Pick<FilterProps, "filter" | "setFilter"> & { type: string }
+type TypeCheckboxProps = Pick<FilterProps, "filter" | "setFilter"> & { type: MapType }
 function TypeCheckbox({ type, filter, setFilter }: TypeCheckboxProps) {
   const id = `filter_${type.toLowerCase().replace('.', '_')}`
   return (
