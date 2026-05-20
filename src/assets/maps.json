@@ -1,5 +1,31 @@
 [
     {
+        "name": "Bloom",
+        "website": "https://ddnet.org/maps/Bloom",
+        "thumbnail": "https://ddnet.org/ranks/maps/Bloom.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Bloom",
+        "type": "Moderate",
+        "points": 11,
+        "difficulty": 3,
+        "mapper": "paproninja & Ililja_",
+        "release": "2026-05-19 19:30",
+        "width": 332,
+        "height": 332,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "SOLO_START",
+            "WEAPON_SHOTGUN",
+            "DRAGGER",
+            "SWITCH_TIMED",
+            "STOP",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "azazel",
         "website": "https://ddnet.org/maps/azazel",
         "thumbnail": "https://ddnet.org/ranks/maps/azazel.png",
