@@ -1,5 +1,26 @@
 [
     {
+        "name": "Rejected",
+        "website": "https://ddnet.org/maps/Rejected",
+        "thumbnail": "https://ddnet.org/ranks/maps/Rejected.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Rejected",
+        "type": "Race",
+        "points": 2,
+        "difficulty": 1,
+        "mapper": "wee",
+        "release": "2026-06-06 17:00",
+        "width": 1129,
+        "height": 1129,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "THROUGH_ALL",
+            "TUNE",
+            "TELEIN",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Bloom",
         "website": "https://ddnet.org/maps/Bloom",
         "thumbnail": "https://ddnet.org/ranks/maps/Bloom.png",
