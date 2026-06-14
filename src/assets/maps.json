@@ -1,5 +1,38 @@
 [
     {
+        "name": "TheRottingHalls",
+        "website": "https://ddnet.org/maps/TheRottingHalls",
+        "thumbnail": "https://ddnet.org/ranks/maps/TheRottingHalls.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=TheRottingHalls",
+        "type": "Brutal",
+        "points": 24,
+        "difficulty": 3,
+        "mapper": "Pipou, VéNa, tatak & Nehr",
+        "release": "2026-06-13 19:56",
+        "width": 2300,
+        "height": 2300,
+        "tiles": [
+            "JUMP",
+            "SOLO_START",
+            "TELE_GUN",
+            "JETPACK_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "DOOR",
+            "SWITCH",
+            "STOP",
+            "THROUGH_ALL",
+            "TUNE",
+            "TELEINEVIL",
+            "TELEIN",
+            "TELECHECK",
+            "CHECKPOINT_FIRST",
+            "BONUS",
+            "BOOST"
+        ]
+    },
+    {
         "name": "Rejected",
         "website": "https://ddnet.org/maps/Rejected",
         "thumbnail": "https://ddnet.org/ranks/maps/Rejected.png",
