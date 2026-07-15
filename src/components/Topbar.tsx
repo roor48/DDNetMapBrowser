@@ -89,25 +89,23 @@ export default function Topbar({ mapCount, teeData, setTeeData }: TopbarProps) {
   };
 
   return (
-  <div className="topbar bg-black">
-    <nav className="navbar navbar-expand-lg navbar-dark">
-      <div className="container-fluid">
-        <h1><a className="navbar-brand" href="/">DDNetMapBrowser</a></h1>
-      </div>
-    </nav>
+  <div className="flex sticky top-0 z-[100] col-start-2 row-start-1 h-14 bg-gray-950 border-b border-gray-800 items-center max-h-14">
+    <h1 className="flex-1 h-[70%] flex items-center m-0 pl-4 text-2xl font-bold">
+      <a className="text-white no-underline" href="/">DDNetMapBrowser</a>
+    </h1>
 
     {teeData.player && (
       <>
-        <div className="topbar__tee-data">
+        <div className="flex items-center bg-[#1a1a1a] rounded-lg w-fit px-2.5 opacity-80 mr-2.5 text-gray-100 font-medium h-[70%]">
           <span className="points">{teeData.points}pts</span>
         </div>
-        <div className="topbar__tee-data">
+        <div className="flex items-center bg-[#1a1a1a] rounded-lg w-fit px-2.5 opacity-80 mr-2.5 text-gray-100 font-medium h-[70%]">
           <span className="name">{teeData.player}</span>
         </div>
       </>
     )}
-    <div className="topbar__tee-search">
-      <input id="teename-input" type="text" className="name-input" placeholder="Tee name"
+    <div className="flex items-center mr-2.5 w-45 bg-[#1a1a1a] rounded-full focus-within:ring-1 focus-within:ring-white h-[70%]">
+      <input id="teename-input" type="text" className="text-[0.9rem] whitespace-nowrap text-gray-100 font-[700] opacity-90 pl-4 pr-2 w-full h-full bg-[#1a1a1a] rounded-l-full border-none focus:outline-none tracking-wide" placeholder="Tee name"
         value={teeNameInput}
         onChange={e => setTeeNameInput(e.currentTarget.value)}
         onKeyUp={e => {
@@ -118,20 +116,20 @@ export default function Topbar({ mapCount, teeData, setTeeData }: TopbarProps) {
         }}
       />
       <button
-        className="search-icon-wrapper"
+        className="h-full aspect-square rounded-full border-none bg-transparent p-0 cursor-pointer active:brightness-75 active:scale-95"
         onClick={e => {
             e.currentTarget.blur();
             handleSubmit();
           }
         }
       >
-      <img src={arrowCircleRightIcon} className="search-icon invert-color" />
+      <img src={arrowCircleRightIcon} className="rounded-full invert" />
       </button>
     </div>
 
-    <div className="topbar__map-counter">
-      <img className="invert-color map-counter__img" src={mapIcon} />
-      <span className="map-counter__text">{mapCount} maps</span>
+    <div className="flex items-center gap-2 py-1.5 px-3 mr-5 bg-[#1a1a1a] rounded-lg text-[0.9rem] whitespace-nowrap h-[70%]">
+      <img className="invert w-[1.125rem] h-[1.125rem] opacity-80" src={mapIcon} />
+      <span className="text-gray-100 font-medium opacity-80">{mapCount} maps</span>
     </div>
   </div>
   )

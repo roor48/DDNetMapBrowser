@@ -23,12 +23,12 @@ function isDefaultFilter(filter: Filter): boolean {
 
 function SearchMapFilter({ filter, setFilter }: FilterProps) {
   return (
-  <div className="filter_bar__div search_map">
-    <div className="search-wrapper">
+  <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333] grid grid-rows-[auto_auto] grid-cols-1 gap-[0.7rem]">
+    <div className="w-full h-10">
       <input
         id="filter__map-search"
         type="text"
-        className="filter__map-search"
+        className="text-base px-3 text-gray-100 font-bold opacity-90 w-full h-full rounded-[9px] bg-gray-900 border border-[#333] outline-none focus:border-white"
         placeholder="Map search"
         value={filter.name}
         onChange={e => {
@@ -40,11 +40,11 @@ function SearchMapFilter({ filter, setFilter }: FilterProps) {
         }}
       />
     </div>
-    <div className="search-wrapper">
+    <div className="w-full h-10">
       <input
         id="filter__mapper-search"
         type="text"
-        className="filter__mapper-search"
+        className="text-base px-3 text-gray-100 font-bold opacity-90 w-full h-full rounded-[9px] bg-gray-900 border border-[#333] outline-none focus:border-white"
         placeholder="Mapper search"
         value={filter.mapper}
         onChange={e => {
@@ -63,15 +63,15 @@ function SearchMapFilter({ filter, setFilter }: FilterProps) {
 type FinishStatusProps = Pick<FilterProps, "filter" | "setFilter"> & { hasTeeData: boolean }
 function FinishStatusFilter({ hasTeeData, filter, setFilter }: FinishStatusProps) {
   return (
-  <div className="filter_bar__div user_filter">
-    <details className="filter__details" open>
-      <summary className="filter_summary">Finished</summary>
+  <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333]">
+    <details open>
+      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Finished</summary>
 
-      <div className="filter-checkbox finished-wrapper">
-        <label htmlFor="user-finished">
+      <div className="cursor-pointer has-[:disabled]:cursor-not-allowed">
+        <label htmlFor="user-finished" className="flex items-center w-full m-0 cursor-inherit">
           <input
             id="user-finished"
-            className="form-check-input"
+            className="mr-2 cursor-pointer"
             type="checkbox"
             disabled={!hasTeeData}
             checked={filter.isFinished}
@@ -87,11 +87,11 @@ function FinishStatusFilter({ hasTeeData, filter, setFilter }: FinishStatusProps
           Finished
         </label>
       </div>
-      <div className="filter-checkbox unfinished-wrapper">
-        <label htmlFor="user-unfinished">
+      <div className="cursor-pointer has-[:disabled]:cursor-not-allowed">
+        <label htmlFor="user-unfinished" className="flex items-center w-full m-0 cursor-inherit">
           <input
             id="user-unfinished"
-            className="form-check-input"
+            className="mr-2 cursor-pointer"
             type="checkbox"
             value=""
             disabled={!hasTeeData}
@@ -126,11 +126,11 @@ type TypeCheckboxProps = Pick<FilterProps, "filter" | "setFilter"> & { type: Map
 function TypeCheckbox({ type, filter, setFilter }: TypeCheckboxProps) {
   const id = `filter_${type.toLowerCase().replace('.', '_')}`
   return (
-    <div className="filter-checkbox unfinished-wrapper">
-      <label htmlFor={id}>
+    <div className="cursor-pointer">
+      <label htmlFor={id} className="flex items-center w-full m-0 cursor-inherit">
         <input
           id={id}
-          className="form-check-input"
+          className="mr-2 cursor-pointer"
           type="checkbox"
           checked={filter.types.includes(type)}
           onChange={e => {
@@ -153,20 +153,22 @@ function TypeCheckbox({ type, filter, setFilter }: TypeCheckboxProps) {
 
 function MapTypeFilter({ filter, setFilter }: FilterProps) {
   return (
-  <div className="filter_bar__div">
-    <details className="filter__details" open>
-      <summary className="filter_summary">Map Type</summary>
+  <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333]">
+    <details open>
+      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Map Type</summary>
 
-      <div className="filter__type_parent">
+      <div>
         {NORMAL_TYPES.map(type => (
           <TypeCheckbox key={type} type={type} filter={filter} setFilter={setFilter} />
         ))}
 
-        <div className="map_type__ddmax">
-          <p className="map_type__ddmax__p">DDmaX</p>
-          {DDMAX_TYPES.map(type => (
-            <TypeCheckbox key={type} type={type} filter={filter} setFilter={setFilter} />
-          ))}
+        <div className="mt-4">
+          <p className="text-[1.1rem] font-semibold mb-0">DDmaX</p>
+          <div className="ml-5">
+            {DDMAX_TYPES.map(type => (
+              <TypeCheckbox key={type} type={type} filter={filter} setFilter={setFilter} />
+            ))}
+          </div>
         </div>
       </div>
     </details>
@@ -194,18 +196,18 @@ function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
   const maxPercent = (displayMax / 5) * 100
 
   return (
-    <div className="filter_bar__div">
-      <details className="filter__details" open>
-        <summary className="filter_summary">Difficulty</summary>
+    <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333]">
+      <details open>
+        <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Difficulty</summary>
 
-        <div className="difficulty__range-container">
-          <div className="difficulty__labels">
-            <span className="difficulty__label">Min: <span className="difficulty-min-value">{displayMin}</span></span>
-            <span className="difficulty__label">Max: <span className="difficulty-max-value">{displayMax}</span></span>
+        <div className="p-2">
+          <div className="flex justify-between mb-2.5 text-gray-100 text-[0.9rem]">
+            <span className="text-[#aaa]">Min: <span className="text-[#ffd700] font-semibold">{displayMin}</span></span>
+            <span className="text-[#aaa]">Max: <span className="text-[#ffd700] font-semibold">{displayMax}</span></span>
           </div>
-          <div className="difficulty__sliders">
+          <div className="relative h-1.5 w-full rounded-full bg-white">
             <div
-              className="difficulty__range-fill"
+              className="absolute w-full h-full bg-gradient-to-r from-[#ffd700] to-[#ffed4e] rounded-full pointer-events-none"
               style={{
                 left: `${minPercent}%`,
                 width: `${maxPercent - minPercent}%`,
@@ -213,14 +215,14 @@ function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
             ></div>
             <input
               type="range"
-              className="difficulty__slider"
+              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-[#333] [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-[#ffd700] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#1a1a1a] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffed4e] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-[#333] [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-[#ffd700] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#1a1a1a] [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffed4e] z-[1]"
               min="0" max="5" step="1"
               value={values[0]}
               onChange={e => handleChange(0, parseInt(e.currentTarget.value))}
             />
             <input
               type="range"
-              className="difficulty__slider"
+              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-[#333] [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-[#ffd700] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#1a1a1a] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffed4e] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-[#333] [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-[#ffd700] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#1a1a1a] [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffed4e] z-[2]"
               min="0" max="5" step="1"
               value={values[1]}
               onChange={e => handleChange(1, parseInt(e.currentTarget.value))}
@@ -236,10 +238,10 @@ type TileCheckBoxProps = Pick<FilterProps, "filter" | "setFilter"> & { tile: str
 function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
   const id = `filter_${tile.toLowerCase()}`
   return (
-    <div className="tile_filter" title={tile}>
+    <div className="flex items-center justify-center aspect-square border-[0.15rem] border-gray-800 rounded-[7px] has-[:checked]:border-[#2f00ff]" title={tile}>
       <input
         id={id}
-        className="btn-check"
+        className="hidden"
         type="checkbox"
         autoComplete="off"
         checked={filter.tiles.includes(tile)}
@@ -253,9 +255,9 @@ function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
             }))
         }}
       />
-      <label className="tile_button" htmlFor={id}>
+      <label className="cursor-pointer flex w-full aspect-square items-center justify-center p-1.5" htmlFor={id}>
         <img
-          className="tile_image"
+          className="block h-full aspect-square items-center justify-center bg-[#555555]"
           src={`https://ddnet.org/tiles/${tile}.png`}
           alt={tile}
         />
@@ -267,10 +269,10 @@ function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
 type TileFilterProps = Pick<FilterProps, "filter" | "setFilter"> & { allTiles: string[] }
 function TileFilter({ allTiles, filter, setFilter }: TileFilterProps) {
   return (
-  <div className="filter_bar__div">
-    <details className="filter__details" open>
-      <summary className="filter_summary">Tiles</summary>
-      <div className="filter__tile_parent">
+  <div className="p-4 relative text-[#f8f8e9] w-full">
+    <details open>
+      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Tiles</summary>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(2.8rem,1fr))] gap-[0.3rem]">
         {allTiles.map(tile => (
           <TileCheckBox key={tile} tile={tile} filter={filter} setFilter={setFilter}></TileCheckBox>
         ))}
@@ -283,23 +285,23 @@ function TileFilter({ allTiles, filter, setFilter }: TileFilterProps) {
 type FilterContainerProps = FilterProps & { hasTeeData: boolean, allTiles: string[] }
 export default function Filter({ hasTeeData, allTiles, filter, setFilter }: FilterContainerProps) {
   return (
-    <div className="filter_bar">
-      <div className="filter_title">
-        <div className="text">
-          <img className="invert-color" src={FilterIcon}/>
-          <span>Filters</span>
+    <div className="col-start-1 row-start-1 row-end-[-1] sticky top-0 h-screen bg-[#080808] border-r border-gray-800">
+      <div className="flex h-16 border-b border-gray-800 items-center justify-between">
+        <div className="ml-4 flex items-center gap-0.5">
+          <img className="invert w-6 aspect-square" src={FilterIcon}/>
+          <span className="text-[1.3rem] font-semibold text-gray-100">Filters</span>
         </div>
 
         {!isDefaultFilter(filter) && (
-          <button className="clear_button"
+          <button className="flex items-center justify-center h-8 mr-4 rounded-[7px] border-none bg-transparent opacity-50 font-medium hover:bg-[#2e2e2e] hover:font-[550] hover:opacity-100"
             onClick={() => setFilter(initialFilter)}
           >
-            <img className="invert-color" src={XMark}/>
-            <span>Clear</span>
+            <img className="invert w-6 aspect-square" src={XMark}/>
+            <span className="mr-1 text-gray-100">Clear</span>
           </button>
         )}
       </div>
-      <div className="filter_content">
+      <div className="overflow-y-auto overscroll-contain select-none h-[calc(100vh-4rem)]">
           <SearchMapFilter filter={filter} setFilter={setFilter}/>
           <FinishStatusFilter hasTeeData={hasTeeData} filter={filter} setFilter={setFilter}/>
           <MapTypeFilter filter={filter} setFilter={setFilter}/>

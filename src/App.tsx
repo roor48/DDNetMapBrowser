@@ -112,23 +112,23 @@ function App() {
     <Topbar mapCount={displayMaps.length} teeData={teeData} setTeeData={setTeeData} />
     <Filter hasTeeData={Boolean(teeData.player)} allTiles={allTiles} filter={filter} setFilter={setFilter}/>
 
-    <div className="map_cards">
-      <div className="map_cards__parent">
+    <div className="col-start-2 row-start-2 m-5">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(17.5rem,1fr))] gap-5">
         <MapCards mapDatas={displayMaps} loadAmount={visibleCount}/>
       </div>
 
       {(isLoading || visibleCount < displayMaps.length) && (
-        <div className="loading-dot" ref={loadMoreRef}>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className="py-12 flex justify-center items-center" ref={loadMoreRef}>
+          <span className="inline-block w-3 h-3 bg-white rounded-full [animation:loading_1s_linear_infinite]" style={{ animationDelay: '0s' }}></span>
+          <span className="inline-block w-3 h-3 bg-white rounded-full [animation:loading_1s_linear_infinite] mx-2" style={{ animationDelay: '0.2s' }}></span>
+          <span className="inline-block w-3 h-3 bg-white rounded-full [animation:loading_1s_linear_infinite]" style={{ animationDelay: '0.4s' }}></span>
         </div>
       )}
     </div>
 
-    <div className="up-button">
+    <div className="fixed bottom-6 right-6 w-14 h-14 cursor-pointer z-50 opacity-70 hover:opacity-100 transition-opacity duration-300">
       <img
-        className="invert-color"
+        className="invert"
         src={upCircleIcon}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       />
