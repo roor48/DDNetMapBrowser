@@ -28,6 +28,7 @@ function App() {
   });
   const [filter, setFilter] = useState<FilterState>(initialFilter);
   const [teeData, setTeeData] = useState<TeeData>(initialTeeData);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
 
@@ -109,10 +110,22 @@ function App() {
 
 	return (
   <>
-    <Topbar mapCount={displayMaps.length} teeData={teeData} setTeeData={setTeeData} />
-    <Filter hasTeeData={Boolean(teeData.player)} allTiles={allTiles} filter={filter} setFilter={setFilter}/>
+    <Topbar 
+      mapCount={displayMaps.length} 
+      teeData={teeData} 
+      setTeeData={setTeeData}
+      onFilterToggle={() => setIsFilterOpen(!isFilterOpen)}
+    />
+    <Filter 
+      hasTeeData={Boolean(teeData.player)} 
+      allTiles={allTiles} 
+      filter={filter} 
+      setFilter={setFilter}
+      isOpen={isFilterOpen}
+      onClose={() => setIsFilterOpen(false)}
+    />
 
-    <div className="col-start-2 row-start-2 m-5">
+    <div className="col-start-1 md:col-start-2 row-start-2 m-5">
       <div className="grid grid-cols-[repeat(auto-fill,minmax(17.5rem,1fr))] gap-5">
         <MapCards mapDatas={displayMaps} loadAmount={visibleCount}/>
       </div>

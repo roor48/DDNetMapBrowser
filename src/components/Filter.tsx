@@ -282,18 +282,35 @@ function TileFilter({ allTiles, filter, setFilter }: TileFilterProps) {
   )
 }
 
-type FilterContainerProps = FilterProps & { hasTeeData: boolean, allTiles: string[] }
-export default function Filter({ hasTeeData, allTiles, filter, setFilter }: FilterContainerProps) {
+type FilterContainerProps = FilterProps & { hasTeeData: boolean, allTiles: string[], isOpen: boolean, onClose: () => void }
+export default function Filter({ hasTeeData, allTiles, filter, setFilter, isOpen, onClose }: FilterContainerProps) {
   return (
-    <div className="col-start-1 row-start-1 row-end-[-1] sticky top-0 h-screen bg-[#080808] border-r border-gray-800">
+    <>
+      {/* 모바일 배경 오버레이 */}
+      {isOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/50 z-[90]"
+          onClick={onClose}
+        />
+      )}
+      
+      {/* 필터 사이드바 */}
+      <div className={`
+        bg-[#080808] border-r border-gray-800
+        md:col-start-1 md:row-start-1 md:row-end-[-1] md:sticky md:top-0 md:h-screen md:block
+        ${isOpen ? 'block fixed inset-y-0 left-0 z-[95] w-72' : 'hidden md:block'}
+      `}>
       <div className="flex h-16 border-b border-gray-800 items-center justify-between">
-        <div className="ml-4 flex items-center gap-0.5">
+        <div
+          className="ml-4 flex items-center gap-0.5 cursor-pointer md:cursor-default" 
+          onClick={onClose}
+        >
           <img className="invert w-6 aspect-square" src={FilterIcon}/>
           <span className="text-[1.3rem] font-semibold text-gray-100">Filters</span>
         </div>
 
         {!isDefaultFilter(filter) && (
-          <button className="flex items-center justify-center h-8 mr-4 rounded-[7px] border-none bg-transparent opacity-50 font-medium hover:bg-[#2e2e2e] hover:font-[550] hover:opacity-100"
+          <button className="flex items-center justify-center h-8 mr-4 rounded-[7px] border-none bg-transparent opacity-50 font-medium cursor-pointer hover:bg-[#2e2e2e] hover:font-[550] hover:opacity-100"
             onClick={() => setFilter(initialFilter)}
           >
             <img className="invert w-6 aspect-square" src={XMark}/>
@@ -309,5 +326,6 @@ export default function Filter({ hasTeeData, allTiles, filter, setFilter }: Filt
           <TileFilter allTiles={allTiles} filter={filter} setFilter={setFilter}/>
       </div>
     </div>
+    </>
   )
 }

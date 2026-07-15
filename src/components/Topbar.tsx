@@ -7,9 +7,10 @@ interface TopbarProps {
   mapCount: number;
   teeData: TeeData;
   setTeeData: React.Dispatch<React.SetStateAction<TeeData>>;
+  onFilterToggle: () => void;
 }
 
-export default function Topbar({ mapCount, teeData, setTeeData }: TopbarProps) {
+export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }: TopbarProps) {
   const [teeNameInput, setTeeNameInput] = useState('');
   const activeControllerRef = useRef<AbortController | null>(null);
   const latestRequestIdRef = useRef(0);
@@ -89,8 +90,17 @@ export default function Topbar({ mapCount, teeData, setTeeData }: TopbarProps) {
   };
 
   return (
-  <div className="flex sticky top-0 z-[100] col-start-2 row-start-1 h-14 bg-gray-950 border-b border-gray-800 items-center max-h-14">
-    <h1 className="flex-1 h-[70%] flex items-center m-0 pl-4 text-2xl font-bold">
+  <div className="flex sticky top-0 z-[80] col-start-1 md:col-start-2 row-start-1 h-14 bg-gray-950 border-b border-gray-800 items-center max-h-14">
+    <button 
+      className="md:hidden flex items-center justify-center w-12 h-12 ml-2 bg-transparent border-none cursor-pointer"
+      onClick={onFilterToggle}
+      aria-label="Toggle filter menu"
+    >
+      <svg className="w-6 h-6 fill-white" viewBox="0 0 24 24">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </button>
+    <h1 className="flex-1 h-[70%] hidden md:flex items-center m-0 pl-4 text-2xl font-bold">
       <a className="text-white no-underline" href="/">DDNetMapBrowser</a>
     </h1>
 
