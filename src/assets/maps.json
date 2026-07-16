@@ -1,5 +1,27 @@
 [
     {
+        "name": "Down Bass",
+        "website": "https://ddnet.org/maps/Down-32-Bass",
+        "thumbnail": "https://ddnet.org/ranks/maps/Down_Bass.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Down+Bass",
+        "type": "Moderate",
+        "points": 13,
+        "difficulty": 4,
+        "mapper": "матвей & веселуhа",
+        "release": "2026-07-15 16:00",
+        "width": 130,
+        "height": 130,
+        "tiles": [
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "TheRottingHalls",
         "website": "https://ddnet.org/maps/TheRottingHalls",
         "thumbnail": "https://ddnet.org/ranks/maps/TheRottingHalls.png",
