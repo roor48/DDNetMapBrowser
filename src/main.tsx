@@ -3,6 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './styles/style.css'
 import App from './App.tsx'
 
+const prefersDark = window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).matches;
+document.documentElement.classList.toggle("dark", prefersDark);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

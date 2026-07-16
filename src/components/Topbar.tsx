@@ -90,32 +90,32 @@ export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }
   };
 
   return (
-  <div className="flex sticky top-0 z-[80] col-start-1 md:col-start-2 row-start-1 h-14 bg-gray-950 border-b border-gray-800 items-center max-h-14">
+  <div className="flex sticky top-0 z-[80] col-start-1 md:col-start-2 row-start-1 h-14 bg-topbar border-b border-border items-center max-h-14">
     <button 
       className="md:hidden flex items-center justify-center w-12 h-12 ml-2 bg-transparent border-none cursor-pointer"
       onClick={onFilterToggle}
       aria-label="Toggle filter menu"
     >
-      <svg className="w-6 h-6 fill-white" viewBox="0 0 24 24">
+      <svg className="w-6 h-6 fill-white dark:fill-black" viewBox="0 0 24 24">
         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
       </svg>
     </button>
     <h1 className="flex-1 h-[70%] hidden md:flex items-center m-0 pl-4 text-2xl font-bold">
-      <a className="text-white no-underline" href="/">DDNetMapBrowser</a>
+      <a className="text-text no-underline" href="/">DDNetMapBrowser</a>
     </h1>
 
     {teeData.player && (
       <>
-        <div className="flex items-center bg-[#1a1a1a] rounded-lg w-fit px-2.5 opacity-80 mr-2.5 text-gray-100 font-medium h-[70%]">
-          <span className="points">{teeData.points}pts</span>
+        <div className="flex items-center bg-surface-hover rounded-lg w-fit px-2.5 mr-2.5 text-text-secondary font-medium h-[70%]">
+          <span>{teeData.points}pts</span>
         </div>
-        <div className="flex items-center bg-[#1a1a1a] rounded-lg w-fit px-2.5 opacity-80 mr-2.5 text-gray-100 font-medium h-[70%]">
-          <span className="name">{teeData.player}</span>
+        <div className="flex items-center bg-surface-hover rounded-lg w-fit px-2.5 mr-2.5 text-text-secondary font-medium h-[70%]">
+          <span>{teeData.player}</span>
         </div>
       </>
     )}
-    <div className="flex items-center mr-2.5 w-45 bg-[#1a1a1a] rounded-full focus-within:ring-1 focus-within:ring-white h-[70%]">
-      <input id="teename-input" type="text" className="text-[0.9rem] whitespace-nowrap text-gray-100 font-[700] opacity-90 pl-4 pr-2 w-full h-full bg-[#1a1a1a] rounded-l-full border-none focus:outline-none tracking-wide" placeholder="Tee name"
+    <div className="flex items-center mr-2.5 w-45 bg-surface-hover rounded-full focus-within:ring-1 focus-within:ring-white h-[70%]">
+      <input id="teename-input" type="text" className="text-[0.9rem] whitespace-nowrap text-text-secondary font-[700] opacity-90 pl-4 pr-2 w-full h-full bg-surface-hover rounded-l-full border-none focus:outline-none tracking-wide" placeholder="Tee name"
         value={teeNameInput}
         onChange={e => setTeeNameInput(e.currentTarget.value)}
         onKeyUp={e => {
@@ -133,13 +133,13 @@ export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }
           }
         }
       >
-      <img src={arrowCircleRightIcon} className="rounded-full invert" />
+      <img src={arrowCircleRightIcon} className="rounded-full dark:invert" />
       </button>
     </div>
 
-    <div className="flex items-center gap-2 py-1.5 px-3 mr-5 bg-[#1a1a1a] rounded-lg text-[0.9rem] whitespace-nowrap h-[70%]">
-      <img className="invert w-[1.125rem] h-[1.125rem] opacity-80" src={mapIcon} />
-      <span className="text-gray-100 font-medium opacity-80">{mapCount} maps</span>
+    <div className="flex items-center gap-2 py-1.5 px-3 mr-5 bg-surface-hover rounded-lg text-[0.9rem] whitespace-nowrap h-[70%]">
+      <img className="dark:invert w-[1.125rem] h-[1.125rem] opacity-80" src={mapIcon} />
+      <span className="text-text-secondary font-medium">{mapCount} maps</span>
     </div>
   </div>
   )

@@ -23,12 +23,12 @@ function isDefaultFilter(filter: Filter): boolean {
 
 function SearchMapFilter({ filter, setFilter }: FilterProps) {
   return (
-  <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333] grid grid-rows-[auto_auto] grid-cols-1 gap-[0.7rem]">
+  <div className="p-4 relative text-text w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-border grid grid-rows-[auto_auto] grid-cols-1 gap-[0.7rem]">
     <div className="w-full h-10">
       <input
         id="filter__map-search"
         type="text"
-        className="text-base px-3 text-gray-100 font-bold opacity-90 w-full h-full rounded-[9px] bg-gray-900 border border-[#333] outline-none focus:border-white"
+        className="text-base px-3 text-text font-bold w-full h-full rounded-[9px] bg-surface-hover border border-border outline-none focus:border-white"
         placeholder="Map search"
         value={filter.name}
         onChange={e => {
@@ -44,7 +44,7 @@ function SearchMapFilter({ filter, setFilter }: FilterProps) {
       <input
         id="filter__mapper-search"
         type="text"
-        className="text-base px-3 text-gray-100 font-bold opacity-90 w-full h-full rounded-[9px] bg-gray-900 border border-[#333] outline-none focus:border-white"
+        className="text-base px-3 text-text font-bold w-full h-full rounded-[9px] bg-surface-hover border border-border outline-none focus:border-white"
         placeholder="Mapper search"
         value={filter.mapper}
         onChange={e => {
@@ -63,15 +63,15 @@ function SearchMapFilter({ filter, setFilter }: FilterProps) {
 type FinishStatusProps = Pick<FilterProps, "filter" | "setFilter"> & { hasTeeData: boolean }
 function FinishStatusFilter({ hasTeeData, filter, setFilter }: FinishStatusProps) {
   return (
-  <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333]">
+  <div className="p-4 relative text-text w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-border">
     <details open>
-      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Finished</summary>
+      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-text">Finished</summary>
 
-      <div className="cursor-pointer has-[:disabled]:cursor-not-allowed">
-        <label htmlFor="user-finished" className="flex items-center w-full m-0 cursor-inherit">
+      <div>
+        <label htmlFor="user-finished" className={`flex items-center w-full m-0 ${!hasTeeData ? "cursor-not-allowed" : "cursor-pointer"}`}>
           <input
             id="user-finished"
-            className="mr-2 cursor-pointer"
+            className="mr-2 cursor-pointer disabled:cursor-not-allowed"
             type="checkbox"
             disabled={!hasTeeData}
             checked={filter.isFinished}
@@ -87,11 +87,11 @@ function FinishStatusFilter({ hasTeeData, filter, setFilter }: FinishStatusProps
           Finished
         </label>
       </div>
-      <div className="cursor-pointer has-[:disabled]:cursor-not-allowed">
-        <label htmlFor="user-unfinished" className="flex items-center w-full m-0 cursor-inherit">
+      <div>
+        <label htmlFor="user-unfinished" className={`flex items-center w-full m-0 ${!hasTeeData ? "cursor-not-allowed" : "cursor-pointer"}`}>
           <input
             id="user-unfinished"
-            className="mr-2 cursor-pointer"
+            className="mr-2 cursor-pointer disabled:cursor-not-allowed"
             type="checkbox"
             value=""
             disabled={!hasTeeData}
@@ -153,9 +153,9 @@ function TypeCheckbox({ type, filter, setFilter }: TypeCheckboxProps) {
 
 function MapTypeFilter({ filter, setFilter }: FilterProps) {
   return (
-  <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333]">
+  <div className="p-4 relative text-text w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-border">
     <details open>
-      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Map Type</summary>
+      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-text">Map Type</summary>
 
       <div>
         {NORMAL_TYPES.map(type => (
@@ -196,18 +196,18 @@ function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
   const maxPercent = (displayMax / 5) * 100
 
   return (
-    <div className="p-4 relative text-[#f8f8e9] w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-[#333]">
+    <div className="p-4 relative text-text w-full after:content-[''] after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-border">
       <details open>
-        <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Difficulty</summary>
+        <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-text">Difficulty</summary>
 
         <div className="p-2">
-          <div className="flex justify-between mb-2.5 text-gray-100 text-[0.9rem]">
-            <span className="text-[#aaa]">Min: <span className="text-[#ffd700] font-semibold">{displayMin}</span></span>
-            <span className="text-[#aaa]">Max: <span className="text-[#ffd700] font-semibold">{displayMax}</span></span>
+          <div className="flex justify-between mb-2.5 text-text text-[0.9rem]">
+            <span className="text-text-secondary">Min: <span className="text-amber-500 font-semibold">{displayMin}</span></span>
+            <span className="text-text-secondary">Max: <span className="text-amber-500 font-semibold">{displayMax}</span></span>
           </div>
           <div className="relative h-1.5 w-full rounded-full bg-white">
             <div
-              className="absolute w-full h-full bg-gradient-to-r from-[#ffd700] to-[#ffed4e] rounded-full pointer-events-none"
+              className="absolute w-full h-full bg-gradient-to-r from-amber-500 to-[#ffd700] rounded-full pointer-events-none"
               style={{
                 left: `${minPercent}%`,
                 width: `${maxPercent - minPercent}%`,
@@ -215,14 +215,14 @@ function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
             ></div>
             <input
               type="range"
-              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-[#333] [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-[#ffd700] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#1a1a1a] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffed4e] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-[#333] [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-[#ffd700] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#1a1a1a] [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffed4e] z-[1]"
+              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-text-secondary [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface-hover [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffd700] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-text-secondary [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-amber-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-surface-hover [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffd700] z-[1]"
               min="0" max="5" step="1"
               value={values[0]}
               onChange={e => handleChange(0, parseInt(e.currentTarget.value))}
             />
             <input
               type="range"
-              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-[#333] [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-[#ffd700] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#1a1a1a] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffed4e] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-[#333] [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-[#ffd700] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#1a1a1a] [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffed4e] z-[2]"
+              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-text-secondary [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface-hover [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffd700] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-text-secondary [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-amber-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-surface-hover [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffd700] z-[2]"
               min="0" max="5" step="1"
               value={values[1]}
               onChange={e => handleChange(1, parseInt(e.currentTarget.value))}
@@ -238,7 +238,7 @@ type TileCheckBoxProps = Pick<FilterProps, "filter" | "setFilter"> & { tile: str
 function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
   const id = `filter_${tile.toLowerCase()}`
   return (
-    <div className="flex items-center justify-center aspect-square border-[0.15rem] border-gray-800 rounded-[7px] has-[:checked]:border-[#2f00ff]" title={tile}>
+    <div className="flex items-center justify-center aspect-square border-[0.15rem] border-border rounded-[7px] has-[:checked]:border-[#2f00ff]" title={tile}>
       <input
         id={id}
         className="hidden"
@@ -269,9 +269,9 @@ function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
 type TileFilterProps = Pick<FilterProps, "filter" | "setFilter"> & { allTiles: string[] }
 function TileFilter({ allTiles, filter, setFilter }: TileFilterProps) {
   return (
-  <div className="p-4 relative text-[#f8f8e9] w-full">
+  <div className="p-4 relative text-text w-full">
     <details open>
-      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-gray-100">Tiles</summary>
+      <summary className="list-none pb-2.5 text-[1.1rem] font-semibold text-text">Tiles</summary>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(2.8rem,1fr))] gap-[0.3rem]">
         {allTiles.map(tile => (
           <TileCheckBox key={tile} tile={tile} filter={filter} setFilter={setFilter}></TileCheckBox>
@@ -296,25 +296,25 @@ export default function Filter({ hasTeeData, allTiles, filter, setFilter, isOpen
       
       {/* 필터 사이드바 */}
       <div className={`
-        bg-[#080808] border-r border-gray-800
+        bg-filter border-r border-border
         md:col-start-1 md:row-start-1 md:row-end-[-1] md:sticky md:top-0 md:h-screen md:block
         ${isOpen ? 'block fixed inset-y-0 left-0 z-[95] w-72' : 'hidden md:block'}
       `}>
-      <div className="flex h-16 border-b border-gray-800 items-center justify-between">
+      <div className="flex h-16 border-b border-border items-center justify-between">
         <div
           className="ml-4 flex items-center gap-0.5 cursor-pointer md:cursor-default" 
           onClick={onClose}
         >
-          <img className="invert w-6 aspect-square" src={FilterIcon}/>
-          <span className="text-[1.3rem] font-semibold text-gray-100">Filters</span>
+          <img className="dark:invert w-6 aspect-square" src={FilterIcon}/>
+          <span className="text-[1.3rem] font-semibold text-text">Filters</span>
         </div>
 
         {!isDefaultFilter(filter) && (
-          <button className="flex items-center justify-center h-8 mr-4 rounded-[7px] border-none bg-transparent opacity-50 font-medium cursor-pointer hover:bg-[#2e2e2e] hover:font-[550] hover:opacity-100"
+          <button className="flex items-center justify-center h-8 mr-4 rounded-[7px] border-none bg-transparent font-medium cursor-pointer hover:bg-surface-hover hover:font-[550] hover:opacity-100"
             onClick={() => setFilter(initialFilter)}
           >
-            <img className="invert w-6 aspect-square" src={XMark}/>
-            <span className="mr-1 text-gray-100">Clear</span>
+            <img className="dark:invert w-6 aspect-square" src={XMark}/>
+            <span className="mr-1 text-text">Clear</span>
           </button>
         )}
       </div>
