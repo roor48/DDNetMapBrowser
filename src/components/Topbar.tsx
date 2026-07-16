@@ -90,7 +90,7 @@ export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }
   };
 
   return (
-  <div className="flex sticky top-0 z-[80] col-start-1 md:col-start-2 row-start-1 h-14 bg-topbar border-b border-border items-center max-h-14">
+  <div className="flex sticky top-0 z-80 col-start-1 md:col-start-2 row-start-1 h-14 bg-topbar border-b border-border items-center max-h-14">
     <button 
       className="md:hidden flex items-center justify-center w-12 h-12 ml-2 bg-transparent border-none cursor-pointer"
       onClick={onFilterToggle}
@@ -115,7 +115,7 @@ export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }
       </>
     )}
     <div className="flex items-center mr-2.5 w-45 bg-surface-hover rounded-full focus-within:ring-1 focus-within:ring-white h-[70%]">
-      <input id="teename-input" type="text" className="text-[0.9rem] whitespace-nowrap text-text-secondary font-[700] opacity-90 pl-4 pr-2 w-full h-full bg-surface-hover rounded-l-full border-none focus:outline-none tracking-wide" placeholder="Tee name"
+      <input id="teename-input" type="text" className="text-[0.9rem] whitespace-nowrap text-text-secondary font-bold opacity-90 pl-4 pr-2 w-full h-full bg-surface-hover rounded-l-full border-none focus:outline-none tracking-wide" placeholder="Tee name"
         value={teeNameInput}
         onChange={e => setTeeNameInput(e.currentTarget.value)}
         onKeyUp={e => {
@@ -138,7 +138,7 @@ export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }
     </div>
 
     <div className="flex items-center gap-2 py-1.5 px-3 mr-5 bg-surface-hover rounded-lg text-[0.9rem] whitespace-nowrap h-[70%]">
-      <img className="dark:invert w-[1.125rem] h-[1.125rem] opacity-80" src={mapIcon} />
+      <img className="dark:invert w-4.5 h-4.5 opacity-80" src={mapIcon} />
       <span className="text-text-secondary font-medium">{mapCount} maps</span>
     </div>
   </div>

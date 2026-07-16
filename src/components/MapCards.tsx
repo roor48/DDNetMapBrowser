@@ -14,7 +14,7 @@ type MapCardElementProps = {
 function MapCardsElement({mapData}: MapCardElementProps) {
   return (
   <div className="w-full m-0 rounded-lg overflow-hidden transition-[border-color] duration-300 border border-border hover:border-[rgb(101,154,175)] bg-surface text-gray-100 group">
-    <div className="w-full aspect-[16/10] relative overflow-hidden">
+    <div className="w-full aspect-16/10 relative overflow-hidden">
       <img src={mapData.thumbnail} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt={mapData.name} loading="lazy"/>
       <div className="absolute bottom-[0.7rem] right-[0.7rem] flex gap-2 w-full items-center justify-end">
         <a className="rounded-[10px] p-1.5 bg-[#ffffffa0] hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-[#ffffffc0]" href={mapData.web_preview} target="_blank">

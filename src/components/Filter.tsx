@@ -207,7 +207,7 @@ function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
           </div>
           <div className="relative h-1.5 w-full rounded-full bg-white">
             <div
-              className="absolute w-full h-full bg-gradient-to-r from-amber-500 to-[#ffd700] rounded-full pointer-events-none"
+              className="absolute w-full h-full bg-linear-to-r from-amber-500 to-[#ffd700] rounded-full pointer-events-none"
               style={{
                 left: `${minPercent}%`,
                 width: `${maxPercent - minPercent}%`,
@@ -215,14 +215,14 @@ function DifficultyFilter({ setFilter, values }: DifficultyFilterProps) {
             ></div>
             <input
               type="range"
-              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-text-secondary [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface-hover [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffd700] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-text-secondary [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-amber-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-surface-hover [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffd700] z-[1]"
+              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-text-secondary [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4.5 [&::-webkit-slider-thumb]:h-4.5 [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface-hover [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-2 [&::-webkit-slider-thumb]:hover:bg-[#ffd700] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-text-secondary [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-4.5 [&::-moz-range-thumb]:h-4.5 [&::-moz-range-thumb]:bg-amber-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-surface-hover [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffd700] z-1"
               min="0" max="5" step="1"
               value={values[0]}
               onChange={e => handleChange(0, parseInt(e.currentTarget.value))}
             />
             <input
               type="range"
-              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-text-secondary [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1.125rem] [&::-webkit-slider-thumb]:h-[1.125rem] [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface-hover [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-[2] [&::-webkit-slider-thumb]:hover:bg-[#ffd700] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-text-secondary [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-[1.125rem] [&::-moz-range-thumb]:h-[1.125rem] [&::-moz-range-thumb]:bg-amber-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-surface-hover [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffd700] z-[2]"
+              className="absolute w-full h-full bg-transparent pointer-events-none appearance-none [&::-webkit-slider-track]:w-full [&::-webkit-slider-track]:h-1.5 [&::-webkit-slider-track]:bg-text-secondary [&::-webkit-slider-track]:rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4.5 [&::-webkit-slider-thumb]:h-4.5 [&::-webkit-slider-thumb]:bg-amber-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface-hover [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:z-2 [&::-webkit-slider-thumb]:hover:bg-[#ffd700] [&::-moz-range-track]:w-full [&::-moz-range-track]:h-1.5 [&::-moz-range-track]:bg-text-secondary [&::-moz-range-track]:rounded-full [&::-moz-range-thumb]:w-4.5 [&::-moz-range-thumb]:h-4.5 [&::-moz-range-thumb]:bg-amber-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-surface-hover [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:hover:bg-[#ffd700] z-2"
               min="0" max="5" step="1"
               value={values[1]}
               onChange={e => handleChange(1, parseInt(e.currentTarget.value))}
@@ -238,7 +238,7 @@ type TileCheckBoxProps = Pick<FilterProps, "filter" | "setFilter"> & { tile: str
 function TileCheckBox({ tile, filter, setFilter }: TileCheckBoxProps) {
   const id = `filter_${tile.toLowerCase()}`
   return (
-    <div className="flex items-center justify-center aspect-square border-[0.15rem] border-border rounded-[7px] has-[:checked]:border-[#2f00ff]" title={tile}>
+    <div className="flex items-center justify-center aspect-square border-[0.15rem] border-border rounded-[7px] has-checked:border-[#2f00ff]" title={tile}>
       <input
         id={id}
         className="hidden"
@@ -289,7 +289,7 @@ export default function Filter({ hasTeeData, allTiles, filter, setFilter, isOpen
       {/* 모바일 배경 오버레이 */}
       {isOpen && (
         <div 
-          className="md:hidden fixed inset-0 bg-black/50 z-[90]"
+          className="md:hidden fixed inset-0 bg-black/50 z-90"
           onClick={onClose}
         />
       )}
@@ -297,8 +297,8 @@ export default function Filter({ hasTeeData, allTiles, filter, setFilter, isOpen
       {/* 필터 사이드바 */}
       <div className={`
         bg-filter border-r border-border
-        md:col-start-1 md:row-start-1 md:row-end-[-1] md:sticky md:top-0 md:h-screen md:block
-        ${isOpen ? 'block fixed inset-y-0 left-0 z-[95] w-72' : 'hidden md:block'}
+        md:col-start-1 md:row-start-1 md:-row-end-1 md:sticky md:top-0 md:h-screen md:block
+        ${isOpen ? 'block fixed inset-y-0 left-0 z-95 w-72' : 'hidden md:block'}
       `}>
       <div className="flex h-16 border-b border-border items-center justify-between">
         <div

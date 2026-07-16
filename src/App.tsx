@@ -132,9 +132,9 @@ function App() {
 
       {(isLoading || visibleCount < displayMaps.length) && (
         <div className="py-12 flex justify-center items-center" ref={loadMoreRef}>
-          <span className="inline-block w-3 h-3 bg-black dark:bg-white rounded-full [animation:loading_1s_linear_infinite]" style={{ animationDelay: '0s' }}></span>
-          <span className="inline-block w-3 h-3 bg-black dark:bg-white rounded-full [animation:loading_1s_linear_infinite] mx-2" style={{ animationDelay: '0.2s' }}></span>
-          <span className="inline-block w-3 h-3 bg-black dark:bg-white rounded-full [animation:loading_1s_linear_infinite]" style={{ animationDelay: '0.4s' }}></span>
+          <span className="inline-block w-3 h-3 bg-black dark:bg-white rounded-full animate-[loading_1s_linear_infinite]" style={{ animationDelay: '0s' }}></span>
+          <span className="inline-block w-3 h-3 bg-black dark:bg-white rounded-full animate-[loading_1s_linear_infinite] mx-2" style={{ animationDelay: '0.2s' }}></span>
+          <span className="inline-block w-3 h-3 bg-black dark:bg-white rounded-full animate-[loading_1s_linear_infinite]" style={{ animationDelay: '0.4s' }}></span>
         </div>
       )}
     </div>
