@@ -17,10 +17,10 @@ function MapCardsElement({mapData}: MapCardElementProps) {
     <div className="w-full aspect-16/10 relative overflow-hidden">
       <img src={mapData.thumbnail} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt={mapData.name} loading="lazy"/>
       <div className="absolute bottom-[0.7rem] right-[0.7rem] flex gap-2 w-full items-center justify-end">
-        <a className="rounded-[10px] p-1.5 bg-[#ffffffa0] hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-[#ffffffc0]" href={mapData.web_preview} target="_blank">
+        <a className="rounded-[10px] p-1.5 bg-action-button hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-action-button-hover" href={mapData.web_preview} target="_blank">
           <img src={iconFullscreen} className="invert dark:invert-0 w-full h-full"/>
         </a>
-        <a className="rounded-[10px] p-1.5 bg-[#ffffffa0] hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-[#ffffffc0]" href={mapData.website} target="_blank">
+        <a className="rounded-[10px] p-1.5 bg-action-button hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-action-button-hover" href={mapData.website} target="_blank">
           <img src={iconArrowRight} className="invert dark:invert-0 w-full h-full"/>
         </a>
       </div>

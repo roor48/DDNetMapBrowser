@@ -25,6 +25,9 @@ html {
     --color-surface-hover: var(--color-zinc-300);
     --color-border: var(--color-zinc-200);
 
+    --color-action-button: #fafafaa0;
+    --color-action-button-hover: #ffffffc0;
+
     /* Text */
     --color-text: var(--color-zinc-900);
     --color-text-secondary: var(--color-zinc-800);
@@ -44,6 +47,9 @@ html {
     --color-surface: #212529;
     --color-surface-hover: #1a1a1a;
     --color-border: var(--color-gray-800);
+
+    --color-action-button: #050505a0;
+    --color-action-button-hover: #000000c0;
 
     /* Text */
     --color-text: var(--color-zinc-100);

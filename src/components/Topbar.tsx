@@ -96,7 +96,7 @@ export default function Topbar({ mapCount, teeData, setTeeData, onFilterToggle }
       onClick={onFilterToggle}
       aria-label="Toggle filter menu"
     >
-      <svg className="w-6 h-6 fill-white dark:fill-black" viewBox="0 0 24 24">
+      <svg className="w-6 h-6 fill-black dark:fill-white" viewBox="0 0 24 24">
         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
       </svg>
     </button>
