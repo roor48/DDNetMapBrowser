@@ -1,26 +1,41 @@
 import type { MapData } from "../types";
 import iconFullscreen from "../assets/icon-fullscreen.svg";
 import iconArrowRight from "../assets/icon-arrowright.svg";
+import { useState } from "react";
+import { cn } from "../lib/utils";
 
 type MapCardsProps = {
   mapDatas: MapData[];
   loadAmount: number;
 }
 
-type MapCardElementProps = {
+type MapCardElementProps = React.HTMLAttributes<HTMLDivElement> & {
   mapData: MapData;
+  selected: boolean;
 } 
 
-function MapCardsElement({mapData}: MapCardElementProps) {
+function MapCardsElement({mapData, selected, ...props}: MapCardElementProps) {
   return (
-  <div className="w-full m-0 rounded-lg overflow-hidden transition-[border-color] duration-300 border border-border hover:border-[rgb(101,154,175)] bg-surface text-gray-100 group">
+  <div className={cn(
+      "w-full m-0 rounded-lg overflow-hidden transition-[border-color] duration-300 border border-border hover:border-[rgb(101,154,175)] bg-surface text-gray-100 group",
+      selected && "border-[rgb(101,154,175)]"
+    )} {...props}>
     <div className="w-full aspect-16/10 relative overflow-hidden">
-      <img src={mapData.thumbnail} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt={mapData.name} loading="lazy"/>
+      <img src={mapData.thumbnail} className={cn(
+        "w-full h-full object-cover transition-transform duration-300 group-hover:scale-105",
+        selected && "scale-105"
+      )} alt={mapData.name} loading="lazy"/>
       <div className="absolute bottom-[0.7rem] right-[0.7rem] flex gap-2 w-full items-center justify-end">
-        <a className="rounded-[10px] p-1.5 bg-action-button hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-action-button-hover" href={mapData.web_preview} target="_blank">
+        <a className={cn(
+          "rounded-[10px] p-1.5 bg-action-button hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-action-button-hover",
+          selected && "flex"
+        )} href={mapData.web_preview} target="_blank">
           <img src={iconFullscreen} className="invert dark:invert-0 w-full h-full"/>
         </a>
-        <a className="rounded-[10px] p-1.5 bg-action-button hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-action-button-hover" href={mapData.website} target="_blank">
+        <a className={cn(
+          "rounded-[10px] p-1.5 bg-action-button hidden group-hover:flex items-center justify-center w-[10%] aspect-square hover:bg-action-button-hover",
+          selected && "flex"
+        )} href={mapData.website} target="_blank">
           <img src={iconArrowRight} className="invert dark:invert-0 w-full h-full"/>
         </a>
       </div>
@@ -52,10 +67,18 @@ function MapCardsElement({mapData}: MapCardElementProps) {
 }
 
 export default function MapCards({mapDatas, loadAmount}: MapCardsProps) {
+  const [selectedMap, setSelectedMap] = useState<string | null>(null);
+
   return (
   <>
     {mapDatas.slice(0, loadAmount).map(mapData => (
-      <MapCardsElement key={mapData.name} mapData={mapData}/>
+      <MapCardsElement
+        key={mapData.name}
+        onClick={() => setSelectedMap(selectedMap === mapData.name ? null : mapData.name)}
+        onMouseLeave={() => setSelectedMap(null)}
+        mapData={mapData}
+        selected={selectedMap === mapData.name}
+      />
     ))}
   </>
   )
