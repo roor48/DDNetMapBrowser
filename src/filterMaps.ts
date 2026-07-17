@@ -1,4 +1,4 @@
-import type { MapData, Filter, TeeData } from './types';
+import type { MapData, Filter, TeeData } from '@/types';
 import Fuse from 'fuse.js'
 
 /**

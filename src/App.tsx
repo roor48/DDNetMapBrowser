@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {type Filter as FilterState, type MapData, type TeeData, initialFilter} from './types.js'
 
-import upCircleIcon from './assets/icon-up-circle.svg'
-import Topbar from './components/Topbar'
-import Filter from './components/Filter'
-import getFilteredMaps from './filterMaps.js'
-import MapCards from './components/MapCards.js';
-import fetchMapData from './fetchMapData';
+import upCircleIcon from '@/assets/icon-up-circle.svg'
+import Topbar from '@/components/Topbar'
+import Filter from '@/components/Filter'
+import getFilteredMaps from '@/filterMaps.js'
+import MapCards from '@/components/MapCards.js';
+import fetchMapData from '@/fetchMapData';
 
 
 

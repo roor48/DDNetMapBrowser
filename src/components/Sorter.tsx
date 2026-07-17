@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { SORT_BY, type Sorter } from "../types"
-import iconSort from "../assets/icon-sort.svg";
+import { SORT_BY, type Sorter } from "@/types"
+import iconSort from "@/assets/icon-sort.svg";
 
 type SorterProps = {
   sorter: Sorter,

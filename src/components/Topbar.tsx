@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
-import arrowCircleRightIcon from '../assets/icon-arrow-circle-right.svg';
-import mapIcon from '../assets/icon-map.svg';
-import type { TeeData } from '../types';
+import arrowCircleRightIcon from '@/assets/icon-arrow-circle-right.svg';
+import mapIcon from '@/assets/icon-map.svg';
+import type { TeeData } from '@/types';
 
 interface TopbarProps {
   mapCount: number;

@@ -1,4 +1,4 @@
-import { SORT_BY, type MapData, type Sorter } from "./types";
+import { SORT_BY, type MapData, type Sorter } from "@/types";
 
 function sortByRelease(a: MapData, b: MapData) {
     if (!a.release || !b.release) {

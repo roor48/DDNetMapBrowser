@@ -1,5 +1,5 @@
-import type { MapData } from "./types";
-import mapsUrl from "./assets/maps.json?url";
+import type { MapData } from "@/types";
+import mapsUrl from "@/assets/maps.json?url";
 
 /**
  * 맵 데이터와 타일 목록을 가져옵니다.

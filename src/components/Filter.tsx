@@ -1,7 +1,7 @@
-import { type Filter, type MapType, TYPES, initialFilter } from "../types"
+import { type Filter, type MapType, TYPES, initialFilter } from "@/types"
 
-import FilterIcon from "../assets/icon-filter.svg"
-import XMark from "../assets/icon-xmark.svg"
+import FilterIcon from "@/assets/icon-filter.svg"
+import XMark from "@/assets/icon-xmark.svg"
 
 type FilterProps = {
   filter: Filter,

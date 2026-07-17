@@ -1,8 +1,8 @@
-import type { MapData } from "../types";
-import iconFullscreen from "../assets/icon-fullscreen.svg";
-import iconArrowRight from "../assets/icon-arrowright.svg";
+import type { MapData } from "@/types";
+import iconFullscreen from "@/assets/icon-fullscreen.svg";
+import iconArrowRight from "@/assets/icon-arrowright.svg";
 import { useState } from "react";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 
 type MapCardsProps = {
   mapDatas: MapData[];
@@ -12,7 +12,7 @@ type MapCardsProps = {
 type MapCardElementProps = React.HTMLAttributes<HTMLDivElement> & {
   mapData: MapData;
   selected: boolean;
-} 
+}
 
 function MapCardsElement({mapData, selected, ...props}: MapCardElementProps) {
   return (
