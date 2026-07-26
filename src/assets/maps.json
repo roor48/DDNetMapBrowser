@@ -1,5 +1,30 @@
 [
     {
+        "name": "climbup",
+        "website": "https://ddnet.org/maps/climbup",
+        "thumbnail": "https://ddnet.org/ranks/maps/climbup.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=climbup",
+        "type": "Solo",
+        "points": 8,
+        "difficulty": 2,
+        "mapper": "EntityMC & 在这里等你",
+        "release": "2026-07-25 14:00",
+        "width": 50,
+        "height": 50,
+        "tiles": [
+            "JUMP",
+            "DFREEZE",
+            "WEAPON_GRENADE",
+            "DOOR",
+            "SWITCH",
+            "STOP",
+            "TUNE",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Down Bass",
         "website": "https://ddnet.org/maps/Down-32-Bass",
         "thumbnail": "https://ddnet.org/ranks/maps/Down_Bass.png",
