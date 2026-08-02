@@ -1,5 +1,27 @@
 [
     {
+        "name": "Rude Buster",
+        "website": "https://ddnet.org/maps/Rude-32-Buster",
+        "thumbnail": "https://ddnet.org/ranks/maps/Rude_Buster.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Rude+Buster",
+        "type": "Brutal",
+        "points": 27,
+        "difficulty": 4,
+        "mapper": "EpicGamerYoubug & Paxtell",
+        "release": "2026-08-01 19:00",
+        "width": 569,
+        "height": 569,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "STOP",
+            "THROUGH_ALL",
+            "TUNE",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "climbup",
         "website": "https://ddnet.org/maps/climbup",
         "thumbnail": "https://ddnet.org/ranks/maps/climbup.png",
