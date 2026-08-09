@@ -1,5 +1,23 @@
 [
     {
+        "name": "synopsis",
+        "website": "https://ddnet.org/maps/synopsis",
+        "thumbnail": "https://ddnet.org/ranks/maps/synopsis.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=synopsis",
+        "type": "Solo",
+        "points": 16,
+        "difficulty": 4,
+        "mapper": "Doshik",
+        "release": "2026-08-08 14:00",
+        "width": 950,
+        "height": 950,
+        "tiles": [
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Rude Buster",
         "website": "https://ddnet.org/maps/Rude-32-Buster",
         "thumbnail": "https://ddnet.org/ranks/maps/Rude_Buster.png",
