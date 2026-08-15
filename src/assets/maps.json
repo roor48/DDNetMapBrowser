@@ -1,5 +1,25 @@
 [
     {
+        "name": "Patica",
+        "website": "https://ddnet.org/maps/Patica",
+        "thumbnail": "https://ddnet.org/ranks/maps/Patica.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Patica",
+        "type": "Solo",
+        "points": 8,
+        "difficulty": 2,
+        "mapper": "paproninja",
+        "release": "2026-08-14 17:00",
+        "width": 901,
+        "height": 901,
+        "tiles": [
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "synopsis",
         "website": "https://ddnet.org/maps/synopsis",
         "thumbnail": "https://ddnet.org/ranks/maps/synopsis.png",
