@@ -1,5 +1,29 @@
 [
     {
+        "name": "Teleport 2",
+        "website": "https://ddnet.org/maps/Teleport-32-2",
+        "thumbnail": "https://ddnet.org/ranks/maps/Teleport_2.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Teleport+2",
+        "type": "Oldschool",
+        "points": 6,
+        "difficulty": 1,
+        "mapper": "El Futuro & Broken",
+        "release": "2026-08-22 16:00",
+        "width": 150,
+        "height": 150,
+        "tiles": [
+            "POWERUP_NINJA",
+            "DOOR",
+            "SWITCH",
+            "STOP",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELEIN",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Patica",
         "website": "https://ddnet.org/maps/Patica",
         "thumbnail": "https://ddnet.org/ranks/maps/Patica.png",
