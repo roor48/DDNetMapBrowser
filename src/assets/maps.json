@@ -1,5 +1,24 @@
 [
     {
+        "name": "Mitosis",
+        "website": "https://ddnet.org/maps/Mitosis",
+        "thumbnail": "https://ddnet.org/ranks/maps/Mitosis.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Mitosis",
+        "type": "Brutal",
+        "points": 27,
+        "difficulty": 4,
+        "mapper": "Doshik",
+        "release": "2026-08-29 14:00",
+        "width": 1436,
+        "height": 1436,
+        "tiles": [
+            "DEATH",
+            "SOLO_START",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Teleport 2",
         "website": "https://ddnet.org/maps/Teleport-32-2",
         "thumbnail": "https://ddnet.org/ranks/maps/Teleport_2.png",
