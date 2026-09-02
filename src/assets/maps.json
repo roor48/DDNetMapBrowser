@@ -1,5 +1,28 @@
 [
     {
+        "name": "Grief",
+        "website": "https://ddnet.org/maps/Grief",
+        "thumbnail": "https://ddnet.org/ranks/maps/Grief.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Grief",
+        "type": "Solo",
+        "points": 12,
+        "difficulty": 3,
+        "mapper": "shini❡ami & матвей",
+        "release": "2026-09-01 18:00",
+        "width": 201,
+        "height": 201,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "STOP",
+            "TELEIN",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Mitosis",
         "website": "https://ddnet.org/maps/Mitosis",
         "thumbnail": "https://ddnet.org/ranks/maps/Mitosis.png",
