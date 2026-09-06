@@ -1,5 +1,29 @@
 [
     {
+        "name": "Cloudberry Fields",
+        "website": "https://ddnet.org/maps/Cloudberry-32-Fields",
+        "thumbnail": "https://ddnet.org/ranks/maps/Cloudberry_Fields.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Cloudberry+Fields",
+        "type": "Moderate",
+        "points": 7,
+        "difficulty": 1,
+        "mapper": "Welf",
+        "release": "2026-09-05 14:00",
+        "width": 720,
+        "height": 720,
+        "tiles": [
+            "SOLO_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "STOP",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Grief",
         "website": "https://ddnet.org/maps/Grief",
         "thumbnail": "https://ddnet.org/ranks/maps/Grief.png",
