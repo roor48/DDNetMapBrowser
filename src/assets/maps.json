@@ -1,5 +1,29 @@
 [
     {
+        "name": "Qu'Tan",
+        "website": "https://ddnet.org/maps/Qu-39-Tan",
+        "thumbnail": "https://ddnet.org/ranks/maps/Qu_Tan.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Qu%27Tan",
+        "type": "Insane",
+        "points": 38,
+        "difficulty": 2,
+        "mapper": "Colo-Colo",
+        "release": "2026-09-14 18:00",
+        "width": 100,
+        "height": 100,
+        "tiles": [
+            "DEATH",
+            "JUMP",
+            "DFREEZE",
+            "HIT_END",
+            "SOLO_START",
+            "WEAPON_RIFLE",
+            "STOP",
+            "THROUGH_ALL",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Cloudberry Fields",
         "website": "https://ddnet.org/maps/Cloudberry-32-Fields",
         "thumbnail": "https://ddnet.org/ranks/maps/Cloudberry_Fields.png",
