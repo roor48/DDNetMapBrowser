@@ -1,5 +1,36 @@
 [
     {
+        "name": "Auto Maze",
+        "website": "https://ddnet.org/maps/Auto-32-Maze",
+        "thumbnail": "https://ddnet.org/ranks/maps/Auto_Maze.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Auto+Maze",
+        "type": "Fun",
+        "points": 0,
+        "difficulty": 0,
+        "mapper": "Markus777777 & Retsot",
+        "release": "2026-09-19 11:09",
+        "width": 913,
+        "height": 913,
+        "tiles": [
+            "DFREEZE",
+            "EHOOK_START",
+            "SUPER_START",
+            "JETPACK_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "POWERUP_NINJA",
+            "WEAPON_RIFLE",
+            "DOOR",
+            "SWITCH",
+            "STOP",
+            "TUNE",
+            "TELEINEVIL",
+            "TELEIN",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Qu'Tan",
         "website": "https://ddnet.org/maps/Qu-39-Tan",
         "thumbnail": "https://ddnet.org/ranks/maps/Qu_Tan.png",
