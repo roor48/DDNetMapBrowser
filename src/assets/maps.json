@@ -1,5 +1,26 @@
 [
     {
+        "name": "Shortcut",
+        "website": "https://ddnet.org/maps/Shortcut",
+        "thumbnail": "https://ddnet.org/ranks/maps/Shortcut.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Shortcut",
+        "type": "Brutal",
+        "points": 27,
+        "difficulty": 4,
+        "mapper": "Zweitleben",
+        "release": "2026-09-20 19:59",
+        "width": 1400,
+        "height": 1400,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "SOLO_START",
+            "STOP",
+            "THROUGH_ALL",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Auto Maze",
         "website": "https://ddnet.org/maps/Auto-32-Maze",
         "thumbnail": "https://ddnet.org/ranks/maps/Auto_Maze.png",
