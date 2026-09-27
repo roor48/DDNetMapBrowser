@@ -1,5 +1,32 @@
 [
     {
+        "name": "DeepFrost",
+        "website": "https://ddnet.org/maps/DeepFrost",
+        "thumbnail": "https://ddnet.org/ranks/maps/DeepFrost.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=DeepFrost",
+        "type": "Dummy",
+        "points": 25,
+        "difficulty": 4,
+        "mapper": "Kaniosek & MyStery.Fox",
+        "release": "2026-09-26 15:00",
+        "width": 1200,
+        "height": 1200,
+        "tiles": [
+            "DEATH",
+            "DFREEZE",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "DOOR",
+            "SWITCH_TIMED",
+            "SWITCH",
+            "STOP",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Shortcut",
         "website": "https://ddnet.org/maps/Shortcut",
         "thumbnail": "https://ddnet.org/ranks/maps/Shortcut.png",
