@@ -1,5 +1,33 @@
 [
     {
+        "name": "Blackjack",
+        "website": "https://ddnet.org/maps/Blackjack",
+        "thumbnail": "https://ddnet.org/ranks/maps/Blackjack.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Blackjack",
+        "type": "Fun",
+        "points": 0,
+        "difficulty": 0,
+        "mapper": "yo bitch",
+        "release": "2026-09-27 14:00",
+        "width": 133,
+        "height": 133,
+        "tiles": [
+            "DFREEZE",
+            "DRAGGER",
+            "DOOR",
+            "SWITCH_TIMED",
+            "SWITCH",
+            "STOP",
+            "THROUGH_ALL",
+            "TUNE",
+            "TELEINEVIL",
+            "TELEIN",
+            "TELECHECK",
+            "CHECKPOINT_FIRST",
+            "PLASMAU"
+        ]
+    },
+    {
         "name": "DeepFrost",
         "website": "https://ddnet.org/maps/DeepFrost",
         "thumbnail": "https://ddnet.org/ranks/maps/DeepFrost.png",
