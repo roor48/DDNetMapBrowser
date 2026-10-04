@@ -1,5 +1,26 @@
 [
     {
+        "name": "cutee",
+        "website": "https://ddnet.org/maps/cutee",
+        "thumbnail": "https://ddnet.org/ranks/maps/cutee.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=cutee",
+        "type": "Brutal",
+        "points": 30,
+        "difficulty": 5,
+        "mapper": "Doshik",
+        "release": "2026-10-03 14:00",
+        "width": 1000,
+        "height": 1000,
+        "tiles": [
+            "DFREEZE",
+            "SOLO_START",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Blackjack",
         "website": "https://ddnet.org/maps/Blackjack",
         "thumbnail": "https://ddnet.org/ranks/maps/Blackjack.png",
