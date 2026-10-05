@@ -1,5 +1,32 @@
 [
     {
+        "name": "TeeScore",
+        "website": "https://ddnet.org/maps/TeeScore",
+        "thumbnail": "https://ddnet.org/ranks/maps/TeeScore.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=TeeScore",
+        "type": "Fun",
+        "points": 0,
+        "difficulty": 0,
+        "mapper": "EntityMC",
+        "release": "2026-10-04 14:00",
+        "width": 792,
+        "height": 400,
+        "tiles": [
+            "NPC_START",
+            "JETPACK_START",
+            "LASER_STOP",
+            "DRAGGER",
+            "DOOR",
+            "SWITCH_TIMED",
+            "SWITCH",
+            "STOP",
+            "TUNE",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "cutee",
         "website": "https://ddnet.org/maps/cutee",
         "thumbnail": "https://ddnet.org/ranks/maps/cutee.png",
