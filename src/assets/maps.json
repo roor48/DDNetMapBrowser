@@ -1,5 +1,32 @@
 [
     {
+        "name": "Push Me",
+        "website": "https://ddnet.org/maps/Push-32-Me",
+        "thumbnail": "https://ddnet.org/ranks/maps/Push_Me.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Push+Me",
+        "type": "Dummy",
+        "points": 15,
+        "difficulty": 2,
+        "mapper": "Welf",
+        "release": "2026-10-10 11:00",
+        "width": 363,
+        "height": 164,
+        "tiles": [
+            "DEATH",
+            "JUMP",
+            "DFREEZE",
+            "HIT_END",
+            "WEAPON_SHOTGUN",
+            "DOOR",
+            "SWITCH",
+            "STOP",
+            "THROUGH_ALL",
+            "TELEINEVIL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "TeeScore",
         "website": "https://ddnet.org/maps/TeeScore",
         "thumbnail": "https://ddnet.org/ranks/maps/TeeScore.png",
