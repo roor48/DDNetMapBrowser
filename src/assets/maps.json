@@ -1,5 +1,26 @@
 [
     {
+        "name": "Midsummer Night",
+        "website": "https://ddnet.org/maps/Midsummer-32-Night",
+        "thumbnail": "https://ddnet.org/ranks/maps/Midsummer_Night.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Midsummer+Night",
+        "type": "Brutal",
+        "points": 24,
+        "difficulty": 3,
+        "mapper": "pinfandsj",
+        "release": "2026-10-17 10:00",
+        "width": 1986,
+        "height": 406,
+        "tiles": [
+            "DEATH",
+            "SOLO_START",
+            "STOP",
+            "THROUGH_ALL",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Push Me",
         "website": "https://ddnet.org/maps/Push-32-Me",
         "thumbnail": "https://ddnet.org/ranks/maps/Push_Me.png",
