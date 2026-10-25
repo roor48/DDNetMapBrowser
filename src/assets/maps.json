@@ -1,5 +1,32 @@
 [
     {
+        "name": "Just DoubleJump",
+        "website": "https://ddnet.org/maps/Just-32-DoubleJump",
+        "thumbnail": "https://ddnet.org/ranks/maps/Just_DoubleJump.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Just+DoubleJump",
+        "type": "Solo",
+        "points": 8,
+        "difficulty": 2,
+        "mapper": "Tropo",
+        "release": "2026-10-24 17:00",
+        "width": 342,
+        "height": 202,
+        "tiles": [
+            "WEAPON_GRENADE",
+            "WEAPON_RIFLE",
+            "LASER_STOP",
+            "CRAZY_SHOTGUN",
+            "DRAGGER",
+            "STOP",
+            "THROUGH_ALL",
+            "TUNE",
+            "TELECHECK",
+            "TELEINWEAPON",
+            "TELEINHOOK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Midsummer Night",
         "website": "https://ddnet.org/maps/Midsummer-32-Night",
         "thumbnail": "https://ddnet.org/ranks/maps/Midsummer_Night.png",
