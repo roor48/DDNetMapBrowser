@@ -49797,6 +49797,26 @@
         ]
     },
     {
+        "name": "Killa3",
+        "website": "https://ddnet.org/maps/Killa3",
+        "thumbnail": "https://ddnet.org/ranks/maps/Killa3.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Killa3",
+        "type": "Oldschool",
+        "points": 12,
+        "difficulty": 2,
+        "mapper": "KillA",
+        "release": "2014-03-26 16:04",
+        "width": 199,
+        "height": 170,
+        "tiles": [
+            "SOLO_START",
+            "WEAPON_SHOTGUN",
+            "WEAPON_GRENADE",
+            "LASER_STOP",
+            "BOOST"
+        ]
+    },
+    {
         "name": "Eagle Race Compilation",
         "website": "https://ddnet.org/maps/Eagle-32-Race-32-Compilation",
         "thumbnail": "https://ddnet.org/ranks/maps/Eagle_Race_Compilation.png",
