@@ -1,5 +1,26 @@
 [
     {
+        "name": "Kidou",
+        "website": "https://ddnet.org/maps/Kidou",
+        "thumbnail": "https://ddnet.org/ranks/maps/Kidou.png",
+        "web_preview": "https://ddnet.org/mappreview/?map=Kidou",
+        "type": "Solo",
+        "points": 8,
+        "difficulty": 2,
+        "mapper": "paproninja",
+        "release": "2026-10-30 16:00",
+        "width": 803,
+        "height": 248,
+        "tiles": [
+            "DFREEZE",
+            "TELE_GUN",
+            "TUNE",
+            "TELEIN",
+            "TELECHECK",
+            "CHECKPOINT_FIRST"
+        ]
+    },
+    {
         "name": "Just DoubleJump",
         "website": "https://ddnet.org/maps/Just-32-DoubleJump",
         "thumbnail": "https://ddnet.org/ranks/maps/Just_DoubleJump.png",
